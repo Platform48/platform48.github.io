@@ -628,10 +628,10 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">Go</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Node</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The JellyFAAS SDK Python package is available on <a href="https://pypi.org/project/jellyfaas/">PyPI</a>.
+<p>The JellyFaaS SDK Python package is available on <a href="https://pypi.org/project/jellyfaas/">PyPI</a>.
+Source code can be viewed on <a href="https://github.com/platform48/python-sdk">GitHub</a>.
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install jellyfaas
-</span></code></pre></div>
-Source code can be viewed on <a href="https://github.com/platform48/python-sdk">GitHub</a>.</p>
+</span></code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Add this dependency to your <code>POM.xml</code> file if you are using maven.
@@ -662,7 +662,7 @@ Then add it to your projects <code>go.mod</code> file with
 </div>
 </div>
 <h2 id="quick-start">Quick Start</h2>
-<p>The JellyFAAS SDK simplifies working with the JellyFAAS API. It provides a <code>Client</code> class which handles authentication and functions to simplify creating HTTP requests to the API.</p>
+<p>The JellyFaaS SDK simplifies working with the JellyFaaS API. It primarily provides a <code>Client</code> class which handles authentication and functions to simplify creating HTTP requests to the API.</p>
 <div class="admonition info">
 <p class="admonition-title">API Credits</p>
 <p>The cloud functions used in the examples below will <em><em>not</em></em> use your credits. Click <a href="">here</a> to get an api key.</p>
@@ -673,47 +673,52 @@ Then add it to your projects <code>go.mod</code> file with
 <div class="tabbed-block">
 <div class="admonition example">
 <p class="admonition-title">main.py</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">jellyfaas</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">)</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Create client config instance</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">config</span> <span class="o">=</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">ClientConfig</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># Create Client instance, lookup cloud function, set the request params/body, and invoke.</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">client</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_request</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;arthur&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;jam&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">]})</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">jellyfaas</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">ClientConfig</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Initialize the client config</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">ClientConfig</span><span class="p">(</span><span class="s2">&quot;&lt;JELLYFAAS_API_KEY&gt;&quot;</span><span class="p">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># 1. Create Client, 2. lookup JellyFaaS function, 3. pass in query params and body, 4. invoke!</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">client</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>                                 <span class="o">.</span><span class="n">set_request</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tim&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;jam&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">]})</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>                                 <span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c1"># Output: &quot;Hello, Tim. You ordered &#39;ham&#39;, &#39;jam&#39;, and &#39;spam&#39;.&quot;</span>
 </span></code></pre></div>
 </div>
 <p><details>
-<summary>More Info</summary>
+<summary>More Info - Verbose Example</summary>
 <!--All you need is a blank line--></p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">jellyfaas</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># It is recomended to set up your API key as an environment variable.</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">)</span>
+<p>The above code example demonstrates how the entire JellyFaaS function calling workflow can be condensed down into a succinct one-liner. Of course, you may prefer a more a clear and verbose approach. The following code example demonstrates how you can improve code-clarity by expanding out this process.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span> <span class="nn">logging</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span> <span class="nn">jellyfaas</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span> <span class="c1"># When enabled, JellyFaaS logs at the DEBUG level</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Initialize the client config</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">config</span> <span class="o">=</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">ClientConfig</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># It is usually recommended to set up your API key as an environment variable.</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">)</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># Initialize the client</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">client</span> <span class="o">=</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># Initialize the client config with debug logs enabled</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">config</span> <span class="o">=</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">ClientConfig</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1"># Lookup a function</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">client</span><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1"># Initialize the client</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">client</span> <span class="o">=</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="c1"># Set the request query params and JSON body (via a python dictionary)</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="n">client</span><span class="o">.</span><span class="n">set_request</span><span class="p">(</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tim&quot;</span><span class="p">},</span>                <span class="c1"># Set query parameters</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="p">{</span><span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;jam&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">]})</span> <span class="c1"># Set request body</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="c1"># Finally, call the cloud function</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="n">_</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="c1"># Lookup a function</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="n">client</span><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1"># Set the request query params and JSON body (via a python dictionary)</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="n">client</span><span class="o">.</span><span class="n">set_request</span><span class="p">(</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tim&quot;</span><span class="p">},</span>                <span class="c1"># Set query parameters</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="p">{</span><span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;jam&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">]})</span> <span class="c1"># Set request body</span>
 </span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="c1"># Output: &quot;Hello, Tim. You ordered &#39;ham&#39;, &#39;jam&#39;, and &#39;spam&#39;.&quot;</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="c1"># Finally, call the cloud function</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="n">_</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="c1"># Output: &quot;Hello, Tim. You ordered &#39;ham&#39;, &#39;jam&#39;, and &#39;spam&#39;.&quot;</span>
 </span></code></pre></div>
 </details></p>
 </div>
