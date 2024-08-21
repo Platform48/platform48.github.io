@@ -907,6 +907,13 @@ For more details of the general JellyFaaS API and SDK functionality, see <a href
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </span></code></pre></div>
+<p>Once you've created an authenticated Client, you can reuse it for multiple JellyFaaS function lookups/invocations. </p>
+<p>Always ensure you set the state correctly by calling Client methods in the following sequence.</p>
+<ol>
+<li><code>lookup_function()</code></li>
+<li><code>set_request()</code> and/or <code>set_response()</code></li>
+<li><code>invoke()</code></li>
+</ol>
 <h2 id="3-executing-a-function-call">3. Executing a Function Call</h2>
 <h3 id="31-function-lookup">3.1 Function Lookup</h3>
 <p>To interact with a function, you must first look it up by its ID (short name):</p>
@@ -949,6 +956,7 @@ For more details of the general JellyFaaS API and SDK functionality, see <a href
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">client</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </span></code></pre></div>
+<p><code>invoke()</code> can be called as many times as needed on a Client instance.</p>
 <h2 id="function-chaining">Function Chaining</h2>
 <p>All of the <code>Client</code> class's functions return the <code>Client</code> instance, enabling function chaining. The only exception to this is <code>Client.invoke()</code>, which returns a tuple of the <code>client</code> instance, and a response object. Using this functionality, the above example could be rewritten as:
 <div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">os</span>
