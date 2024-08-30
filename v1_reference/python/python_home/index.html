@@ -9,21 +9,23 @@
       
       
       
+        <link rel="prev" href="../../../license/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
     
     
       
-        <title>Go JellyFaaS SDK Guide - JellyFaaS Docs</title>
+        <title>Python - JellyFaaS Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#go-jellyfaas-sdk-guide" class="md-skip">
+        <a href="#python-v1-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +92,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="JellyFaaS Docs" class="md-header__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
+    <a href="../../.." title="JellyFaaS Docs" class="md-header__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
       
-  <img src="../../assets/logo_1.png" alt="logo">
+  <img src="../../../assets/logo_1.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Go JellyFaaS SDK Guide
+              Python
             
           </span>
         </div>
@@ -202,9 +204,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="JellyFaaS Docs" class="md-nav__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
+    <a href="../../.." title="JellyFaaS Docs" class="md-nav__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
       
-  <img src="../../assets/logo_1.png" alt="logo">
+  <img src="../../../assets/logo_1.png" alt="logo">
 
     </a>
     JellyFaaS Docs
@@ -219,7 +221,47 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../test_class.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../test_func.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    func
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -239,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/" class="md-nav__link">
+      <a href="../../../getting_started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -266,10 +308,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -280,8 +322,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             SDKs
           </label>
@@ -294,11 +336,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdk_guide/" class="md-nav__link">
+      <a href="../../../sdks/sdk_guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Guide
+    Quick Start
   </span>
   
 
@@ -314,18 +356,128 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../sdks/unity_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../creating_a_function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JellyCLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -336,8 +488,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             V1 Reference
           </label>
@@ -350,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdk_v1_reference/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -371,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdk_v1_reference/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -392,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdk_v1_reference/java/index.md" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -413,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdk_v1_reference/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -431,10 +583,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../sdk_v1_reference/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -443,6 +615,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jellyfaas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ./jellyfaas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -451,94 +652,6 @@
           </ul>
         </nav>
       
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../creating_a_function/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Create a function
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cli/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CLI
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../license/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    License
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -570,90 +683,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-creating-a-config-object" class="md-nav__link">
+  <a href="#jellyfaas" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Creating a Config object
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-creating-the-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Creating the Client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-looking-up-a-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Looking up a function
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-setting-the-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Setting the request
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#41-adding-query-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 Adding query parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#42-adding-a-request-body" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 Adding a request body
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-setting-the-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Setting the response
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-calling-the-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Calling the function
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complete Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debug-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debug mode
+      ./jellyfaas
     </span>
   </a>
   
@@ -674,64 +706,30 @@
                   
 
 
-<h1 id="go-jellyfaas-sdk-guide">Go JellyFaaS SDK Guide</h1>
-<p>Now tha you have installed the go dependency and added it to your project, it's time to make your first call!</p>
-<h2 id="1-creating-a-config-object">1. Creating a Config object</h2>
-<p>The first step is to create your config object and parse your JellyFaaS api key into it. 
-The config handles keys and authorisation.</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
-</span></code></pre></div>
-<h2 id="2-creating-the-client">2. Creating the Client</h2>
-<p>After that, you can create the client, and parse the newly created 'config' object into it:</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>
-</span></code></pre></div>
-<h2 id="3-looking-up-a-function">3. Looking up a function</h2>
-<p>To look up a function, you must use the function's short name to find it. \
-Provided all the previous steps are complete, add the following:</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
-</span></code></pre></div>
-<h2 id="4-setting-the-request">4. Setting the request</h2>
-<p>Once you've called 'lookup' on your client object, you can now set your request. 
-If a function takes no query parameters and/or no input body, the setRequest parameters can be 'nil' respectively. 
-This dependent on the function, so check the functions requirements if you aren't sure.
-This is done with the following:</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>params</code> and <code>inputBody</code> are placeholders for the following steps below</p>
-</div>
-<h2 id="41-adding-query-parameters">4.1 Adding query parameters</h2>
-<h2 id="42-adding-a-request-body">4.2 Adding a request body</h2>
-<p>The website will contain an autogenerated input <code>struct</code> for you to copy/paste into your project.
-Populate this struct and parse it in with the following:</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>
-</span></code></pre></div>
-<h2 id="5-setting-the-response">5. Setting the response</h2>
-<p>The website will contain an autogenerated output <code>struct</code> that you can copy/paste into your project.
-This will get populated once the function is invoked.
-Create a pointer to this struct and parse this in with the following:</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>
-</span></code></pre></div>
-<h2 id="6-calling-the-function">6. Calling the function</h2>
-<h2 id="complete-code">Complete Code</h2>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>
-</span></code></pre></div>
-</div>
-<h2 id="debug-mode">Debug mode</h2>
-<p>If you want a more verbose output from the SDK, you set the SDK to be in debug mode with the following:</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>
-</span></code></pre></div>
-<div class="admonition success annotate">
-<p class="admonition-title">Next Steps</p>
+<h1 id="python-v1-reference">Python v1 reference</h1>
+<p>This is the Python v1 reference guide. 
+Please see the table of contents below:</p>
+<h2 id="jellyfaas"><code>./jellyfaas</code></h2>
 <ul>
-<li>Create your <a href="../../creating_a_function/">first function</a></li>
-<li>Get started with our <a href="../../cli/">cli</a> tool</li>
-<li>Get your API key</li>
+<li>
+<p><a href="../jellyfaas/class_clientconfig">'class ClientConfig'</a> </p>
+</li>
+<li>
+<p><a href="../jellyfaas/class_client">'class Client'</a> </p>
+</li>
+<li>
+<p><a href="../jellyfaas/class_jellyfaasexception_exception">'class JellyFaasException(Exception)'</a> </p>
+</li>
+<li>
+<p><a href="../jellyfaas/class_authenticationfailedexception_jellyfaasexception">'class AuthenticationFailedException(JellyFaasException)'</a> </p>
+</li>
+<li>
+<p><a href="../jellyfaas/class_functionlookupexception_jellyfaasexception">'class FunctionLookupException(JellyFaasException)'</a> </p>
+</li>
+<li>
+<p><a href="../jellyfaas/class_setrequestexception_jellyfaasexception">'class SetRequestException(JellyFaasException)'</a> </p>
+</li>
 </ul>
-</div>
 
 
 
@@ -780,10 +778,10 @@ Create a pointer to this struct and parse this in with the following:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.af256bd8.min.js"></script>
       
     
   </body>
