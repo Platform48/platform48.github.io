@@ -1121,43 +1121,70 @@ Below is a description of each error type and where to expect it to be thrown fo
 <div class="tabbed-block">
 <ol>
 <li>
-<p><code>jellyfaas.AuthenticationFailedException</code></p>
+<p><strong><code>jellyfaas.AuthenticationFailedException</code></strong></p>
 <p>Thrown when your credentials cannot be verfied during config object creation.</p>
 </li>
 <li>
-<p><code>jellyfaas.FunctionLookupException</code>  </p>
+<p><strong><code>jellyfaas.FunctionLookupException</code></strong>  </p>
 <p>Occurs during the function look up stage. 
 This could be due to the function not exisiting</p>
 </li>
 <li>
-<p><code>jellyfaas.SetRequestException</code></p>
+<p><strong><code>jellyfaas.SetRequestException</code></strong></p>
 <p>This can be down to the query parameters being incorrect and therefore not lining up with the function's query parameter schema.
 Or, this can be due to the input body not matching the functions input schema.</p>
 </li>
 <li>
-<p><code>jellyfaas.InvocationException</code></p>
+<p><strong><code>jellyfaas.InvocationException</code></strong></p>
 </li>
 </ol>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>
-<p><code>v1.jellyfaas.exceptions.JellyFaasException</code></p>
+<p><strong><code>v1.jellyfaas.exceptions.JellyFaasException</code></strong></p>
 <p>This is a general error that can be thrown during the process of calling out to a function</p>
 </li>
 <li>
-<p><code>v1.jellyfaas.exceptions.JellyFaasFormatException</code> </p>
+<p><strong><code>v1.jellyfaas.exceptions.JellyFaasFormatException</code></strong> </p>
 <p>This error is thrown when there are issues with your request body and request parameters.
 This is usually due to errors with the schema not matching these inputs </p>
 </li>
 <li>
-<p><code>v1.jellyfaas.exceptions.JellyFaasHttpException</code></p>
+<p><strong><code>v1.jellyfaas.exceptions.JellyFaasHttpException</code></strong></p>
 <p>Occurs during any failures with calling out to the function or setting your authorsiation JWT.</p>
 </li>
 </ol>
 </div>
 <div class="tabbed-block"></div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p><strong><code>Jellyfaas.UnauthorizedException</code></strong></p>
+<p>This error is thrown when a user attempts to perform an action without the necessary permissions.</p>
+</li>
+<li>
+<p><strong><code>Jellyfaas.FunctionNotFoundException</code></strong></p>
+<p>This error occurs when the specified function does not exist or cannot be found. It may also include a custom message indicating the function name.</p>
+</li>
+<li>
+<p><strong><code>Jellyfaas.FunctionNotSelectedException</code></strong></p>
+<p>This error is raised when no function has been selected for the SDK to use. The SDK requires a function to be specified in order to proceed.</p>
+</li>
+<li>
+<p><strong><code>Jellyfaas.EmptyBodyException</code></strong></p>
+<p>This error is triggered when a function requires a non-empty body, but an empty or missing body is provided in the request.</p>
+</li>
+<li>
+<p><strong><code>Jellyfaas.NonSchemaCompliantException</code></strong></p>
+<p>This error is thrown when an object does not match the required schema, indicating that the input does not conform to the expected format or structure.</p>
+</li>
+<li>
+<p><strong><code>Jellyfaas.InvalidSchemaException</code></strong></p>
+<p>This error occurs when the schema associated with a function is invalid or not correctly defined, preventing the function from executing as expected.</p>
+</li>
+</ol>
+</div>
 <div class="tabbed-block"></div>
 </div>
 </div>
