@@ -701,7 +701,7 @@
 <h1 id="public-class-client"><code>public class Client</code></h1>
 <details class="warning" open="open">
 <summary>Warning</summary>
-<p>This project is under active development</p>
+<p>This project is under active development!</p>
 <p>Found a problem? Report it <a href="">here</a>.</p>
 </details>
 <hr />
@@ -730,7 +730,13 @@
     <div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Client</span><span class="w"> </span><span class="nf">setResponse</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">output</span><span class="p">)</span>
 </span></code></pre></div>
 </h3></p>
-<p>Sets the object the response will be marshalled into. This can be a <code>Class&lt;?&gt;</code> or an instance of an object</p>
+<p>Sets the object the response will be marshalled into. This can be a <code>Class&lt;?&gt;</code> or an instance of an object
+  :
+ Client client = new Client("key");
+ client.setResponse(OutputObject.class);
+ // or
+ OutputObject outputObj = new OutputObject();
+ client.setResponse(outputObj)</p>
 <p><strong>param</strong></p>
 <ul>
 <li><code>output</code> the class for the output object to be</li>
@@ -805,7 +811,10 @@
     <div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="w"> </span>
 </span></code></pre></div>
 </h3></p>
-<p>Method calls a JellyFaas function with the given parameters.</p>
+<p>Method calls a JellyFaas function with the given parameters.
+  :
+ Client client = new Client("key");
+ Output output = client.setAuth().lookUp("functionshortname").setRequest(queryParams, body).setResponse(Output.class).invoke();</p>
 <p><strong>return</strong></p>
 <ul>
 <li>a new object if #setResponse(Object) is a Class&lt;?&gt;</li>
