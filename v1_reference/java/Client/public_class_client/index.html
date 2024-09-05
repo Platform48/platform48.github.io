@@ -571,18 +571,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-client-setresponseobject-output" class="md-nav__link">
+  <a href="#public-client-setresponseclass-output-throws-jellyfaasexception" class="md-nav__link">
     <span class="md-ellipsis">
-      public Client setResponse(Object output)
+      public Client setResponse(Class&lt;?&gt; output) throws JellyFaasException
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-client-setrequestmap-queryparams-object-requestbody-throws-jellyfaasexception-jsonprocessingexception-jellyfaasformatexception" class="md-nav__link">
+  <a href="#public-client-setrequestmap-queryparams-object-requestbody-throws-jellyfaasexception-ioexception-jellyfaasformatexception" class="md-nav__link">
     <span class="md-ellipsis">
-      public Client setRequest(Map queryParams, Object requestBody) throws JellyFaasException, JsonProcessingException, JellyFaasFormatException
+      public Client setRequest(Map queryParams, Object requestBody) throws JellyFaasException, IOException, JellyFaasFormatException
     </span>
   </a>
   
@@ -652,18 +652,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#private-void-validatejsonschemajsonobject-schema-jsonobject-body-throws-jellyfaasexception-jellyfaasformatexception" class="md-nav__link">
+  <a href="#private-void-validateschemabyte-body-jsonobject-schema-throws-jellyfaasformatexception-ioexception" class="md-nav__link">
     <span class="md-ellipsis">
-      private void validateJSONSchema(JSONObject schema, JSONObject body) throws JellyFaasException, JellyFaasFormatException
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#private-void-validateschemabyte-body-jsonobject-schema-throws-jellyfaasexception-jellyfaasformatexception" class="md-nav__link">
-    <span class="md-ellipsis">
-      private void validateSchema(byte[] body, JSONObject schema) throws JellyFaasException, JellyFaasFormatException
+      private void validateSchema(byte[] body, JSONObject schema) throws JellyFaasFormatException, IOException
     </span>
   </a>
   
@@ -724,19 +715,13 @@
 <li><code>JellyFaasException</code> if the config object is null</li>
 </ul>
 </div>
-<h4 id="public-client-setresponseobject-output"><span style="color:#00000000;">public Client setResponse(Object output)</span></h4>
+<h4 id="public-client-setresponseclass-output-throws-jellyfaasexception"><span style="color:#00000000;">public Client setResponse(Class&lt;?&gt; output) throws JellyFaasException </span></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Client</span><span class="w"> </span><span class="nf">setResponse</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">output</span><span class="p">)</span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Client</span><span class="w"> </span><span class="nf">setResponse</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">output</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="w"> </span>
 </span></code></pre></div>
 </h3></p>
-<p>Sets the object the response will be marshalled into. This can be a <code>Class&lt;?&gt;</code> or an instance of an object
-  :
- Client client = new Client("key");
- client.setResponse(OutputObject.class);
- // or
- OutputObject outputObj = new OutputObject();
- client.setResponse(outputObj)</p>
+<p>Sets the object the response will be marshalled into. This can be a <code>Class&lt;?&gt;</code> or an instance of an object</p>
 <p><strong>param</strong></p>
 <ul>
 <li><code>output</code> the class for the output object to be</li>
@@ -745,11 +730,15 @@
 <ul>
 <li>Current Client</li>
 </ul>
+<p><strong>throws</strong></p>
+<ul>
+<li><code>JellyFaasException</code> if the function doesn't have an output schema. Please set this parameter to be null, or don't call this method when invoking</li>
+</ul>
 </div>
-<h4 id="public-client-setrequestmap-queryparams-object-requestbody-throws-jellyfaasexception-jsonprocessingexception-jellyfaasformatexception"><span style="color:#00000000;">public Client setRequest(Map<String, String> queryParams, Object requestBody) throws JellyFaasException, JsonProcessingException, JellyFaasFormatException </span></h4>
+<h4 id="public-client-setrequestmap-queryparams-object-requestbody-throws-jellyfaasexception-ioexception-jellyfaasformatexception"><span style="color:#00000000;">public Client setRequest(Map<String, String> queryParams, Object requestBody) throws JellyFaasException, IOException, JellyFaasFormatException </span></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Client</span><span class="w"> </span><span class="nf">setRequest</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryParams</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">requestBody</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JsonProcessingException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasFormatException</span><span class="w"> </span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Client</span><span class="w"> </span><span class="nf">setRequest</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryParams</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">requestBody</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasFormatException</span><span class="w"> </span>
 </span></code></pre></div>
 </h3></p>
 <p>Sets the body and query parameters for a request. This method will validate the body against the function's
@@ -811,13 +800,10 @@
     <div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="w"> </span>
 </span></code></pre></div>
 </h3></p>
-<p>Method calls a JellyFaas function with the given parameters.
-  :
- Client client = new Client("key");
- Output output = client.setAuth().lookUp("functionshortname").setRequest(queryParams, body).setResponse(Output.class).invoke();</p>
+<p>Method calls a JellyFaas function with the given parameters.</p>
 <p><strong>return</strong></p>
 <ul>
-<li>a new object if #setResponse(Object) is a Class&lt;?&gt;</li>
+<li>a new object if #setResponse(Object) is a Class&lt;?&gt;. If no response is returned from the function, the output is null.</li>
 </ul>
 <p><strong>throws</strong></p>
 <ul>
@@ -897,52 +883,25 @@
 <li><code>JellyFaasException</code> when there's a required parameter</li>
 </ul>
 </div>
-<h4 id="private-void-validatejsonschemajsonobject-schema-jsonobject-body-throws-jellyfaasexception-jellyfaasformatexception"><span style="color:#00000000;">private void validateJSONSchema(JSONObject schema, JSONObject body) throws JellyFaasException, JellyFaasFormatException </span></h4>
+<h4 id="private-void-validateschemabyte-body-jsonobject-schema-throws-jellyfaasformatexception-ioexception"><span style="color:#00000000;">private void validateSchema(byte[] body, JSONObject schema) throws JellyFaasFormatException, IOException </span></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validateJSONSchema</span><span class="p">(</span><span class="n">JSONObject</span><span class="w"> </span><span class="n">schema</span><span class="p">,</span><span class="w"> </span><span class="n">JSONObject</span><span class="w"> </span><span class="n">body</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasFormatException</span><span class="w"> </span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validateSchema</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">JSONObject</span><span class="w"> </span><span class="n">schema</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasFormatException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span>
 </span></code></pre></div>
 </h3></p>
-<p>Recursive function to compare against the body against the schema to see if the body has got any extra information
- and compare the schema against the body to see if the body is missing information.</p>
+<p>Validates the request body against the json schema.</p>
 <p><strong>param</strong></p>
 <ul>
 <li>
-<p><code>body</code> input json body</p>
+<p><code>body</code> the input body as a byte array</p>
 </li>
 <li>
-<p><code>schema</code> input schema for the body</p>
+<p><code>schema</code> the schema to validate against</p>
 </li>
 </ul>
 <p><strong>throws</strong></p>
 <ul>
-<li>
-<p><code>JellyFaasException</code> when there is an issue with the body matching the json schema</p>
-</li>
-<li>
-<p><code>JellyFaasFormatException</code> when the provided input class has missing types or the incorrect types against the json schema</p>
-</li>
-</ul>
-<p><strong>apiNote</strong></p>
-<ul>
-<li>this is only used to check json schemas</li>
-</ul>
-</div>
-<h4 id="private-void-validateschemabyte-body-jsonobject-schema-throws-jellyfaasexception-jellyfaasformatexception"><span style="color:#00000000;">private void validateSchema(byte[] body, JSONObject schema) throws JellyFaasException, JellyFaasFormatException </span></h4>
-<div class="admonition info">
-<p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validateSchema</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">JSONObject</span><span class="w"> </span><span class="n">schema</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasFormatException</span><span class="w"> </span>
-</span></code></pre></div>
-</h3></p>
-<p>Validates the request body.</p>
-<p><strong>throws</strong></p>
-<ul>
-<li>
-<p><code>JellyFaasException</code> if there is an incompatible schema, an incompatible json body, or when the body</p>
-</li>
-<li>
-<p><code>JellyFaasFormatException</code> when the provided input class has missing types or the incorrect types against the json schema doesn't match the schema</p>
-</li>
+<li><code>JellyFaasFormatException</code> when the provided input class has missing types or the incorrect types against the json schema doesn't match the schema</li>
 </ul>
 <p><strong>apiNote</strong></p>
 <ul>
@@ -952,7 +911,7 @@
 <h4 id="private-httpresponse-docallstring-url-string-method-map-headers-httprequestbodypublisher-requestbody-throws-jellyfaasexception-jellyfaashttpexception"><span style="color:#00000000;">private HttpResponse<byte[]> doCall(String url, String method, Map<String, String> headers, HttpRequest.BodyPublisher requestBody) throws JellyFaasException, JellyFaasHttpException </span></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">private</span><span class="w"> </span><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="nf">doCall</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpRequest</span><span class="p">.</span><span class="na">BodyPublisher</span><span class="w"> </span><span class="n">requestBody</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="w"> </span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">private</span><span class="w"> </span><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="nf">doCall</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpRequest</span><span class="p">.</span><span class="na">BodyPublisher</span><span class="w"> </span><span class="n">requestBody</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="w"> </span>
 </span></code></pre></div>
 </h3></p>
 <p>Handles calling out to the auth service with a given url, using the api-key.</p>

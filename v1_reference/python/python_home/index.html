@@ -629,7 +629,7 @@
 
 
 <h1 id="python-v1-reference">Python v1 reference</h1>
-<p><em>Last updated: <strong>Sep 04, 2024 at 14:39</strong></em></p>
+<p><em>Last updated: <strong>Sep 05, 2024 at 13:23</strong></em></p>
 <p>This is the Python v1 reference guide. 
 If you want more information about how to get started with SDKs, click <a href="../../../sdks/sdk_guide">here</a>.</p>
 <details class="warning" open="open">
@@ -641,45 +641,75 @@ If you want more information about how to get started with SDKs, click <a href="
 <div class="grid cards">
 <ul>
 <li>
-<p><strong>class ClientConfig</strong></p>
+<p><code>class ClientConfig</code></p>
 <hr />
-<p>Browse the constructor and methods for this class. This class has 3 methods.</p>
+<p><strong>Browse the constructor and methods for this class. This class has 3 methods.</strong></p>
 <p><a href="../jellyfaas/class_clientconfig"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> See Reference</a></p>
 </li>
 <li>
-<p><strong>class Client</strong></p>
+<p><code>class Client</code></p>
 <hr />
-<p>Browse the constructor and methods for this class. This class has 9 methods.</p>
+<p><strong>Browse the constructor and methods for this class. This class has 9 methods.</strong></p>
+<p>A client for interacting with the JellyFAAS API. It is not recommended to access attributes of this class directly; instead, use "public" class functions as per the documentation.</p>
+</li>
+</ul>
+<p><strong>attribute</strong></p>
+<ul>
+<li>
+<p><code>_api_key</code> (str) The API key used for authentication.</p>
+</li>
+<li>
+<p><code>_token</code> (str) The authentication token.</p>
+</li>
+<li>
+<p><code>_token_expiry</code> (str) The expiration time for the token.</p>
+</li>
+<li>
+<p><code>_version</code> (str) The version of the function to lookup.</p>
+</li>
+<li>
+<p><code>_size</code> (str) The size of the function to lookup.</p>
+</li>
+<li>
+<p><code>_response</code> (Any) The response from the invoked function.</p>
+</li>
+<li>
+<p><code>_response_type</code> (Any) The type of the response for transformation.</p>
 <p><a href="../jellyfaas/class_client"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> See Reference</a></p>
 </li>
 <li>
-<p><strong>class JellyFaasException(Exception)</strong></p>
+<p><code>class JellyFaasException(Exception)</code></p>
 <hr />
-<p>Browse the constructor and methods for this class. This class has 0 methods.</p>
+<p><strong>Browse the constructor and methods for this class. This class has 0 methods.</strong></p>
+<p>Base class for exceptions in the JellyFaas library.</p>
 <p><a href="../jellyfaas/class_jellyfaasexception_exception"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> See Reference</a></p>
 </li>
 <li>
-<p><strong>class AuthenticationFailedException(JellyFaasException)</strong></p>
+<p><code>class AuthenticationFailedException(JellyFaasException)</code></p>
 <hr />
-<p>Browse the constructor and methods for this class. This class has 0 methods.</p>
+<p><strong>Browse the constructor and methods for this class. This class has 0 methods.</strong></p>
+<p>Raised when authentication fails.</p>
 <p><a href="../jellyfaas/class_authenticationfailedexception_jellyfaasexception"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> See Reference</a></p>
 </li>
 <li>
-<p><strong>class FunctionLookupException(JellyFaasException)</strong></p>
+<p><code>class FunctionLookupException(JellyFaasException)</code></p>
 <hr />
-<p>Browse the constructor and methods for this class. This class has 0 methods.</p>
+<p><strong>Browse the constructor and methods for this class. This class has 0 methods.</strong></p>
+<p>Raised when there is an issue looking up a function.</p>
 <p><a href="../jellyfaas/class_functionlookupexception_jellyfaasexception"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> See Reference</a></p>
 </li>
 <li>
-<p><strong>class SetRequestException(JellyFaasException)</strong></p>
+<p><code>class SetRequestException(JellyFaasException)</code></p>
 <hr />
-<p>Browse the constructor and methods for this class. This class has 0 methods.</p>
+<p><strong>Browse the constructor and methods for this class. This class has 0 methods.</strong></p>
+<p>Raised when there is an issue setting request parameters for a function.</p>
 <p><a href="../jellyfaas/class_setrequestexception_jellyfaasexception"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> See Reference</a></p>
 </li>
 <li>
-<p><strong>class InvocationException(JellyFaasException)</strong></p>
+<p><code>class InvocationException(JellyFaasException)</code></p>
 <hr />
-<p>Browse the constructor and methods for this class. This class has 0 methods.</p>
+<p><strong>Browse the constructor and methods for this class. This class has 0 methods.</strong></p>
+<p>Raised when there is an issue invoking the function.</p>
 <p><a href="../jellyfaas/class_invocationexception_jellyfaasexception"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> See Reference</a></p>
 </li>
 </ul>
