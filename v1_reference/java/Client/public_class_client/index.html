@@ -618,9 +618,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#public-object-invoke-throws-jellyfaashttpexception-jellyfaasexception" class="md-nav__link">
+  <a href="#public-object-invoke-throws-jellyfaashttpexception-jellyfaasexception-ioexception" class="md-nav__link">
     <span class="md-ellipsis">
-      public Object invoke() throws JellyFaasHttpException, JellyFaasException
+      public Object invoke() throws JellyFaasHttpException, JellyFaasException, IOException
     </span>
   </a>
   
@@ -814,16 +814,16 @@
 </li>
 </ul>
 </div>
-<h4 id="public-object-invoke-throws-jellyfaashttpexception-jellyfaasexception"><span style="color:#00000000;">public Object invoke() throws JellyFaasHttpException, JellyFaasException </span></h4>
+<h4 id="public-object-invoke-throws-jellyfaashttpexception-jellyfaasexception-ioexception"><span style="color:#00000000;">public Object invoke() throws JellyFaasHttpException, JellyFaasException, IOException </span></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="w"> </span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span>
 </span></code></pre></div>
 </h3></p>
 <p>Method calls a JellyFaas function with the given parameters.</p>
 <p><strong>return</strong></p>
 <ul>
-<li>a new object if #setResponse(Object) is a Class&lt;?&gt;. If no response is returned from the function, the output is null.</li>
+<li>a new object that is the same type as the Class set in <code>setResponse();</code>.</li>
 </ul>
 <p><strong>throws</strong></p>
 <ul>
