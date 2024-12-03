@@ -1,0 +1,801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Godot Guide - JellyFaaS Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M6 13h8l-3.5 3.5 1.42 1.42L17.84 12l-5.92-5.92L10.5 7.5 14 11H6z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#godot-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JellyFaaS Docs" class="md-header__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo_2.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JellyFaaS Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Godot Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_3">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_4">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_5">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_6">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_7">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_8">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JellyFaaS Docs" class="md-nav__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo_2.png" alt="logo">
+
+    </a>
+    JellyFaaS Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdk_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating_a_function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying to JellyFaaS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SDK Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            SDK Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/python/python_home/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-new-project-or-open-an-existing-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a new project or open an existing project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-add-the-jellyfaas-sdk-to-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Add the JellyFaas SDK to the project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-using-the-sdk-in-your-godot-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Using the SDK in your Godot project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-code-we-wrote" class="md-nav__link">
+    <span class="md-ellipsis">
+      The code we wrote
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="godot-guide">Godot Guide<a class="headerlink" href="#godot-guide" title="Permanent link"></a></h1>
+<p>The JellyFaas SDK is capable of working in every environment which has support for .Net Standard 2.0. This means that the Godot game engine and projects developed with it can also take advantage of the features provided by the JellyFaas SDK.</p>
+<div class="admonition info">
+<p class="admonition-title">Supported versions</p>
+<p>Only the versions of Godot with C# support are capable of making use of the SDK. This means that the 1.x and 2.x versions of Godot and versions with .Net/Mono support disable are not supported, and cannot make use of the JellyFaas SDK.</p>
+</div>
+<p>Here is a walkthrough on using the <code>joesjokes</code> function in Godot 4.2.2:</p>
+<h2 id="1-create-a-new-project-or-open-an-existing-project">1. Create a new project or open an existing project<a class="headerlink" href="#1-create-a-new-project-or-open-an-existing-project" title="Permanent link"></a></h2>
+<p>First we have to create or open up the project we want to add the SDK to with a C# enabled version of Godot.</p>
+<div class="admonition warning">
+<p class="admonition-title">Known problem with C# support in Godot 3.x</p>
+<p>The C# support in the 3.x versions of the Godot engine suffer from a known issue which prevents some of the .Net packages from functioning properly.
+This problem has a known workaround, which is to change the C# target from .Net Standard to .Net Framework.
+This problem has been fixed in Godot 4.0 and later versions, however if you are using the 3.x versions of Godot it is recommended that you change this setting.</p>
+</div>
+<p>If you open up a project which was created with a version of Godot which has C# support disabled, the Godot engine should automatically generate all the necessary files, however if it doesn't, you may have to create them manually by selecting the <code>Project &gt; Tools &gt; C# &gt; Create C# Solution</code> option. If your project has been created with a version of the engine which does have support for C# the needed files should be generated automatically.</p>
+<p>Let us start with the following ui elements:</p>
+<p><img alt="The project as shown in the editor" src="/assets/screenshots/godot1.png" /></p>
+<p>First we have to create a C# script. Right-click on the button node, and press attach script.</p>
+<p><img alt="Attaching the script" src="/assets/screenshots/godot2.png" /></p>
+<p>Then we create a new C# script. Make sure the language dropdown menu has C# selected.</p>
+<p>Unfortunately you cannot access the SDK through GDScript, however you may be able to make a wrapper node around the SDK functions you need in C#, and call the functions defined on that node in GDScript.</p>
+<p><img alt="Creating the script" src="/assets/screenshots/godot3.png" /></p>
+<p>Now lets open up this script in our C# IDE. It is possible to edit C# files in the Godot script editor, however I would recommend using an external IDE for this, as Godot doesn't have a graphical user interface for the NuGet package manager. You can change which editor Godot will use for C# files by going to <code>Editor &gt; Editor Settings</code>, then changing the <code>Dotnet &gt; External Editor</code> option.</p>
+<p>To open the file simply double click on the file in Godot's file explorer.</p>
+<h2 id="2-add-the-jellyfaas-sdk-to-the-project">2. Add the JellyFaas SDK to the project<a class="headerlink" href="#2-add-the-jellyfaas-sdk-to-the-project" title="Permanent link"></a></h2>
+<p>Once the .Net solution has been added you have to add in the <code>JellyfaasSdk</code> NuGet package. Most popular C# IDEs provide you with a graphical user interface to do this, however if you decide to use the built-in Godot script editor, or you use an IDE which doesn't have a package manager, you may have to install the SDK manually through your system's command prompt/terminal.</p>
+<p>The following are short guides on how to install the SDK in some popular IDEs.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Visual Studio</label><label for="__tabbed_1_2">Visual Studio Code</label><label for="__tabbed_1_3">JetBrains Rider</label><label for="__tabbed_1_4">Command Prompt/Terminal</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Installing the JellyFaas SDK is easy with Visual Studio, as it comes with its own built-in NuGet package manager.</p>
+<p>To open up the NuGet package manager in Visual Studio select the <code>Project &gt; Manage Nuget Packages</code> option in the toolbar.
+In the following window switch to the <code>Browse</code> tab. In the following window you should be able to search for and install the latest version of the JellyFaas SDK.</p>
+<p><img alt="Where to find the NuGet package manager" src="/assets/screenshots/visualstudio1.png" /></p>
+<p><img alt="NuGet package manager in Visual Studio" src="/assets/screenshots/visualstudio2.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>Installing the JellyFaas SDK through Visual Studio Code IDE is easy with the C# Dev Kit extension, which is  popular extension for adding C# support to Visual Studio Code.</p>
+<p>In Visual Studio Code open up the Command Palette (by default the <code>Ctrl</code> + <code>Shift</code> + <code>P</code> will open it).
+In the following search box type in <code>NuGet</code> and select the <code>NuGet: Add NuGet Package</code> option.
+The following search box search for and install the JellyFaas SDK package.</p>
+<p><img alt="Where to find the NuGet package manager" src="/assets/screenshots/vscode1.png" /></p>
+<p><img alt="NuGet package manager in Visual Studio Code" src="/assets/screenshots/vscode2.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>Installing the JellyFaas SDK in Rider is easy, as Rider comes with its own built-in NuGet package manager.</p>
+<p>In the JetBrains Rider IDE you can find the NuGet package manager by going to <code>Tools &gt; NuGet &gt; Manage NuGet Packages</code>.</p>
+<p><img alt="Where to find the NuGet package manager" src="/assets/screenshots/rider1.png" /></p>
+<p><img alt="NuGet package manager in JetBrains Rider" src="/assets/screenshots/rider2.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>If your IDE does not have a package manager, or the other options provided on this site do not work, you can always fall back to using your command prompt/terminal to install the package. This can be achieved with the dotnet CLI tool which comes bundled in with the .Net SDK.</p>
+<ol>
+<li>Open a console window in the directory your project file (*.csproj) is in.</li>
+<li>Use the <code>dotnet add package JellyfaasSdk</code> command in the console window.</li>
+</ol>
+<p>These above steps should automatically install the latest version of the JellyFaas SDK in your Godot project. If you experience any problems make sure you have the dotnet CLI tool installed. You may also want to check out the following links:</p>
+<ul>
+<li><a href="https://dotnet.microsoft.com/en-us/download">Install the .Net SDK</a></li>
+<li><a href="https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli">Installing packages with the dotnet CLI tool</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="3-using-the-sdk-in-your-godot-project">3. Using the SDK in your Godot project<a class="headerlink" href="#3-using-the-sdk-in-your-godot-project" title="Permanent link"></a></h2>
+<p>After you have successfully installed the JellyFaas SDK in your project you should be able to access the functions and classes provided by the SDK through the <code>Jellyfaas</code> namespace in your C# files. This means that now we can start using it.</p>
+<p>First we should import the SDK into this file. We can do this by adding the following line at the top of our script:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Jellyfaas</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Now inside the class responsible for our node we should define some variables. First lets define the variable responsible for storing our JellyClient object which will access our JellyFaas functions.</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">private</span><span class="w"> </span><span class="n">JellyClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Lets also define a property which will store a reference to our label node we want to put the joke in.</p>
+<p><div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[Export]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">public</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">TargetLabel</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+The above code exports a property of type Label to the Godot editor. This c# code is similar to the following GDScript code:
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">export</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">target_l_abel</span><span class="p">:</span><span class="n">Label</span>
+</span></code></pre></div></p>
+<p>Now we should initialize our JellyFaas client in our <code>_Ready</code> function. If you used Godot's templates when creating the script this function should have been provided for you. We can do this with the following line of code:</p>
+<p><div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;Insert your Api Key here&quot;</span><span class="p">));</span>
+</span></code></pre></div>
+The above line initializes our <code>JellyClient</code> with a <code>JellyConfig</code> object. This <code>JellyConfig</code> object will store our JellyFaas Api key which we have to provide when constructing it. We may also provide additional flags to our client through this object.</p>
+<p>In this guide we will be using the <code>joesjokes</code> function. You can learn more about it <a href=".">Here</a>. This page will also generate you the class which will match the output of the <code>joesjokes</code> function. This is important, as it allows us to simply copy and paste the code from the website into our script instead of writing the class ourselves. We should copy and paste the C# code from the website to somewhere in our script. The code will look something like this:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">JoesJoke</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">joke</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">punchline</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Finally we can call our JellyFaas function. We can easily do this by overriding the <code>_Pressed()</code> function which is defined in every button node:
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">_Pressed</span><span class="p">()</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Your code goes here</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span></code></pre></div>
+Inside this function we should first look up the <code>joesjokes</code> function with our <code>JellyClient</code>, and then call it. We should then store the resulting joke in a variable like the following code does:
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">);</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">joke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span>
+</span></code></pre></div></p>
+<p>We can also rewrite this code to fit inside a single line like this:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">joke_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span>
+</span></code></pre></div>
+<p>The invoke call in above takes in a type as a generic argument. In C# generic arguments have to be put inside angle brackets. The invoke function will create a new object of this type, and put the response from the JellyFaas function inside it. Any fields and properties which do not match the values needed by the function will be discarded, which is why we should use the class we generated earlier here.</p>
+<p>The last part of code we need to write inside the <code>_Pressed()</code> function will display the joke inside our label. The <code>joesjokes</code> function returns the joke and the punchline separately, meaning that we will have to combine them for the joke to make sense. This can be done with the following code:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">TargetLabel</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joke_response</span><span class="p">.</span><span class="n">joke</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">joke_info</span><span class="p">.</span><span class="n">Punchline</span><span class="p">;</span>
+</span></code></pre></div>
+<p>This code will put the punchline of the joke two lines below the joke, making it easy to read.</p>
+<p>The last step we have to do before running our program is assigning a reference to our text label inside our button node. In our Godot editor click on the button node, and press the assign button next to the Target Label property. If this property doesn't show up for you, you may have to build the project through the build button which is located next to the run button in Godot.</p>
+<p><img alt="The application before pressing the button" src="/assets/screenshots/godot4.png" /></p>
+<p>Finally we should select our Label node in the window which shows up, and press the Ok.</p>
+<p><img alt="The application before pressing the button" src="/assets/screenshots/godot5.png" /></p>
+<p>Now we can run the project! Press the run button in the editor to run and see the results of our work.</p>
+<p><img alt="The application before pressing the button" src="/assets/screenshots/godot6.png" /></p>
+<p>After pressing the button we can see that the function has been called, and has provided us with a randomly generated joke. Pressing the button multiple times should give us a new joke after every press.</p>
+<p><img alt="The application after pressing the button" src="/assets/screenshots/godot7.png" /></p>
+<h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://dotnet.microsoft.com/en-us/download">Install the .Net SDK</a></li>
+<li><a href="https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli">Installing packages with the dotnet CLI tool</a></li>
+<li><a href="https://github.com/Platform48/Godot-SDK-Example">Github repository with the example project from this guide</a></li>
+<li>
+<p>C# JellyFaas SDK Reference</p>
+</li>
+<li>
+<p><a href="https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html">Godot C# documentation</a></p>
+</li>
+</ul>
+<h2 id="the-code-we-wrote">The code we wrote<a class="headerlink" href="#the-code-we-wrote" title="Permanent link"></a></h2>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">TMPro</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">Jellyfaas</span><span class="p">;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json.Serialization</span><span class="p">;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">JokeButton</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">{</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="c1">//  Export this property so we can set the text label we want to put the joke in from the editor</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">TMP_Text</span><span class="w"> </span><span class="n">OutputLabel</span><span class="p">;</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="c1">//  Store the JellyFaas client so we don&#39;t have to remake it every time we call a function</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">JellyClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="c1">// Start is called before the first frame update</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;Insert your Api Key here&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">//  &lt; -- Insert your API key here</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnClick</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">joke_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span><span class="w">  </span><span class="c1">//  The joesjokes function does not take any parameters, and returns information on a randomly generated joke</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">        </span><span class="n">OutputLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joke_info</span><span class="p">.</span><span class="n">joke</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">joke_info</span><span class="p">.</span><span class="n">Punchline</span><span class="p">;</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w">    </span><span class="c1">//  The class which matches the definition of the Json object returned by the joesjokes function</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">    </span><span class="c1">//  The joesjokes function returns a json object with two strings called &quot;joke&quot; and &quot;punchline&quot;.</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">JoesJoke</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">        </span><span class="c1">//  As long as the property name matches the Json property the SDK will read the data into the matching properties</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">joke</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="w">        </span><span class="c1">//  Json property names are case sensitive, meaning that this property does not match</span>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="w">        </span><span class="c1">//  Fortunately, the JellyFaas SDK uses the System.Text.Json library when deserializing Json objects, meaning that you can use any attributes provided by it</span>
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="w">        </span><span class="c1">//  The following attribute tells the SDK to assume this property is called &quot;punchline&quot; when translating to and from Json.</span>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="w">        </span><span class="na">[JsonPropertyName(&quot;punchline&quot;)]</span>
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Punchline</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a><span class="p">}</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
