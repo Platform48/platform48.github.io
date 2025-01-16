@@ -69,3 +69,35 @@
 .md-typeset a>code {
   background: var(--md-default-bg-color);
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.grid-item {
+  border: 1px solid var(--md-default-fg-color--light);
+  padding: 24px;
+  text-decoration: none;
+  color: #333;
+  border-radius: 8px;
+  transition: 0.3s;
+  background-color: #0003;
+}
+
+a.grid-item {
+}
+
+a.grid-item:hover {
+  background-color: #0006;
+}
+
+.grid-item h3 {
+  margin: 0;
+  color: var(--md-default-fg-color);
+}
+
+.grid-item p {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+}
