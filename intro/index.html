@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href=".." rel="prev"/>
+<link href="../calling_first_function/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.46" name="generator"/>
+<title>Intro to JellyFaaS - JellyFaaS Docs</title>
+<link href="../assets/stylesheets/main.6f8fc17f.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M6 13h8l-3.5 3.5 1.42 1.42L17.84 12l-5.92-5.92L10.5 7.5 14 11H6z"/></svg>');}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#what-is-jellyfaas">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="JellyFaaS Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="JellyFaaS Docs">
+<img alt="logo" src="../assets/logo_2.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            JellyFaaS Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Intro to JellyFaaS
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-hidden="true" class="md-option" data-md-color-accent="custom" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="custom" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="custom" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="custom" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_3" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_4" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_5" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_6" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_7" name="__palette" type="radio"/>
+<input aria-hidden="true" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_8" name="__palette" type="radio"/>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="JellyFaaS Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="JellyFaaS Docs">
+<img alt="logo" src="../assets/logo_2.png"/>
+</a>
+    JellyFaaS Docs
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Intro to JellyFaaS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Intro to JellyFaaS
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-jellyfaas-work">
+<span class="md-ellipsis">
+      How does JellyFaaS work?
+    </span>
+</a>
+<nav aria-label="How does JellyFaaS work?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#functions">
+<span class="md-ellipsis">
+      Functions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ai-function-calling">
+<span class="md-ellipsis">
+      AI Function Calling
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ai-document-embedding">
+<span class="md-ellipsis">
+      AI Document Embedding
+    </span>
+</a>
+<nav aria-label="AI Document Embedding" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-upload-documents">
+<span class="md-ellipsis">
+      1 - Upload Documents:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-query-using-documents">
+<span class="md-ellipsis">
+      2 - Query Using Documents:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ai-sql-integration">
+<span class="md-ellipsis">
+      AI SQL Integration
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../calling_first_function/">
+<span class="md-ellipsis">
+    Calling Your First Function
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quickstart/sdk_install/">
+<span class="md-ellipsis">
+    Installing the SDK
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quickstart/cli_install/">
+<span class="md-ellipsis">
+    Installing the CLI
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Tutorials
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/getting_token_via_rest/">
+<span class="md-ellipsis">
+    Getting a Token
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/calling_function_via_rest/">
+<span class="md-ellipsis">
+    Function calling via Rest
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/calling_function_via_sdk/">
+<span class="md-ellipsis">
+    Function calling via the SDK
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/first_function_creation/">
+<span class="md-ellipsis">
+    First Function Creation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/creating_functions_deep_dive/">
+<span class="md-ellipsis">
+    Creating Functions Deep Dive
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    AI Tutorials
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            AI Tutorials
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/ai_quickstart/">
+<span class="md-ellipsis">
+    AI Quick Start
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/using_vectordb/">
+<span class="md-ellipsis">
+    Vector Databases (RAG)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/using_rdbms/">
+<span class="md-ellipsis">
+    RDMBS (SQL Databases)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/using_functioncalling/">
+<span class="md-ellipsis">
+    Function Calling
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/using_structured_output/">
+<span class="md-ellipsis">
+    Structured Output
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/sdk_guide/">
+<span class="md-ellipsis">
+    SDK Quick Start
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/creating_a_function/">
+<span class="md-ellipsis">
+    Deploying to JellyFaaS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/cli/">
+<span class="md-ellipsis">
+    CLI Tool
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/cli_commands/">
+<span class="md-ellipsis">
+    CLI Commands
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/jellyfaas_json/">
+<span class="md-ellipsis">
+    The jellyfaas.json File
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../reference/template_projects/">
+<span class="md-ellipsis">
+    Templates
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../reference/jellyspec/">
+<span class="md-ellipsis">
+    Jellyspec File
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    SDK Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            SDK Reference
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../reference/node/">
+<span class="md-ellipsis">
+    Node
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../reference/python/">
+<span class="md-ellipsis">
+    Python
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../faq/">
+<span class="md-ellipsis">
+    Frequently Asked Questions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../reference/troubleshooting/">
+<span class="md-ellipsis">
+    Troubleshooting
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../other/data_privacy/">
+<span class="md-ellipsis">
+    Data Privacy
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-jellyfaas-work">
+<span class="md-ellipsis">
+      How does JellyFaaS work?
+    </span>
+</a>
+<nav aria-label="How does JellyFaaS work?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#functions">
+<span class="md-ellipsis">
+      Functions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ai-function-calling">
+<span class="md-ellipsis">
+      AI Function Calling
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ai-document-embedding">
+<span class="md-ellipsis">
+      AI Document Embedding
+    </span>
+</a>
+<nav aria-label="AI Document Embedding" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-upload-documents">
+<span class="md-ellipsis">
+      1 - Upload Documents:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-query-using-documents">
+<span class="md-ellipsis">
+      2 - Query Using Documents:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ai-sql-integration">
+<span class="md-ellipsis">
+      AI SQL Integration
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="what-is-jellyfaas">What is JellyFaaS<a class="headerlink" href="#what-is-jellyfaas" title="Permanent link"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on your use-case, you might only engage with some aspects of JellyFaaS. Because of this, this page will provide a broad overview of all aspects of the platform, while seperate guides and tutorials will cover specific sections in more detail.</p>
+</div>
+<p><em>JellyFaaS is a collection of AI-ready cloud functions, tools, and SDKs enabling developers to use community-driven code to speed up their workflow and reduce time to delivery, technical debt, and infrastucture costs.</em></p>
+<p>More specifically, JellyFaaS is composed of 3 main elements:</p>
+<div class="grid" style="grid-template-columns:1fr;">
+<div class="grid-item">
+<h3>Cloud Functions</h3>
+<br/>
+<p>
+    Anyone can develop and deploy their own cloud functions to JellyFaaS, for use by the entire community. JellyFaaS functions are automatically hosted, scaled, and managed by us.
+    Functions can be written in many popular languages and consumed via REST or our SDKs.
+    </p>
+</div>
+<div class="grid-item">
+<h3>AI Framework</h3>
+<br/>
+<p>
+JellyFaaS functions can be used to augment popular LLMs with live, contextual awareness and actions, such as looking up current weather data or sending an email.
+    JellyFaaS also provides tools for using custom datasets with LLMs, to further adapt AIs to developers' use-cases.
+    </p>
+</div>
+<div class="grid-item">
+<h3>Tools and SDKs</h3>
+<br/>
+<p>
+The JellyFaaS CLI enables developers to deploy functions to the platform instantly.
+    JellyFaaS also provides SDKs, making it easy to use functions and AI capabilities in many supported languages.
+    </p>
+</div>
+</div>
+<h2 id="how-does-jellyfaas-work">How does JellyFaaS work?<a class="headerlink" href="#how-does-jellyfaas-work" title="Permanent link"></a></h2>
+<h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link"></a></h3>
+<p>At it's core, JellyFaaS is a platform for developers to deploy and use functions. In this context, a "function" is essentially a small, isolated, and <em>stateless</em> web service that "does one thing only" by handling simple HTTP requests. For example, a function might process an image file or send an email.</p>
+<p>Functions automatically scale as needed and can be written in variety of languages, including:</p>
+<ul>
+<li>NodeJS</li>
+<li>Python</li>
+<li>Go</li>
+<li>C#</li>
+<li>Java</li>
+<li>Ruby</li>
+<li>PHP</li>
+</ul>
+<p>Functions can be deployed via the JellyFaaS REST API, but it is recommended to use the CLI tool to streamline this process. A simple specification file defines the function's usage, both acting as documentation and enabling AI integration.
+Behind the scenes, deploying a funciton performs validation of your specification, containerizes the app, </p>
+<p>After deployment, functions can invoked via the JellyFaaS REST API or SDKs, regardless of the language the function was written in. 
+For example, a function written in Ruby could be invoked by a client via the NodeJS SDK.</p>
+<pre class="mermaid"><code>graph LR
+    subgraph Inputs["Function Source"]
+        direction LR
+        Code["Source Code"]
+        SpecFile["Specification File"]
+    end
+
+    subgraph JellyFaaS["JellyFaaS Function Library"]
+        direction LR
+        Func["ExampleFunc1"]
+        Func2["ExampleFunc2"]
+        Func3["ExampleFunc3"]
+    end
+
+    Inputs --&gt; | Deploy via CLI | JellyFaaS --&gt; | Invoke via SDK | Client["Client"]
+</code></pre>
+<h3 id="ai-function-calling">AI Function Calling<a class="headerlink" href="#ai-function-calling" title="Permanent link"></a></h3>
+<p>JellyFaaS specification files have been designed to completely define the signature of a function. This serves as documentation, but also enables them to be used by large language models such as GPT and Gemini.</p>
+<p>Using the JellyFaaS REST API and SDKs, you can specify functions with your LLM prompts. The LLM may decide to invoke the specified functions to help answer your prompt.
+<pre class="mermaid"><code>graph LR
+    subgraph Request["Client Request"]
+        direction LR
+        Prompt["`**Prompt**
+        *e.g. what's the weather in boston today?*`"]
+        Function["`**Function ID**
+        *e.g. LiveWeatherFunc*`"]
+    end
+    subgraph JellyFaaS["JellyFaaS Function Library"]
+        direction LR
+        Func4["LiveWeatherFunc"]
+    end
+    Request --&gt; | **1** - Request via SDK | JellyFaaSAI["JellyFaaS AI"] --&gt; | **2** - Invoking function | Func4 --&gt; | **3** - Function response | JellyFaaSAI --&gt; | **4** - AI response | Request
+</code></pre></p>
+<h3 id="ai-document-embedding">AI Document Embedding<a class="headerlink" href="#ai-document-embedding" title="Permanent link"></a></h3>
+<p>Similar to AI function calling, you can upload documents to JellyFaaS AI, providing additional context to your prompts. </p>
+<h4 id="1-upload-documents">1 - Upload Documents:<a class="headerlink" href="#1-upload-documents" title="Permanent link"></a></h4>
+<pre class="mermaid"><code>graph LR
+    subgraph Upload["Client Document Upload"]
+        direction LR
+        Document["`**Documents**
+        *e.g. CompanyPolicies.pdf*`"]
+        Function["`**DestDatabaseID**
+        *e.g. MyCompanyPolicies*`"]
+    end
+
+    subgraph JFDB["JellyFaaS AI Storage"]
+        db[(MyCompanyPolicies)]
+    end
+
+    Upload --&gt; | **1** - Upload via SDK or REST | JellyFaaSAI["JellyFaaS AI"] --&gt; | **2** - Embeds and stores | db
+
+</code></pre>
+<h4 id="2-query-using-documents">2 - Query Using Documents:<a class="headerlink" href="#2-query-using-documents" title="Permanent link"></a></h4>
+<pre class="mermaid"><code>graph LR
+    subgraph JFDB["JellyFaaS AI Storage"]
+        db[(MyCompanyPolicies)]
+    end
+
+    subgraph Request["Client Request"]
+        direction LR
+        Prompt["`**Prompt**
+        *e.g. List all policies relating to...*`"]
+        DatabaseID["`**DatabaseID**
+        *e.g. MyCompanyPolicies*`"]
+    end
+
+    Request --&gt; |**1** - Request via SDK|JellyFaaSAI --&gt; |**2** - Retrieve context| db --&gt; | **3** - DB response| JellyFaaSAI --&gt; | **4** - AI response | Request
+
+</code></pre>
+<h3 id="ai-sql-integration">AI SQL Integration<a class="headerlink" href="#ai-sql-integration" title="Permanent link"></a></h3>
+<pre class="mermaid"><code>graph LR
+    subgraph JFDB["Client's SQL DB"]
+        db[(MySalesDataDB)]
+    end
+
+    subgraph Request["Client Request"]
+        direction LR
+        Prompt["`**Prompt**
+        *e.g. Fetch 2024 top 5 products by total revenue...*`"]
+        DatabaseID["`**SQL DB Connection**
+        *e.g. MySalesDataDB*`"]
+    end
+
+    Request --&gt; |**1** - Request via SDK|JellyFaaSAI --&gt; |**2** - Retrieve context| db --&gt; | **3** - DB response| JellyFaaSAI --&gt; | **4** - AI response | Request
+
+
+</code></pre>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+window.mermaidConfig = {default: {
+    startOnLoad: false
+}};</script></body>
+</html>

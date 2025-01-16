@@ -1,0 +1,2138 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../first_function_creation/">
+      
+      
+        <link rel="next" href="../ai_quickstart/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Creating Functions Deep Dive - JellyFaaS Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M6 13h8l-3.5 3.5 1.42 1.42L17.84 12l-5.92-5.92L10.5 7.5 14 11H6z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creating-functions-deep-dive-and-best-practices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JellyFaaS Docs" class="md-header__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo_2.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JellyFaaS Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Creating Functions Deep Dive
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_3">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_4">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_5">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_6">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_7">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_8">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JellyFaaS Docs" class="md-nav__button md-logo" aria-label="JellyFaaS Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo_2.png" alt="logo">
+
+    </a>
+    JellyFaaS Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to JellyFaaS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calling_first_function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calling Your First Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/sdk_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing the SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/cli_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing the CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_token_via_rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting a Token
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calling_function_via_rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function calling via Rest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calling_function_via_sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function calling via the SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first_function_creation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    First Function Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Creating Functions Deep Dive
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Creating Functions Deep Dive
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-creation-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function creation overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passing-in-data-query-params-body-and-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passing in Data, Query Params, Body and File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passing in Data, Query Params, Body and File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-params" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Params
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    <span class="md-ellipsis">
+      Body
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    <span class="md-ellipsis">
+      File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-of-data-body-and-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output of Data, Body and File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output of Data, Body and File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#body_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Body
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Creation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#help-things-are-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help, things are not working
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AI Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AI Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai_quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_vectordb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vector Databases (RAG)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_rdbms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RDMBS (SQL Databases)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_functioncalling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Calling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_structured_output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structured Output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sdk_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/creating_a_function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying to JellyFaaS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/cli_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/jellyfaas_json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The jellyfaas.json File
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/template_projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/jellyspec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jellyspec File
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SDK Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            SDK Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/data_privacy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Privacy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-creation-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function creation overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passing-in-data-query-params-body-and-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passing in Data, Query Params, Body and File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passing in Data, Query Params, Body and File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-params" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Params
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    <span class="md-ellipsis">
+      Body
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    <span class="md-ellipsis">
+      File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-of-data-body-and-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output of Data, Body and File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output of Data, Body and File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#body_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Body
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Creation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#help-things-are-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Help, things are not working
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="creating-functions-deep-dive-and-best-practices">Creating functions, deep dive and best practices<a class="headerlink" href="#creating-functions-deep-dive-and-best-practices" title="Permanent link"></a></h1>
+<p>In this page we will take a deeper look at function creation, do's and don't and a deep dive into the <code>jellyspec</code> file. Functions are designed to do solve a problem, such as one of the following:</p>
+<ul>
+<li>Process some data</li>
+<li>Modify or genererate something</li>
+<li>Wrap a set of more complex calls to another external service</li>
+<li>Analysise something and return a set of results.</li>
+<li>Or whatever you can think of that can help others.</li>
+</ul>
+<p>Currently functions are based on the Google Functions Framework, in the future we will support Azure Functions, AWS Lambda's and others.</p>
+<h2 id="cors">CORS<a class="headerlink" href="#cors" title="Permanent link"></a></h2>
+<p><strong>CORS (Cross-Origin Resource Sharing)</strong> is a security mechanism that restricts browsers from making requests from one domain to another. This prevents malicious websites from accessing data from other websites without explicit permission. These examples show how to implement CORS to each supported languages, these should be taken and adjusted as needed.</p>
+<details class="ruby">
+<summary>Ruby</summary>
+<div class="language-ruby highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">&#39;Access-Control-Allow-Methods&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;GET, POST, PUT, DELETE, OPTIONS&#39;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<details class="php">
+<summary>Php</summary>
+<div class="language-PHP highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">header(&#39;Access-Control-Allow-Origin: *&#39;);</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">header(&#39;Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS&#39;);</span>
+</span></code></pre></div>
+</details>
+<details class="python">
+<summary>Python</summary>
+<div class="language-Python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="o">**</span><span class="n">name</span><span class="o">**</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">})</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">after_request</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">def</span> <span class="nf">after_request</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Access-Control-Allow-Methods&#39;</span><span class="p">,</span> <span class="s1">&#39;GET, POST, PUT, DELETE, OPTIONS&#39;</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">return</span> <span class="n">response</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+<details class="go">
+<summary>Go</summary>
+<div class="language-Go highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="s">&quot;net/http&quot;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="nx">http</span><span class="p">.</span><span class="nx">HandleFunc</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">                </span><span class="nx">w</span><span class="p">.</span><span class="nx">Header</span><span class="p">().</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;Access-Control-Allow-Origin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">                </span><span class="nx">w</span><span class="p">.</span><span class="nx">Header</span><span class="p">().</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;Access-Control-Allow-Methods&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET, POST, PUT, DELETE, OPTIONS&quot;</span><span class="p">)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">                </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="p">})</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="nx">http</span><span class="p">.</span><span class="nx">ListenAndServe</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<details class="node">
+<summary>Node</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>const express = require(&#39;express&#39;);
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>const app = express();
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>app.get(&#39;/&#39;, (req, res) =&gt; {
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>res.header(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>res.header(&#39;Access-Control-Allow-Methods&#39;, &#39;GET, POST, PUT, DELETE, OPTIONS&#39;);
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>res.send(&#39;Hello, World!&#39;);
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>});
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>app.listen(3000, () =&gt; {
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>console.log(&#39;Server listening on port 3000&#39;);
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>});
+</span></code></pre></div>
+</details>
+<details class="dotnet">
+<summary>Dotnet</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>public void ConfigureServices(IServiceCollection services)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>{
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    services.AddCors(options =&gt;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    {
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        options.AddDefaultPolicy(
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>            builder =&gt;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>            {
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>                builder.WithOrigins(&quot;*&quot;).AllowAnyMethod().AllowAnyHeader();
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            });
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    });
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>}
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>{
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    app.UseCors(); 
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    // ... rest of your application configuration
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>}
+</span></code></pre></div>
+</details>
+<h2 id="function-creation-overview">Function creation overview<a class="headerlink" href="#function-creation-overview" title="Permanent link"></a></h2>
+<p>Creating a function should be a staightforward process, functions by design are designed to do one thing and one thing well, and tend to me single threaded. You can use threads, however ensure you are cleaning up and do not end up with an infinite block waiting for a non returning, or long running process.</p>
+<p>A good example would be to process 10 chunks of text at the same time, and wait for the thread group to complete before carriying on. However just iterating over a loop also works.</p>
+<p>On the entry point to a function, it is usually a good idea to check for the correct <code>REST</code> verb, normally <code>GET</code>, <code>POST</code>, <code>PUT</code> and <code>DELETE</code> are used, Here are the four basic <code>HTTP</code> verbs used in <code>REST</code> commands:</p>
+<ul>
+<li><code>GET</code>: Retrieves a specific resource or a collection of resources</li>
+<li><code>POST</code>: Creates a new resource</li>
+<li><code>PUT</code>: Updates a specific resource</li>
+<li><code>DELETE</code>: Removes a specific resource</li>
+</ul>
+<p>A function can (optionally) take an input(s) and return an output.</p>
+<h2 id="passing-in-data-query-params-body-and-file">Passing in Data, Query Params, Body and File<a class="headerlink" href="#passing-in-data-query-params-body-and-file" title="Permanent link"></a></h2>
+<p>Currently JellyFaas supports handling of three types of input to functions, you specify the requirements in the <code>jellyspec.json</code> file. This is so the JellyFaaS SDK can validate the required parameters, generate the input class structures in all supported languages along with supplying AI (such as Gemini/ChatGPT) with the information on the function definition so it knows how to use it.</p>
+<h3 id="query-params"><code>Query Params</code><a class="headerlink" href="#query-params" title="Permanent link"></a></h3>
+<p>In a URL, for example : <code>https://example.com/doSomething?foo=bar&amp;age=10</code>. In this case we have a <code>query param</code> <code>foo</code> which equals <code>bar</code> and <code>age</code> which is equal to <code>10</code>. These can be used in <code>GET</code>, <code>POST</code>, <code>PUT</code> and <code>DELETE</code></p>
+<p><em>Note: these are all strings internally so you will need to cast it where needed. For example, if you have <code>lenght=10.3</code> then <code>10.3</code> will be a string, and you will need to cast it to a float if you wanted to use it a one.</em></p>
+<h3 id="body"><code>Body</code><a class="headerlink" href="#body" title="Permanent link"></a></h3>
+<p>A block of JSON</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You cannot use a body in a <code>GET</code> command, it <em>must</em> be used in a <code>POST</code>, <code>PUT</code> or <code>DELETE</code></p>
+</div>
+<p>If you want to pass in an object (for strict typing) or you do not want to pass via query params you can use a <code>JSON</code> body, and example would be:</p>
+<div class="language-json highlight"><span class="filename">Example json for creating a person with a POST</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;john.doe@example.com&gt;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">&quot;street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123 Main St&quot;</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Anytown&quot;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Using a <code>JSON</code> block you convert in code to a object, normally the object conversion process is a built in library which handles errors. This then allows you to work with the object with the correct types.</p>
+<h3 id="file"><code>File</code><a class="headerlink" href="#file" title="Permanent link"></a></h3>
+<p>A Single File, such as a <code>png, txt, csv</code> etc.</p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>Currently JellyFaaS only supports a single file, multi file (and form-data) will be released soon.</p>
+</div>
+<p>If you want to process a file. You can still send query params too, for example resizing a photo you send the file, along with resize information in the query params <code>width=200&amp;height=100</code>.</p>
+<h2 id="output-of-data-body-and-file">Output of Data, Body and File<a class="headerlink" href="#output-of-data-body-and-file" title="Permanent link"></a></h2>
+<p>You can return data from a function, again this is described in the <code>jellyspec.json</code> file, this allows JellyFaaS to generate output class examples in all supported languages.</p>
+<h3 id="body_1"><code>Body</code><a class="headerlink" href="#body_1" title="Permanent link"></a></h3>
+<p>A block of JSON</p>
+<p>Returning data from any REST request, <code>GET</code>, <code>POST</code>, <code>PUT</code> and <code>DELETE</code>, This is optional along with a success result, however common practices are to return the created item long with a <code>200</code>.</p>
+<div class="language-json highlight"><span class="filename">Example json for creating a person with a `POST`</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;john.doe@example.com&gt;&quot;</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&quot;street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123 Main St&quot;</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Anytown&quot;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>If no item is returned along with a <code>200</code>,<code>404</code> etc:</p>
+<div class="language-json highlight"><span class="filename">sample when no item returned, but 200</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nt">&quot;worked&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;created&quot;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>or</p>
+<div class="language-json highlight"><span class="filename">sample when no item returned, but 404</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">&quot;worked&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Cannot find user 12345&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Using a <code>JSON</code> block you convert in code to a object, normally the object conversion process is a built in library which handles errors. This then allows you to work with the object with the correct types.</p>
+<h3 id="file_1"><code>File</code><a class="headerlink" href="#file_1" title="Permanent link"></a></h3>
+<p>A Single File, such as a <code>png, txt, csv</code> etc.</p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>Currently JellyFaaS only supports a single file, multi file (and form-data) will be released soon.</p>
+</div>
+<p>If you want to return a file.</p>
+<h2 id="function-creation">Function Creation<a class="headerlink" href="#function-creation" title="Permanent link"></a></h2>
+<p>JellyFaas supports the following languages for function creation, The following sections contain information on:</p>
+<ul>
+<li>Runtime Version Support</li>
+<li>CLI command to create a working template</li>
+<li>A simple HTTP request code snippet</li>
+<li>Command(s) to test locally</li>
+</ul>
+<details class="java">
+<summary>Java</summary>
+<p>Prerequisites: Installation of Java, currently supported Java versions are:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>jellyspec runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java 11</td>
+<td><code>java11</code></td>
+</tr>
+<tr>
+<td>Java 17</td>
+<td><code>java17</code></td>
+</tr>
+<tr>
+<td>Java 21</td>
+<td><code>java21</code></td>
+</tr>
+</tbody>
+</table>
+<p>Template creation:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>jellyfaas<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>&lt;dir<span class="w"> </span>location&gt;<span class="w"> </span>-l<span class="w"> </span>java<span class="w"> </span>-n<span class="w"> </span>&lt;<span class="k">function</span><span class="w"> </span>name&gt;
+</span></code></pre></div>
+<p>Basic HTTP Request:</p>
+<p>This sample basic request that returns 'hello world', it also included validation that a <code>GET</code> verb is being used.</p>
+<details class="example">
+<summary>Java Code Sample</summary>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">functions</span><span class="p">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.cloud.functions.HttpFunction</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.cloud.functions.HttpRequest</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.cloud.functions.HttpResponse</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.BufferedWriter</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">HttpFunction</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">METHOD_NOT_ALLOWED_MESSAGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Method Not Allowed. Only GET requests are supported.&quot;</span><span class="p">;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">service</span><span class="p">(</span><span class="n">HttpRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">request</span><span class="p">.</span><span class="na">getMethod</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">405</span><span class="p">);</span><span class="w"> </span><span class="c1">// Method Not Allowed</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/plain&quot;</span><span class="p">);</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">        </span><span class="n">BufferedWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">        </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">METHOD_NOT_ALLOWED_MESSAGE</span><span class="p">);</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">        </span><span class="c1">// logic for handling GET requests</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">        </span><span class="n">BufferedWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">        </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<p>Testing locally:</p>
+<p>To test locally run the following commands:</p>
+<p><code>mvn install</code>, if needed, then :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mvn clean package
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mvn function:run
+</span></code></pre></div>
+<p>Your function is now running on <code>http://localhost:8000</code>. <em>Note, its http, not http(S) locally</em></p>
+</details>
+<details class="php">
+<summary>Php</summary>
+<p>Prerequisites: Installation of Php, currently supported Php versions are:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>jellyspec runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Php 8.2</td>
+<td><code>php82</code></td>
+</tr>
+<tr>
+<td>Php 8.1</td>
+<td><code>php81</code></td>
+</tr>
+<tr>
+<td>Php 7.4</td>
+<td><code>php74</code></td>
+</tr>
+</tbody>
+</table>
+<p>Template creation:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>jellyfaas<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>&lt;dir<span class="w"> </span>location&gt;<span class="w"> </span>-l<span class="w"> </span>php<span class="w"> </span>-n<span class="w"> </span>&lt;<span class="k">function</span><span class="w"> </span>name&gt;
+</span></code></pre></div>
+<p>Basic HTTP Request:</p>
+<p>This sample basic request that returns 'hello world', it also included validation that a <code>GET</code> verb is being used.</p>
+<details class="example">
+<summary>Php Code Sample</summary>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">use</span> <span class="nx">Google\CloudFunctions\FunctionsFramework</span><span class="p">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">use</span> <span class="nx">Psr\Http\Message\ServerRequestInterface</span><span class="p">;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">use</span> <span class="nx">Psr\Http\Message\ResponseInterface</span><span class="p">;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1">// Register the function with Functions Framework.</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nx">FunctionsFramework</span><span class="o">::</span><span class="na">http</span><span class="p">(</span><span class="s1">&#39;Example&#39;</span><span class="p">,</span> <span class="s1">&#39;example&#39;</span><span class="p">);</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="k">function</span> <span class="nf">example</span><span class="p">(</span><span class="nx">ServerRequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">ResponseInterface</span> <span class="nv">$response</span><span class="p">)</span><span class="o">:</span> <span class="nx">ResponseInterface</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="p">{</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="nv">$method</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    <span class="k">if</span> <span class="p">(</span><span class="nv">$method</span> <span class="o">!==</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;Method Not Allowed. Only GET requests are supported.&#39;</span><span class="p">);</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>        <span class="k">return</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">withStatus</span><span class="p">(</span><span class="mi">405</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">withHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>    <span class="p">}</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>    <span class="nv">$greeting</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">;</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>    <span class="c1">// Return the response as plain text</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="nv">$greeting</span><span class="p">);</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>    <span class="k">return</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">withHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<p>Testing locally:</p>
+<p>To test locally run the following commands:</p>
+<div class="language-shell highlight"><span class="filename">For Windows</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>composer<span class="w"> </span>require<span class="w"> </span>google/cloud-functions-framework<span class="w"> </span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>or
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;FUNCTION_TARGET=example&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>php<span class="w"> </span>-S<span class="w"> </span>localhost:8080<span class="w"> </span>vendor/google/cloud-functions-framework/router.php
+</span></code></pre></div>
+<div class="language-shell highlight"><span class="filename">mac/*nix run</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FUNCTION_TARGET</span><span class="o">=</span>example
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>php<span class="w"> </span>-S<span class="w"> </span>localhost:8080<span class="w"> </span>vendor/google/cloud-functions-framework/router.php
+</span></code></pre></div>
+</details>
+<details class="python">
+<summary>Python</summary>
+<p>Prerequisites: Installation of Php, currently supported Php versions are:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>jellyspec runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python 3.12</td>
+<td><code>python312</code></td>
+</tr>
+<tr>
+<td>Python 3.11</td>
+<td><code>python311</code></td>
+</tr>
+<tr>
+<td>Python 3.10</td>
+<td><code>python310</code></td>
+</tr>
+<tr>
+<td>Python 3.9</td>
+<td><code>python39</code></td>
+</tr>
+<tr>
+<td>Python 3.8</td>
+<td><code>python38</code></td>
+</tr>
+<tr>
+<td>Python 3.7</td>
+<td><code>python37</code></td>
+</tr>
+</tbody>
+</table>
+<p>Template creation:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>jellyfaas<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>&lt;dir<span class="w"> </span>location&gt;<span class="w"> </span>-l<span class="w"> </span>python<span class="w"> </span>-n<span class="w"> </span>&lt;<span class="k">function</span><span class="w"> </span>name&gt;
+</span></code></pre></div>
+<p>Basic HTTP Request:</p>
+<p>This sample basic request that returns 'hello world', it also included validation that a <code>GET</code> verb is being used.</p>
+<details class="example">
+<summary>Python Code Sample</summary>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span> <span class="nn">functions_framework</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nd">@functions_framework</span><span class="o">.</span><span class="n">http</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">})</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Method Not Allowed&#39;</span><span class="p">}),</span> <span class="mi">405</span>
+</span></code></pre></div>
+</details>
+<p>Testing locally:</p>
+<p>To test locally run the following commands:</p>
+<div class="language-shell highlight"><span class="filename">Testing</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pip<span class="w"> </span>install<span class="w"> </span>functions-framework<span class="w"> </span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>functions-framework<span class="w"> </span>--target<span class="w"> </span>Example<span class="w"> </span>--debug
+</span></code></pre></div>
+</details>
+<details class="go">
+<summary>Go</summary>
+<p>Prerequisites: Installation of Php, currently supported Php versions are:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>jellyspec runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Go 1.22</td>
+<td><code>go122</code></td>
+</tr>
+<tr>
+<td>Go 1.21</td>
+<td><code>go121</code></td>
+</tr>
+<tr>
+<td>Go 1.20</td>
+<td><code>go120</code></td>
+</tr>
+<tr>
+<td>Go 1.19</td>
+<td><code>go119</code></td>
+</tr>
+<tr>
+<td>Go 1.18</td>
+<td><code>go118</code></td>
+</tr>
+<tr>
+<td>Go 1.16</td>
+<td><code>go116</code></td>
+</tr>
+<tr>
+<td>Go 1.13</td>
+<td><code>go113</code></td>
+</tr>
+<tr>
+<td>Go 1.12</td>
+<td><code>go112</code></td>
+</tr>
+<tr>
+<td>Go 1.11</td>
+<td><code>go111</code></td>
+</tr>
+</tbody>
+</table>
+<p>Template creation:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>jellyfaas<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>&lt;dir<span class="w"> </span>location&gt;<span class="w"> </span>-l<span class="w"> </span>go<span class="w"> </span>-n<span class="w"> </span>&lt;<span class="k">function</span><span class="w"> </span>name&gt;
+</span></code></pre></div>
+<p>Basic HTTP Request:</p>
+<p>This sample basic request that returns 'hello world', it also included validation that a <code>GET</code> verb is being used.</p>
+<details class="example">
+<summary>Go Code Sample</summary>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">example</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="s">&quot;encoding/json&quot;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="s">&quot;github.com/GoogleCloudPlatform/functions-framework-go/functions&quot;</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="s">&quot;net/http&quot;</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">)</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="kd">func</span><span class="w"> </span><span class="nx">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">    </span><span class="nx">functions</span><span class="p">.</span><span class="nx">HTTP</span><span class="p">(</span><span class="s">&quot;hello_world&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">helloWorld</span><span class="p">)</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="p">}</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="kd">func</span><span class="w"> </span><span class="nx">helloWorld</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Method</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">MethodGet</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">        </span><span class="nx">w</span><span class="p">.</span><span class="nx">WriteHeader</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusMethodNotAllowed</span><span class="p">)</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">        </span><span class="k">return</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="w">    </span><span class="nx">message</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="w">    </span><span class="nx">w</span><span class="p">.</span><span class="nx">Header</span><span class="p">().</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="w">    </span><span class="nx">json</span><span class="p">.</span><span class="nx">NewEncoder</span><span class="p">(</span><span class="nx">w</span><span class="p">).</span><span class="nx">Encode</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">message</span><span class="p">})</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<p>Testing locally:</p>
+<p>To test locally run the following commands:</p>
+<div class="language-shell highlight"><span class="filename">For Windows</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;FUNCTION_TARGET=Example&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;LOCAL_ONLY=true&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>go<span class="w"> </span>run<span class="w"> </span>cmd/main.go
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>or
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;FUNCTION_TARGET=example&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>php<span class="w"> </span>-S<span class="w"> </span>localhost:8080<span class="w"> </span>vendor/google/cloud-functions-framework/router.php
+</span></code></pre></div>
+<div class="language-shell highlight"><span class="filename">mac/*nix run</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">FUNCTION_TARGET</span><span class="o">=</span>Example<span class="w"> </span><span class="nv">LOCAL_ONLY</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>go<span class="w"> </span>run<span class="w"> </span>cmd/main.go
+</span></code></pre></div>
+</details>
+<details class="ruby">
+<summary>Ruby</summary>
+<p>Prerequisites: Installation of Php, currently supported Php versions are:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>jellyspec runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ruby 3.2</td>
+<td><code>ruby32</code></td>
+</tr>
+<tr>
+<td>Ruby 3.0</td>
+<td><code>ruby30</code></td>
+</tr>
+<tr>
+<td>Ruby 2.7</td>
+<td><code>ruby27</code></td>
+</tr>
+<tr>
+<td>Ruby 2.6</td>
+<td><code>ruby26</code></td>
+</tr>
+</tbody>
+</table>
+<p>Template creation:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>jellyfaas<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>&lt;dir<span class="w"> </span>location&gt;<span class="w"> </span>-l<span class="w"> </span>php<span class="w"> </span>-n<span class="w"> </span>&lt;<span class="k">function</span><span class="w"> </span>name&gt;
+</span></code></pre></div>
+<p>Basic HTTP Request:</p>
+<p>This sample basic request that returns 'hello world', it also included validation that a <code>GET</code> verb is being used.</p>
+<details class="example">
+<summary>Ruby Code Sample</summary>
+<div class="language-ruby highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="w">    </span><span class="nb">require</span><span class="w"> </span><span class="s1">&#39;functions_framework&#39;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span><span class="nb">require</span><span class="w"> </span><span class="s1">&#39;json&#39;</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="no">FunctionsFramework</span><span class="o">.</span><span class="n">http</span><span class="w"> </span><span class="s1">&#39;hello_world&#39;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">request</span><span class="o">|</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">        </span><span class="o">[</span><span class="mi">405</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Content-Type&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="o">[</span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;error&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;Method Not Allowed&#39;</span><span class="w"> </span><span class="p">}</span><span class="o">.</span><span class="n">to_json</span><span class="o">]]</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">        </span><span class="o">[</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Content-Type&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="o">[</span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;message&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="w"> </span><span class="p">}</span><span class="o">.</span><span class="n">to_json</span><span class="o">]]</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">    </span><span class="k">end</span>
+</span></code></pre></div>
+</details>
+<p>Testing locally:</p>
+<p>To test locally run the following commands:</p>
+<div class="language-shell highlight"><span class="filename">Testing</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>bundle<span class="w"> </span>install
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>bundle<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>functions-framework-ruby<span class="w"> </span>--target<span class="w"> </span>example
+</span></code></pre></div>
+</details>
+<details class="dotnet">
+<summary>Dotnet</summary>
+<p>Prerequisites: Installation of Php, currently supported Php versions are:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>jellyspec runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.NET 8</td>
+<td><code>dotnet8</code></td>
+</tr>
+<tr>
+<td>.NET 6</td>
+<td><code>dotnet6</code></td>
+</tr>
+</tbody>
+</table>
+<p>Template creation:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>jellyfaas<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>&lt;dir<span class="w"> </span>location&gt;<span class="w"> </span>-l<span class="w"> </span>dotnet<span class="w"> </span>-n<span class="w"> </span>&lt;<span class="k">function</span><span class="w"> </span>name&gt;
+</span></code></pre></div>
+<p>Basic HTTP Request:</p>
+<p>This sample basic request that returns 'hello world', it also included validation that a <code>GET</code> verb is being used.</p>
+<details class="example">
+<summary>Dotnet Code Sample</summary>
+<p>``` dotnet
+using Google.Cloud.Functions.Framework;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Text.Json;
+using System.Threading.Tasks;</p>
+<p>namespace ExampleProject
+{
+public class HelloWorld : IHttpFunction
+{
+    private readonly ILogger<HelloWorld> _logger;</p>
+<div class="language-text highlight"><pre><span></span><code>public HelloWorld(ILogger&lt;HelloWorld&gt; logger)
+{
+_logger = logger;
+}
+
+public async Task HandleAsync(HttpContext context)
+{
+if (context.Request.Method != HttpMethods.Get)
+{
+    context.Response.StatusCode = StatusCodes.Status405MethodNotAllowed;
+    await context.Response.WriteAsync(&quot;Only GET requests allowed.&quot;);
+    return;
+}
+
+var message = &quot;Hello, World!&quot;;
+context.Response.ContentType = &quot;application/json&quot;;
+await context.Response.WriteAsync(JsonSerializer.Serialize(message));
+}
+</code></pre></div>
+<p>}
+}</p>
+<p>```</p>
+</details>
+<p>Testing locally:</p>
+<p>To test locally run the following commands:</p>
+<div class="language-shell highlight"><span class="filename">Testing Command</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>dotnet<span class="w"> </span>run
+</span></code></pre></div>
+</details>
+<details class="node">
+<summary>Node</summary>
+<p>Prerequisites: Installation of Php, currently supported Php versions are:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>jellyspec runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Node.js 20</td>
+<td><code>nodejs20</code></td>
+</tr>
+<tr>
+<td>Node.js 18</td>
+<td><code>nodejs18</code></td>
+</tr>
+<tr>
+<td>Node.js 16</td>
+<td><code>nodejs16</code></td>
+</tr>
+<tr>
+<td>Node.js 14</td>
+<td><code>nodejs14</code></td>
+</tr>
+<tr>
+<td>Node.js 12</td>
+<td><code>nodejs12</code></td>
+</tr>
+<tr>
+<td>Node.js 10</td>
+<td><code>nodejs10</code></td>
+</tr>
+<tr>
+<td>Node.js 8</td>
+<td><code>nodejs8</code></td>
+</tr>
+<tr>
+<td>Node.js 6</td>
+<td><code>nodejs6</code></td>
+</tr>
+</tbody>
+</table>
+<p>Template creation:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>jellyfaas<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>&lt;dir<span class="w"> </span>location&gt;<span class="w"> </span>-l<span class="w"> </span>node<span class="w"> </span>-n<span class="w"> </span>&lt;<span class="k">function</span><span class="w"> </span>name&gt;
+</span></code></pre></div>
+<p>Basic HTTP Request:</p>
+<p>This sample basic request that returns 'hello world', it also included validation that a <code>GET</code> verb is being used.</p>
+<details class="example">
+<summary>Node Code Sample</summary>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="n">functions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="err">&#39;</span><span class="nd">@google</span><span class="o">-</span><span class="n">cloud</span><span class="o">/</span><span class="n">functions</span><span class="o">-</span><span class="n">framework</span><span class="err">&#39;</span><span class="p">);</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="n">functions</span><span class="p">.</span><span class="na">http</span><span class="p">(</span><span class="err">&#39;</span><span class="n">hello_world</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">method</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="err">&#39;</span><span class="n">GET</span><span class="err">&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="mi">405</span><span class="p">).</span><span class="na">send</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Method</span><span class="w"> </span><span class="n">Not</span><span class="w"> </span><span class="n">Allowed</span><span class="err">&#39;</span><span class="p">);</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Hello</span><span class="p">,</span><span class="w"> </span><span class="n">World</span><span class="o">!</span><span class="err">&#39;</span><span class="p">;</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="err">&#39;</span><span class="p">);</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">    </span><span class="p">});</span>
+</span></code></pre></div>
+</details>
+<p>Testing locally:</p>
+<p>To test locally run the following commands:</p>
+<div class="language-shell highlight"><span class="filename">For Windows, Mac/*nix</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>npm<span class="w"> </span>install<span class="w"> </span>@google-cloud/functions-framework
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>npm<span class="w"> </span>start
+</span></code></pre></div>
+</details>
+<h3 id="help-things-are-not-working">Help, things are not working<a class="headerlink" href="#help-things-are-not-working" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Getting a 409 error</td>
+<td>Check you have the correct REST verb, for example using a <code>GET</code> not a <code>POST</code>, and if you are using a <code>GET</code> you do not have body.</td>
+</tr>
+<tr>
+<td>I cannot use Tesseract</td>
+<td>Tesseract is installed on the OS Level (not as in import), and we currently do not support this, however it is on the roadmap.</td>
+</tr>
+<tr>
+<td>CORS Suuport</td>
+<td>If you get issues connecting with access from UI's this is normally down to CORS', it is good practice to add cors to each function.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
