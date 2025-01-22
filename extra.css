@@ -105,6 +105,7 @@ a.grid-item:hover {
 
 ol {
   list-style-type: decimal;
+<<<<<<< HEAD
 }
 
 .md-typeset .admonition.inner-grey,
@@ -119,4 +120,6 @@ ol {
 .md-typeset .inner-grey > .admonition-title::before,
 .md-typeset .inner-grey > summary::before {
   background-color: rgba(0, 0, 0, 0);
+=======
+>>>>>>> c5f208b17ab4cb83564fdffb99b3d899826643a1
 }
