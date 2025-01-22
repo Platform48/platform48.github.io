@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../using_functioncalling/">
-      
-      
-        <link rel="next" href="../../guides/sdk_guide/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Structured Output - JellyFaaS Docs</title>
+        <title>Direct Calling - JellyFaaS Docs</title>
       
     
     
@@ -88,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-structured-output" class="md-skip">
+        <a href="#direct-calling" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Structured Output
+              Direct Calling
             
           </span>
         </div>
@@ -564,19 +560,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -590,7 +584,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             AI Tutorials
@@ -685,30 +679,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Structured Output
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../using_structured_output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -717,44 +691,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-structued-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is Structued output?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tutorial" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tutorial
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1169,9 +1105,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-structued-output" class="md-nav__link">
+  <a href="#what-is-direct-calling" class="md-nav__link">
     <span class="md-ellipsis">
-      What is Structued output?
+      What is direct calling?
     </span>
   </a>
   
@@ -1183,6 +1119,30 @@
       Tutorial
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-the-sdks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the SDK's
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-query-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other query options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1201,86 +1161,58 @@
                   
 
 
-<h1 id="using-structured-output">Using Structured output<a class="headerlink" href="#using-structured-output" title="Permanent link"></a></h1>
-<h2 id="what-is-structued-output">What is Structued output?<a class="headerlink" href="#what-is-structued-output" title="Permanent link"></a></h2>
-<p>Asking question on web based client works really well for human interaction. However when working programically you may want the response to be in a specfic format, one that can we easily mapped to a class or struct, allowing you to use the stand language patterns of deserializing json into an object/class.</p>
+<h1 id="direct-calling">Direct Calling<a class="headerlink" href="#direct-calling" title="Permanent link"></a></h1>
+<h2 id="what-is-direct-calling">What is direct calling?<a class="headerlink" href="#what-is-direct-calling" title="Permanent link"></a></h2>
+<p>This is simply just the abilty to ask the AI model a question, the same as you would do when using ChatGPT or another web client.</p>
+<p>This is just included for completeness, so we provided more technicaly patterns of AI, but also the most straight forward usecase too.</p>
 <h2 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link"></a></h2>
-<p>For ease and to provide clarity we are going to just use 'Direct Calling', rather than function calling or RAG for example. However structured output can be added to any of the other patterns.</p>
-<p>So the question we are going to ask is</p>
-<div class="language-shell highlight"><span class="filename">Query</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Tell<span class="w"> </span>me<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>game<span class="w"> </span>Pang<span class="w"> </span><span class="k">in</span><span class="w"> </span>under<span class="w"> </span><span class="m">100</span><span class="w"> </span>words
+<p>We are simply just going to ask a question:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Tell me about the game film Aladdin in under 100 words
 </span></code></pre></div>
-<p>running this as is gives the following response, in the standard output format:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pang, also known as \&quot;Buster Bros\&quot;, is a classic arcade game where you use a cannon to shoot at bouncing balls. Each ball is a \&quot;pang\&quot;, and you must break it into two smaller pongs by hitting it at the right spot.  The pongs become progressively smaller and faster until they disappear.  As you progress, the difficulty increases with more balls, new types of balls, and even balls that ricochet.  The goal is to clear the screen of all pongs before they reach the bottom. \n&quot;</span><span class="p">,</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tell me about the game Pang in under 100 words&quot;</span><span class="p">,</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;spanId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OtukXDONg&quot;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+<p>To do this you can just simply use this <code>curl</code> command (ensure you have a valid token):</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">&#39;https://ai.jellyfaas.com/query-service/v1/query&#39;</span><span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;jfwt: &lt;token&gt;&#39;</span><span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>--data<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s1">    &quot;query&quot;: &quot;Tell me about the game film Aladdin in under 100 words&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
-<p>To use structured output (when using REST) you need to create a <code>jsonschema</code> of the expected output. For more information on the Json Schema standard see <a href="https://json-schema.org/">here</a>.</p>
-<p>Jellyfaas (for ease of use base64 encodes the request and response) rathen than embedding json into json.</p>
-<p>For the the above we require the following format:</p>
+<p>you will get a result :</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The prompt asked, this is required&quot;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The response to the question&quot;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nt">&quot;wordCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The count of the number of words, this is required&quot;</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="s2">&quot;question&quot;</span><span class="p">,</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="s2">&quot;wordCount&quot;</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span><span class="p">]</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">}</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="err">`Jso</span><span class="kc">n</span><span class="err">Schema`</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">qui</span><span class="kc">te</span><span class="w"> </span><span class="err">easy</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">u</span><span class="kc">n</span><span class="err">ders</span><span class="kc">tan</span><span class="err">d</span><span class="p">,</span><span class="w"> </span><span class="err">bascially</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">his</span><span class="w"> </span><span class="err">simple</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">decribi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="kc">t</span><span class="err">hree</span><span class="w"> </span><span class="kc">f</span><span class="err">ields</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="kc">nee</span><span class="err">d</span><span class="w"> </span><span class="err">back</span><span class="p">:</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="err">*</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">Ques</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="err">*</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">Respo</span><span class="kc">nse</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">ques</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span>
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="err">*</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">work</span><span class="w"> </span><span class="err">cou</span><span class="kc">nt</span><span class="err">.</span>
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
-</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="err">We</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="kc">n</span><span class="w"> </span><span class="err">spec</span><span class="kc">f</span><span class="err">i</span><span class="kc">f</span><span class="err">ied</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">hese</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">required.</span>
-</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
-</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="err">O</span><span class="kc">n</span><span class="err">ce</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">base</span><span class="mi">64</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">coded</span><span class="p">:</span>
-</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
-</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="err">```shell</span><span class="w"> </span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="err">=base</span><span class="mi">64</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">coded</span><span class="w"> </span><span class="err">jso</span><span class="kc">ns</span><span class="err">chema</span>
-</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="err">eyJ</span><span class="mf">0e</span><span class="err">XBlIjoib</span><span class="mi">2</span><span class="err">JqZWN</span><span class="mi">0</span><span class="err">IiwicHJvcGVydGllcyI</span><span class="mf">6e</span><span class="err">yJxdWVzdGlvbiI</span><span class="mf">6e</span><span class="err">yJ</span><span class="mf">0e</span><span class="err">XBlIjoic</span><span class="mi">3</span><span class="err">RyaW</span><span class="mi">5</span><span class="kc">n</span><span class="err">IiwiZGVzY</span><span class="mi">3</span><span class="err">JpcHRpb</span><span class="mi">24</span><span class="err">iOiJUaGUgcHJvbXB</span><span class="mi">0</span><span class="err">IGFza</span><span class="mi">2</span><span class="err">VkLCB</span><span class="mi">0</span><span class="err">aGlzIGlzIHJlcXVpcmVkI</span><span class="kc">n</span><span class="mi">0</span><span class="err">sIm</span><span class="mi">91</span><span class="err">dHB</span><span class="mi">1</span><span class="err">dCI</span><span class="mf">6e</span><span class="err">yJ</span><span class="mf">0e</span><span class="err">XBlIjoic</span><span class="mi">3</span><span class="err">RyaW</span><span class="mi">5</span><span class="kc">n</span><span class="err">IiwiZGVzY</span><span class="mi">3</span><span class="err">JpcHRpb</span><span class="mi">24</span><span class="err">iOiJUaGUgcmVzcG</span><span class="mi">9</span><span class="err">uc</span><span class="mi">2</span><span class="err">UgdG</span><span class="mi">8</span><span class="err">gdGhlIHF</span><span class="mi">1</span><span class="err">ZXN</span><span class="mi">0</span><span class="err">aW</span><span class="mi">9</span><span class="err">uI</span><span class="kc">n</span><span class="mi">0</span><span class="err">sI</span><span class="kc">n</span><span class="err">dvcmRDb</span><span class="mi">3</span><span class="err">VudCI</span><span class="mf">6e</span><span class="err">yJ</span><span class="mf">0e</span><span class="err">XBlIjoic</span><span class="mi">3</span><span class="err">RyaW</span><span class="mi">5</span><span class="kc">n</span><span class="err">IiwiZGVzY</span><span class="mi">3</span><span class="err">JpcHRpb</span><span class="mi">24</span><span class="err">iOiJUaGUgY</span><span class="mi">291</span><span class="err">b</span><span class="kc">n</span><span class="err">Qgb</span><span class="mi">2</span><span class="err">YgdGhlIG</span><span class="mi">51</span><span class="err">bWJlciBvZiB</span><span class="mi">3</span><span class="err">b</span><span class="mi">3</span><span class="err">JkcywgdGhpcyBpcyByZXF</span><span class="mi">1</span><span class="err">aXJlZCJ</span><span class="mi">9</span><span class="kc">f</span><span class="err">SwicmVxdWlyZWQiOlsicXVlc</span><span class="mi">3</span><span class="err">Rpb</span><span class="mi">24</span><span class="err">iLCJvdXRwdXQiLCJ</span><span class="mi">3</span><span class="err">b</span><span class="mi">3</span><span class="err">JkQ</span><span class="mi">291</span><span class="err">b</span><span class="kc">n</span><span class="err">QiXX</span><span class="mi">0</span><span class="err">=</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;\&quot;Disney&#39;s Aladdin\&quot; is a platforming game based on the 1992 animated film. Players control Aladdin as he traverses various levels inspired by the movie, including the Cave of Wonders and Agrabah&#39;s marketplace. Gameplay involves jumping, collecting treasure, and fighting enemies like Abu and the Cave of Wonders&#39; guardian. Aladdin can use items like the magic carpet and his scimitar to overcome obstacles. The game features catchy music from the film and a classic side-scrolling platforming style. \n&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tell me about the game film Aladdin in under 100 words&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;spanId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hbPwsvONg&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<details class="information">
-<summary>Information</summary>
-<p>Websites such as <a href="https://www.base64decode.org/">https://www.base64decode.org/</a> exist to help create base64 string, or you can use the JellyFaaS CLI or any libray included in your language of choice.</p>
-</details>
-<p>Now we add this to the request:</p>
-<div class="language-json highlight"><span class="filename">Request with structured output</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tell me about the game Pang in under 100 words&quot;</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;structured_output&quot;</span><span class="p">:</span><span class="s2">&quot;eyJ0eXBlIjoib2JqZWN0IiwicHJvcGVydGllcyI6eyJxdWVzdGlvbiI6eyJ0eXBlIjoic3RyaW5nIiwiZGVzY3JpcHRpb24iOiJUaGUgcHJvbXB0IGFza2VkLCB0aGlzIGlzIHJlcXVpcmVkIn0sIm91dHB1dCI6eyJ0eXBlIjoic3RyaW5nIiwiZGVzY3JpcHRpb24iOiJUaGUgcmVzcG9uc2UgdG8gdGhlIHF1ZXN0aW9uIn0sIndvcmRDb3VudCI6eyJ0eXBlIjoic3RyaW5nIiwiZGVzY3JpcHRpb24iOiJUaGUgY291bnQgb2YgdGhlIG51bWJlciBvZiB3b3JkcywgdGhpcyBpcyByZXF1aXJlZCJ9fSwicmVxdWlyZWQiOlsicXVlc3Rpb24iLCJvdXRwdXQiLCJ3b3JkQ291bnQiXX0=&quot;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>This returns:</p>
-<div class="language-json highlight"><span class="filename">Response</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">&quot;answer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJvdXRwdXQiOiAiUGFuZyBpcyBhbiBhcmNhZGUgZ2FtZSB3aGVyZSB5b3UgdXNlIGEgcGFkZGxlIHRvIGJvdW5jZSBiYWxscyBhdCBncm91cHMgb2YgY29sb3JmdWwgYnViYmxlcy4gSGl0dGluZyBhIGJ1YmJsZSBzcGxpdHMgaXQgaW50byBzbWFsbGVyIGJ1YmJsZXMsIGFuZCB0aGUgZ29hbCBpcyB0byBjbGVhciB0aGUgc2NyZWVuLiBUaGUgZ2FtZSBpcyBrbm93biBmb3IgaXRzIGFkZGljdGl2ZSBnYW1lcGxheSwgY2hhbGxlbmdpbmcgbGV2ZWxzLCBhbmQgZGlzdGluY3RpdmUgc291bmQgZWZmZWN0cy4iLCAicXVlc3Rpb24iOiAiVGVsbCBtZSBhYm91dCB0aGUgZ2FtZSBQYW5nIGluIHVuZGVyIDEwMCB3b3JkcyIsICJ3b3JkQ291bnQiOiAiNjAifQ==&quot;</span><span class="p">,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tell me about the game Pang in under 100 words&quot;</span><span class="p">,</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">&quot;spanId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dG1a_DdHg&quot;</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Decoding this <code>answer</code> gives us:</p>
-<div class="language-json highlight"><span class="filename">Structured output response</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pang is an arcade game where you use a paddle to bounce balls at groups of colorful bubbles. Hitting a bubble splits it into smaller bubbles, and the goal is to clear the screen. The game is known for its addictive gameplay, challenging levels, and distinctive sound effects.&quot;</span><span class="p">,</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tell me about the game Pang in under 100 words&quot;</span><span class="p">,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;wordCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60&quot;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
-</span></code></pre></div>
+<h3 id="using-the-sdks">Using the SDK's<a class="headerlink" href="#using-the-sdks" title="Permanent link"></a></h3>
+<h3 id="other-query-options">Other query options<a class="headerlink" href="#other-query-options" title="Permanent link"></a></h3>
+<p>REST Options, you can optionally set these when using the SDK too (see the SDK docs):</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>Y</td>
+<td>The query to ask</td>
+</tr>
+<tr>
+<td>ai_platform</td>
+<td>N</td>
+<td>Optional of Gemini (default, part of the product, or you can use your own) or OpenAI ChatGPT.</td>
+</tr>
+<tr>
+<td>api+key</td>
+<td>N</td>
+<td>If you want to bring your own API key (for Gemini, or ChatGTP [required])</td>
+</tr>
+</tbody>
+</table>
 
 
 
