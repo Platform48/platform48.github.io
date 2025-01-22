@@ -1362,16 +1362,16 @@ The `jellyspec.json` file should be placed in the root directory of your project
 <hr />
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link"></a></h2>
 <details class="quote" open="open">
-<summary>$jellyspecversion</summary>
+<summary>$jellyspecversion <code>string</code></summary>
 <p>Specifies the version of this configuration file format. The only valid value is <code>"v1.0.0"</code>. </p>
 </details>
 <details class="quote" open="open">
-<summary>name</summary>
+<summary>name <code>string</code></summary>
 <p>The human-readable name of the function. <code>name</code> may include spaces and special characters. </p>
 <p>This property is purely for presentation/readability, while <code>shortname</code> is used to reference the function via code.</p>
 </details>
 <details class="quote" open="open">
-<summary>shortname</summary>
+<summary>shortname <code>string</code></summary>
 <p>The function ID. This is used to generate the function's endpoint, and is used to reference the function via code. <code>shortname</code> may not include special characters, except for hyphens and underscores.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1379,8 +1379,8 @@ The `jellyspec.json` file should be placed in the root directory of your project
 </div>
 </details>
 <details class="quote" open="open">
-<summary>runtime</summary>
-<p>The language and version the function is coded in. This is used internally to deploy the function correctly. The supported runtime versions include:</p>
+<summary>runtime <code>string</code></summary>
+<p>The language and version the function is coded in. This is used internally to deploy the function correctly. The supported runtimes for each language include:</p>
 <table>
 <thead>
 <tr>
@@ -1483,7 +1483,7 @@ The `jellyspec.json` file should be placed in the root directory of your project
 </div>
 </details>
 <details class="quote" open="open">
-<summary>entrypoint</summary>
+<summary>entrypoint <code>string</code></summary>
 <p>The name of the entrypoint method, in the function's code. Case-sensitive.</p>
 <p>For example, given a simple python cloud function:
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># main.py</span>
@@ -1497,14 +1497,14 @@ The `jellyspec.json` file should be placed in the root directory of your project
 <code>entrypoint</code> would be set to <code>"App"</code>.</p>
 </details>
 <details class="quote" open="open">
-<summary>description</summary>
+<summary>description <code>string</code></summary>
 <p>A short description of the function - ideally 1-2 sentences. This is used to populate some fields in the JellyFaaS website, and may help the function integrate with AI tools.</p>
 </details>
 <details class="quote" open="open">
-<summary>requirements</summary>
+<summary>requirements <code>object</code></summary>
 <p>The <code>requirements</code> property defines the function's inputs and outputs. It is composed of the following child properties:</p>
 <details class="inner-grey">
-<summary>requirements.requestType</summary>
+<summary>requirements.requestType <code>string</code></summary>
 <p>The HTTP method handled by the function.</p>
 <p>Options:</p>
 <ul>
@@ -1520,7 +1520,7 @@ The `jellyspec.json` file should be placed in the root directory of your project
 </div>
 </details>
 <details class="inner-grey">
-<summary>requirements.inputType</summary>
+<summary>requirements.inputType <code>string</code></summary>
 <p>The expected format of the request body. May be omitted to default to <code>"NONE"</code></p>
 <p>Options:</p>
 <ul>
@@ -1545,7 +1545,7 @@ The `jellyspec.json` file should be placed in the root directory of your project
 </ul>
 </details>
 <details class="inner-grey">
-<summary>requirements.outputType</summary>
+<summary>requirements.outputType <code>string</code></summary>
 <p>The format of the response body. May be omitted to default to <code>"NONE"</code></p>
 <p>Options:</p>
 <ul>
@@ -1570,23 +1570,223 @@ The `jellyspec.json` file should be placed in the root directory of your project
 </ul>
 </details>
 <details class="inner-grey">
-<summary>requirements.queryParams</summary>
+<summary>requirements.queryParams <code>array</code></summary>
+<p>A list of query parameters expected by the function.
+Here is an example <code>queryParams</code>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&quot;queryParams&quot;: [
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    {
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        &quot;name&quot;: &quot;width&quot;,
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        &quot;required&quot;: true,
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        &quot;description&quot;: &quot;Width to resize some input image to&quot;,
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        &quot;exampleData&quot;: &quot;width=640&quot;
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    },
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    {
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        &quot;name&quot;: &quot;height&quot;,
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        &quot;required&quot;: true,
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        &quot;description&quot;: &quot;Height to resize some input image to&quot;,
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        &quot;exampleData&quot;: &quot;height=360&quot;
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    }
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>],
+</span></code></pre></div></p>
+<p>Each item of <code>queryParams</code> should be an object with the following properties:</p>
+<details class="quote">
+<summary>name <code>string</code></summary>
+<p>The name or "key" of the  query parameter. Should be lowercase, with no special characters.</p>
+</details>
+<details class="quote">
+<summary>required <code>boolean</code></summary>
+<p>Default value: <code>false</code></p>
+<p>If the function requires this parameter to be specified, <code>required</code> should be <code>true</code>. If the parameter is optional, choose <code>false</code>.</p>
+</details>
+<details class="quote">
+<summary>description <code>string</code></summary>
+<p>A short description of the usage of the query parameter. This is used to populate the website and aides with integration with AI tools.</p>
+</details>
+<details class="quote">
+<summary>exampleData <code>string</code></summary>
+<p>A snippet showing correct usage of the query param, ideally in <code>&lt;name&gt;=&lt;value&gt;</code> format. e.g. <code>"exampleData":"town=bath"</code></p>
+</details>
+</details>
+<details class="inner-grey" open="open">
+<summary>requirements.inputSchema <code>object</code></summary>
+<p><code>inputSchema</code> defines the expected structued of incoming HTTP request bodies. It is used by the JellyFaaS website for documentation on the function's page, by the SDKs to validate outgoing client requests, and for AI function calling.</p>
+<p><code>inputSchema</code> is interpretted differently, depending on the value of <code>inputType</code>.</p>
+<ul>
+<li>If <code>inputType</code> is <code>"NONE"</code> (or omitted), then <code>inputSchema</code> should be omitted.</li>
+<li>If <code>inputType</code> is <code>"JSON"</code>, then <code>inputSchema</code> is interpretted as a JSON Schema object.</li>
+<li>If <code>inputType</code> is <code>"FILE"</code>, then <code>inputSchema</code> is interpretted as a file schema object.</li>
+</ul>
+<details class="quote" open="open">
+<summary>requirements.inputSchema (as JSON Schema) <code>object</code></summary>
+<p>Schema of incoming <em>JSON</em> bodies. i.e., requests with <code>Content-Type: application/json</code>.</p>
+<p>Must conform to the JSON Schema specification. For details, see <a href="https://json-schema.org/">JSON Schema documentation</a>.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">JSON Schema Limitations</p>
+<p>Be aware that some advanced features of JSON Schema may not work fully with AI function calling or SDK request validation.</p>
+<p>For guidance on which features are supported, refer to OpenAI's <a href="https://platform.openai.com/docs/guides/structured-outputs?context=with_parse#supported-schemas">Supported Schemas documentation</a>.</p>
+</div>
+<p>As an example, given a function which expects the following nested JSON object:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;employee&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sonoo&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="nt">&quot;salary&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">56000</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="nt">&quot;married&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<p>A JSON Schema could be created to describe this structure:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="nt">&quot;employee&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">                </span><span class="nt">&quot;salary&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">                </span><span class="nt">&quot;married&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">            </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">                </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">                </span><span class="s2">&quot;salary&quot;</span><span class="p">,</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">                </span><span class="s2">&quot;married&quot;</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">        </span><span class="s2">&quot;employee&quot;</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<div class="admonition note annotate">
+<p class="admonition-title">CLI Generation</p>
+<p>The JellyFaaS CLI can help convert JSON to JSON Schema. See <a href="/guides/cli_commands/#spec">CLI Commands</a> for more.</p>
+</div>
+</details>
+<details class="quote">
+<summary>requirements.inputSchema (as File Schema) <code>object</code></summary>
+<p>A descrpition of a single file input expected by the function.
+Here is an example <code>inputSchema</code> describing a file of various expected image formats:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&quot;inputSchema&quot;: {
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    &quot;description&quot;: &quot;The input image file&quot;,
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    &quot;extensions&quot;: [&quot;png&quot;, &quot;jpg&quot;, &quot;jpeg&quot;],
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    &quot;required&quot;: true,
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>}
+</span></code></pre></div></p>
+<p><code>inputSchema</code> has the following properties:</p>
+<details class="inner-grey">
+<summary>description <code>string</code></summary>
+<p>A short description of the usage of the file. This is used to populate the website for documentation.</p>
 </details>
 <details class="inner-grey">
-<summary>requirements.inputSchema</summary>
+<summary>extensions <code>string</code></summary>
+<p>A list of valid, accepted file extensions. This is used by the SDK to validate requests.</p>
 </details>
 <details class="inner-grey">
-<summary>requirements.inputJsonExample</summary>
+<summary>required <code>boolean</code></summary>
+<p>Default value: <code>false</code></p>
+<p>If the function requires this parameter to be specified, <code>required</code> should be <code>true</code>. If the parameter is optional, choose <code>false</code>.</p>
+</details>
+</details>
 </details>
 <details class="inner-grey">
-<summary>requirements.outputSchema</summary>
+<summary>requirements.inputJsonExample <code>string</code></summary>
+<p>A short example of a valid JSON input. Should be omitted if <code>inputType</code> is not <code>JSON</code>.</p>
 </details>
 <details class="inner-grey">
-<summary>requirements.outputJsonExample</summary>
+<summary>requirements.outputSchema <code>object</code></summary>
+<div class="admonition note annotate">
+<p class="admonition-title"><code>inputSchema</code> vs <code>outputSchema</code></p>
+<p><code>outputSchema</code> follows the same general structure as <code>inputSchema</code>. The main difference is the omission of <code>required</code> properties.</p>
+</div>
+<p><code>outputSchema</code> defines the structued of outgoing HTTP response bodies. It is used by the JellyFaaS website for documentation on the function's page, by the SDKs to validate incoming responses, and for AI function calling.</p>
+<p><code>outputSchema</code> is interpretted differently, depending on the value of <code>outputType</code>.</p>
+<ul>
+<li>If <code>outputType</code> is <code>"NONE"</code> (or omitted), then <code>outputSchema</code> should be omitted.</li>
+<li>If <code>outputType</code> is <code>"JSON"</code>, then <code>outputSchema</code> is interpretted as a JSON Schema object.</li>
+<li>If <code>outputType</code> is <code>"FILE"</code>, then <code>outputSchema</code> is interpretted as a file schema object.</li>
+</ul>
+<details class="quote" open="open">
+<summary>requirements.outputSchema (as JSON Schema) <code>object</code></summary>
+<p>Schema of outgoing <em>JSON</em> bodies. i.e., responses with <code>Content-Type: application/json</code>.</p>
+<p>Must conform to the JSON Schema specification. For details, see <a href="https://json-schema.org/">JSON Schema documentation</a>.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">JSON Schema Limitations</p>
+<p>Be aware that some advanced features of JSON Schema may not work fully with AI function calling or SDK request validation.</p>
+<p>For guidance on which features are supported, refer to OpenAI's <a href="https://platform.openai.com/docs/guides/structured-outputs?context=with_parse#supported-schemas">Supported Schemas documentation</a>.</p>
+</div>
+<p>As an example, given a function which returns the following nested JSON object:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nt">&quot;employee&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sonoo&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="nt">&quot;salary&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">56000</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="nt">&quot;married&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+<p>A JSON Schema could be created to describe this structure:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="nt">&quot;employee&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">                </span><span class="nt">&quot;salary&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">                </span><span class="nt">&quot;married&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">            </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<div class="admonition note annotate">
+<p class="admonition-title">CLI Generation</p>
+<p>The JellyFaaS CLI can help convert JSON to JSON Schema. See <a href="/guides/cli_commands/#spec">CLI Commands</a> for more.</p>
+</div>
+</details>
+<details class="quote">
+<summary>requirements.outputSchema (as File Schema) <code>object</code></summary>
+<p>A descrpition of a single file returned by the function.
+Here is an example <code>outputSchema</code> describing a file of various expected image formats:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>&quot;outputSchema&quot;: {
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    &quot;description&quot;: &quot;The output image file&quot;,
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    &quot;extensions&quot;: [&quot;png&quot;, &quot;jpg&quot;]
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>}
+</span></code></pre></div></p>
+<p><code>outputSchema</code> has the following properties:</p>
+<details class="inner-grey">
+<summary>description <code>string</code></summary>
+<p>A short description of the usage of the file. This is used to populate the website for documentation.</p>
 </details>
 <details class="inner-grey">
-<summary>tags</summary>
+<summary>extensions <code>string</code></summary>
+<p>A list of returned file extensions. This is used to populate the website for documentation.</p>
 </details>
+</details>
+</details>
+<details class="inner-grey">
+<summary>requirements.outputJsonExample <code>string</code></summary>
+<p>A short example of a valid JSON output. Should be omitted if <code>outputType</code> is not <code>JSON</code>.</p>
+</details>
+</details>
+<details class="quote">
+<summary>tags <code>array</code></summary>
+<p>A list of tags for use with the JellyFaaS website. This aides in searchability. Tags should be lowercase, with no special characters.</p>
 </details>
 
 
