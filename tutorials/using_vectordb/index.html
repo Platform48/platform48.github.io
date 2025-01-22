@@ -30,6 +30,14 @@
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2h7v5h5v11H6zm2 8v2h8v-2zm0 4v2h5v-2z"/></svg>');}</style>
+
 
   
   
@@ -80,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-into-using-a-vector-databases-rag" class="md-skip">
+        <a href="#introduction-on-using-a-vector-databases-rag" class="md-skip">
           Skip to content
         </a>
       
@@ -1349,7 +1357,7 @@
                   
 
 
-<h1 id="introduction-into-using-a-vector-databases-rag">Introduction into using a Vector Databases (RAG)<a class="headerlink" href="#introduction-into-using-a-vector-databases-rag" title="Permanent link"></a></h1>
+<h1 id="introduction-on-using-a-vector-databases-rag">Introduction on using a Vector Databases (RAG)<a class="headerlink" href="#introduction-on-using-a-vector-databases-rag" title="Permanent link"></a></h1>
 <h2 id="what-is-rag-and-document-storage">What is RAG and Document storage?<a class="headerlink" href="#what-is-rag-and-document-storage" title="Permanent link"></a></h2>
 <p><strong>RAG (Retrieval Augmented Generation)</strong> is an AI architecture where a language model retrieves relevant information from an external knowledge base (like a VectorDB) before generating a response, improving the accuracy, informativeness, and factual correctness of the AI's output.</p>
 <p>AI Models are based on out of date information, and do not have access to your private data. If you want them to have contextual access to your personal data or documents you can use a VectorDB.</p>
@@ -1401,12 +1409,31 @@
 <p>You can upload documents direct to your account (The exact number depends on your account level) using the following REST command:</p>
 <div class="language-shell highlight"><span class="filename">Uploading a document into your environment</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">&#39;https://ai.jellyfaas.com/embedder-service/v1/upload?collection_name=test1&#39;</span><span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;jfwt: &lt;token&gt;&#39;</span><span class="w"> </span>--form<span class="w"> </span><span class="s1">&#39;file=@&quot;&lt;path to document&gt;&quot;&#39;</span>
 </span></code></pre></div>
+<p>this will return with the following information:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chunking&quot;</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;upload_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a892h3-3b7b-242s-24ms-978c685730a7&quot;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>This can take a while, you can check progress with:</p>
+<div class="language-shell highlight"><span class="filename">Checking progress of a upload</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>--location<span class="w"> </span>--request<span class="w"> </span>GET<span class="w"> </span><span class="s1">&#39;https://ai.jellyfaas.com/embedder-service/v1/status?upload_id=a87e9aa3-3b7b-486a-baad-978c685730a7&#39;</span><span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;jfwt: &lt;token&gt;&#39;</span><span class="w"> </span>--form<span class="w"> </span><span class="s1">&#39;file=@&quot;/path/to/file&quot;&#39;</span>
+</span></code></pre></div>
+<p>This will return the following response:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    &quot;collection_name&quot;: &quot;test1&quot;,
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    &quot;embedded_chunks&quot;: 3,
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    &quot;status&quot;: &quot;completed&quot;,
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    &quot;total_chunks&quot;: 3,
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    &quot;upload_completed&quot;: &quot;Fri, 17 Jan 2025 16:00:13 GMT&quot;,
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    &quot;upload_id&quot;: &quot;a892h3-3b7b-242s-24ms-978c685730a7&quot;,
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    &quot;upload_started&quot;: &quot;Fri, 17 Jan 2025 16:00:11 GMT&quot;
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>}
+</span></code></pre></div>
 <p>Once that has been uploaded, you can query the document with the previous command.</p>
 <h3 id="using-the-sdks">Using the SDK's<a class="headerlink" href="#using-the-sdks" title="Permanent link"></a></h3>
 <p>To do the same using the SDK's use the following code:</p>
 <h3 id="other-query-options">Other query options<a class="headerlink" href="#other-query-options" title="Permanent link"></a></h3>
-<p>REST Options, you can optionally set these when using the SDK too (see the ):</p>
+<p>REST Options, you can optionally set these when using the SDK too (see the SDK docs):</p>
 <table>
 <thead>
 <tr>
