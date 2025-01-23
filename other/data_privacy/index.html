@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#info-around-data-privacy-and-ai" class="md-skip">
+        <a href="#data-privacy-on-the-jellyfaas-platform" class="md-skip">
           Skip to content
         </a>
       
@@ -1013,6 +1013,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Data Privacy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1022,6 +1033,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-function-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct function calling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-calling-with-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function calling with AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-databases-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Databases (RAG)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sql Databases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gdpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      GDPR
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1047,6 +1131,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-function-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct function calling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-calling-with-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function calling with AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-databases-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Databases (RAG)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sql Databases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gdpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      GDPR
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1060,7 +1206,33 @@
                   
 
 
-<h1 id="info-around-data-privacy-and-ai">Info around data privacy and AI<a class="headerlink" href="#info-around-data-privacy-and-ai" title="Permanent link"></a></h1>
+<h1 id="data-privacy-on-the-jellyfaas-platform">Data privacy on the JellyFaaS platform<a class="headerlink" href="#data-privacy-on-the-jellyfaas-platform" title="Permanent link"></a></h1>
+<p>For each usecase the following statements defined how your data is handled/stored:</p>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link"></a></h2>
+<p>JellyFaaS uses <a href="kinde.com">Kinde</a> for authentication and authoriazation. JellyFaaS  stores your name and email, that is visable on the profile screen. We do not store passwords or other information about your account.</p>
+<h2 id="direct-function-calling">Direct function calling<a class="headerlink" href="#direct-function-calling" title="Permanent link"></a></h2>
+<p>Information on which account requested a function, the origin IP, the time taken and if it completed successfully.</p>
+<p>We do not store any data passed (encrypted end to end), or any data in the response, this includes query params,raw data and/or files.</p>
+<h2 id="function-calling-with-ai">Function calling with AI<a class="headerlink" href="#function-calling-with-ai" title="Permanent link"></a></h2>
+<p>Information on which account requested a function, the origin IP, the time taken and if it completed successfully.</p>
+<p>We do not store any data passed (encrypted end to end), or any data in the response, this includes query params,raw data and/or files. We do not store the query or any responses from the model.</p>
+<h2 id="vector-databases-rag">Vector Databases (RAG)<a class="headerlink" href="#vector-databases-rag" title="Permanent link"></a></h2>
+<p>Information on which account requested a function, the origin IP, the time taken and if it completed successfully.</p>
+<p>If you choose to use your Vector Database storage within your account we store the data as embedded vectors. We do not store the orginial document. The vector databases are protected in such a way that only your account can access with the correct and valid token.</p>
+<p>We do not store any data passed (encrypted end to end), or any data in the response, this includes query params,raw data and/or files. We do not store the query or any responses from the model.</p>
+<p>If a delete is requested, the database is dropped and data removed. Note, however that a backup of the data will exist within our system until back rotation has completed. We do not ever access the backups except for reason of checking they are valid, or restoring lost data.</p>
+<h2 id="sql-databases">Sql Databases<a class="headerlink" href="#sql-databases" title="Permanent link"></a></h2>
+<p>Information on which account requested a function, the origin IP, the time taken and if it completed successfully.</p>
+<p>We do not store any data passed (encrypted end to end), or any data in the response, this includes query params,raw data and/or files. We do not store the query or any responses from the model.</p>
+<h2 id="gdpr">GDPR<a class="headerlink" href="#gdpr" title="Permanent link"></a></h2>
+<p>"The General Data Protection Regulation (GDPR) is a European Union law on data protection and privacy for all individuals within the EU 1  and the European Economic Area 2  (EEA). Key consumer rights under GDPR include the right to access, rectify, erase, restrict processing, data portability, and object to processing of their personal data.</p>
+<ul>
+<li>Right to Access: Consumers have the right to request and obtain a copy of the personal data that an organization holds about them.</li>
+<li>Right to Rectification: Consumers have the right to request the correction of inaccurate or incomplete personal data.</li>
+<li>Right to Erasure ("Right to be Forgotten"): In certain circumstances, consumers have the right to request the deletion of their personal data.</li>
+<li>Right to Restriction of Processing: Consumers can request that the processing of their personal data be limited in certain circumstances.</li>
+<li>Right to Data Portability: Consumers have the right to receive their personal data in a structured, commonly used, and machine-readable format and to transmit that data to another controller.</li>
+</ul>
 
 
 
