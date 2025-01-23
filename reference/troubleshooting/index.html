@@ -826,27 +826,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../guides/jellyfaas_json/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The jellyfaas.json File
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -896,90 +875,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../template_projects/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Templates
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../jellyspec/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Jellyspec File
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    SDK Reference
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            SDK Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../node/" class="md-nav__link">
         
   
@@ -1006,6 +901,48 @@
   
   <span class="md-ellipsis">
     Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template_projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jellyspec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jellyspec File
   </span>
   
 
@@ -1095,9 +1032,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ny-function-doesnt-deploy" class="md-nav__link">
+  <a href="#my-function-doesnt-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Ny function doesn't deploy
+      My function doesn't deploy
     </span>
   </a>
   
@@ -1115,7 +1052,7 @@
         <li class="md-nav__item">
   <a href="#the-ai-is-not-working-as-expected" class="md-nav__link">
     <span class="md-ellipsis">
-      The AI is not working as expected
+      The AI is not working as expected?
     </span>
   </a>
   
@@ -1176,9 +1113,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ny-function-doesnt-deploy" class="md-nav__link">
+  <a href="#my-function-doesnt-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Ny function doesn't deploy
+      My function doesn't deploy
     </span>
   </a>
   
@@ -1196,7 +1133,7 @@
         <li class="md-nav__item">
   <a href="#the-ai-is-not-working-as-expected" class="md-nav__link">
     <span class="md-ellipsis">
-      The AI is not working as expected
+      The AI is not working as expected?
     </span>
   </a>
   
@@ -1218,9 +1155,29 @@
 
 
 <h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h1>
-<h2 id="ny-function-doesnt-deploy">Ny function doesn't deploy<a class="headerlink" href="#ny-function-doesnt-deploy" title="Permanent link"></a></h2>
+<h2 id="my-function-doesnt-deploy">My function doesn't deploy<a class="headerlink" href="#my-function-doesnt-deploy" title="Permanent link"></a></h2>
+<p>First check the error messages that you get from the cli, they usuallu give a good indicator of the issues.</p>
+<p>Common issues are:</p>
+<ul>
+<li>You are using a name that already exits, first check on the UI/CLI to see if this is the case.</li>
+<li>You have a malformed <code>jellyspec.json</code> file usually with:</li>
+<li>The name is incorrect</li>
+<li>The entry point does not match the code.</li>
+<li>You wanted to POST, but didn't change the spec to a POST, or you have not changed your code to check for the correct type.</li>
+<li>The code doesn't build and run, does it run locally in test mode?</li>
+</ul>
 <h2 id="i-cannot-call-out-to-jellyfaas">I cannot call out to Jellyfaas<a class="headerlink" href="#i-cannot-call-out-to-jellyfaas" title="Permanent link"></a></h2>
-<h2 id="the-ai-is-not-working-as-expected">The AI is not working as expected<a class="headerlink" href="#the-ai-is-not-working-as-expected" title="Permanent link"></a></h2>
+<ul>
+<li>Are you using you API key instead of your web token?</li>
+<li>Has the token expired?</li>
+<li>Are you sure you are calling the correct endpoint, and if programically calling are you using <code>https</code> instead of <code>http</code>?</li>
+<li>Are you using the correct REST Verb, is the function a <code>GET</code> and you are using a <code>POST</code>?</li>
+</ul>
+<h2 id="the-ai-is-not-working-as-expected">The AI is not working as expected?<a class="headerlink" href="#the-ai-is-not-working-as-expected" title="Permanent link"></a></h2>
+<ul>
+<li>Are you asking the correct question? AI often fails to interpret the question, especially around using external sources for reference.</li>
+<li>Check the outout errors from the call out, they will contain a number of issues that may have occurred, for example <code>The model didn't request anything from the database</code>. In this case look at changing the question, or using a extra param that asks a different question to the Vector Database.</li>
+</ul>
 
 
 
