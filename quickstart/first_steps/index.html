@@ -413,7 +413,7 @@
 <p>The core drivers behind JellyFaaS is to speed up development, reduce time to delivery, technicaly debt and infrasttruce costs.</p>
 <p>These functions can be viewed in the library here, and provides all the information you need to quickly get the function working, including code sample, supporting structures and data types.</p>
 <p>These functions can then easily be called via a REST command or via our SDK's</p>
-<p>To call out to any function (via REST or the SDK), you will need a jfwt (JellyFaaS web token), this token normaly is valid for 24 hours meaning you can do a call out to get a token once, and use it for 24 hours. To get a token you call out to an endpoint (the SDK will manage this) using your private API key.</p>
+<p>To call out to any function (via REST or the SDK), you will need a jfwt (JellyFaaS web token), this token normaly is valid for 24 hours meaning you can do a call out to get a token once, and use it for 24 hours. To get a token you call out to an endpoint (the SDK will manage this) using your private Secret key.</p>
 <p>From here you can use the JFWT to hit any function you have access too, and any number of time within your monthly limit.</p>
 <p>Currently Supported AI engines: Gemini (Google, public and private) + OpenAI private keys.</p>
 <p>For more information on security of data and use of AI Engines go here : <a href="../../other/data_privacy/">AI ENGINE PRIBCAY AND JELLYFAAS</a></p>
@@ -469,7 +469,7 @@ JellyFaas Api-&gt;&gt;-Client: Function response
 
 </code></pre>
 <pre class="mermaid"><code>graph LR
-    Start --&gt; Request_JFWT["Request JFWT using API Key"]
+    Start --&gt; Request_JFWT["Request JFWT using Secret Key"]
     Request_JFWT --&gt; Validate_JFWT["Validate JFWT"]
     Validate_JFWT --&gt; Hosted_Functions["Call Hosted Functions"]
 </code></pre>

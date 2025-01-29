@@ -1392,7 +1392,7 @@
 <p>You are now ready to edit the project, if you see any issues please see the section on help at the bottom of the page.</p>
 <h2 id="editing-the-code">Editing the code<a class="headerlink" href="#editing-the-code" title="Permanent link"></a></h2>
 <p>In this section we are going to edit the code to return a random book when supplied with a query param of a genre. Open the project in VSCode (or you editor of choice) and then open <code>function.go</code>:</p>
-<p><img alt="VSCode of new project" src="/assets/screenshots/FunctionCreation1.png" /></p>
+<p><img alt="VSCode of new project" src="../../assets/screenshots/FunctionCreation1.png" /></p>
 <p>What you can see here is a very simple function, wiht the <code>init()</code> function that describes the entry point, the actual function (in this case <code>Example</code>) and a response object <code>Response struct</code> along with a few imports at the top to make it work.</p>
 <h3 id="add-data">Add Data<a class="headerlink" href="#add-data" title="Permanent link"></a></h3>
 <p>First add a collection of books, this goes bewteen the <code>import</code> section and the <code>init</code> section.</br><small><em>If you get stuck the complete code is listed below.</em></small></p>
@@ -1593,7 +1593,7 @@
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">FUNCTION_TARGET</span><span class="o">=</span>Example<span class="w"> </span><span class="nv">LOCAL_ONLY</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>go<span class="w"> </span>run<span class="w"> </span>cmd/main.go
 </span></code></pre></div>
 <p>If using VSCode it may look like this:</p>
-<p><img alt="VSCode of new project" src="/assets/screenshots/GetSuggestMovieTestFunction.png" /></p>
+<p><img alt="VSCode of new project" src="../../assets/screenshots/GetSuggestMovieTestFunction.png" /></p>
 <p>Once the command is running you can hit the endpoint with the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl --location &#39;localhost:8080?genre=fantasy&#39;
 </span></code></pre></div>
@@ -1667,7 +1667,7 @@
 <h3 id="testing-the-function">Testing the function<a class="headerlink" href="#testing-the-function" title="Permanent link"></a></h3>
 <p>If you completed the quick start guides you will remember you need a <code>JFWT</code> (JellyFaaS Web Token), much like a <code>JWT</code> (Json Web Token) to call any function that is running in the platform, for more details on this see <a href="../getting_token_via_rest/">here</a></p>
 <p>Getting a token, via REST:</p>
-<div class="language-shell highlight"><span class="filename">Curl Command to get a token</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">&#39;https://api.jellyfaas.com/auth-service/v1/validate&#39;</span><span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;x-jf-apikey: &lt;my api key&gt;&#39;</span>
+<div class="language-shell highlight"><span class="filename">Curl Command to get a token</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">&#39;https://api.jellyfaas.com/auth-service/v1/validate&#39;</span><span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;x-jf-apikey: &lt;my secret key&gt;&#39;</span>
 </span></code></pre></div>
 <p>Use the token to call out to your new function on JellyFaas</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>curl --location &#39;https://api.jellyfaas.com/booksuggester-cn16g6rdervlrpsg3sr0-1-s/booksuggester?genre=horror&#39; \

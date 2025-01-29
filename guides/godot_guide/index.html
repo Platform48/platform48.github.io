@@ -1105,54 +1105,65 @@
 <p>The JellyFaas SDK is capable of working in every environment which has support for .Net Standard 2.0. This means that the Godot game engine and projects developed with it can also take advantage of the features provided by the JellyFaas SDK.</p>
 <div class="admonition info">
 <p class="admonition-title">Supported versions</p>
-<p>Only the versions of Godot with C# support are capable of making use of the SDK. This means that the 1.x and 2.x versions of Godot and versions with .Net/Mono support disable are not supported, and cannot make use of the JellyFaas SDK.</p>
 </div>
+<p>Only the versions of Godot with C# support are capable of making use of the SDK. This means that the 1.x and 2.x versions of Godot and versions with .Net/Mono support disable are not supported, and cannot make use of the JellyFaas SDK.</p>
 <p>Here is a walkthrough on using the <code>joesjokes</code> function in Godot 4.2.2:</p>
 <h2 id="1-create-a-new-project-or-open-an-existing-project">1. Create a new project or open an existing project<a class="headerlink" href="#1-create-a-new-project-or-open-an-existing-project" title="Permanent link"></a></h2>
 <p>First we have to create or open up the project we want to add the SDK to with a C# enabled version of Godot.</p>
 <div class="admonition warning">
 <p class="admonition-title">Known problem with C# support in Godot 3.x</p>
-<p>The C# support in the 3.x versions of the Godot engine suffer from a known issue which prevents some of the .Net packages from functioning properly.
-This problem has a known workaround, which is to change the C# target from .Net Standard to .Net Framework.
-This problem has been fixed in Godot 4.0 and later versions, however if you are using the 3.x versions of Godot it is recommended that you change this setting.</p>
 </div>
+<p>The C# support in the 3.x versions of the Godot engine suffer from a known issue which prevents some of the .Net packages from functioning properly.
+ This problem has a known workaround, which is to change the C# target from .Net Standard to .Net Framework.
+ This problem has been fixed in Godot 4.0 and later versions, however if you are using the 3.x versions of Godot it is recommended that you change this setting.</p>
 <p>If you open up a project which was created with a version of Godot which has C# support disabled, the Godot engine should automatically generate all the necessary files, however if it doesn't, you may have to create them manually by selecting the <code>Project &gt; Tools &gt; C# &gt; Create C# Solution</code> option. If your project has been created with a version of the engine which does have support for C# the needed files should be generated automatically.</p>
 <p>Let us start with the following ui elements:</p>
-<p><img alt="The project as shown in the editor" src="/assets/screenshots/godot1.png" /></p>
+<p><img alt="The project as shown in the editor" src="../../assets/screenshots/godot1.png" /></p>
 <p>First we have to create a C# script. Right-click on the button node, and press attach script.</p>
-<p><img alt="Attaching the script" src="/assets/screenshots/godot2.png" /></p>
+<p><img alt="Attaching the script" src="../../assets/screenshots/godot2.png" /></p>
 <p>Then we create a new C# script. Make sure the language dropdown menu has C# selected.</p>
 <p>Unfortunately you cannot access the SDK through GDScript, however you may be able to make a wrapper node around the SDK functions you need in C#, and call the functions defined on that node in GDScript.</p>
-<p><img alt="Creating the script" src="/assets/screenshots/godot3.png" /></p>
+<p><img alt="Creating the script" src="../../assets/screenshots/godot3.png" /></p>
 <p>Now lets open up this script in our C# IDE. It is possible to edit C# files in the Godot script editor, however I would recommend using an external IDE for this, as Godot doesn't have a graphical user interface for the NuGet package manager. You can change which editor Godot will use for C# files by going to <code>Editor &gt; Editor Settings</code>, then changing the <code>Dotnet &gt; External Editor</code> option.</p>
 <p>To open the file simply double click on the file in Godot's file explorer.</p>
 <h2 id="2-add-the-jellyfaas-sdk-to-the-project">2. Add the JellyFaas SDK to the project<a class="headerlink" href="#2-add-the-jellyfaas-sdk-to-the-project" title="Permanent link"></a></h2>
 <p>Once the .Net solution has been added you have to add in the <code>JellyfaasSdk</code> NuGet package. Most popular C# IDEs provide you with a graphical user interface to do this, however if you decide to use the built-in Godot script editor, or you use an IDE which doesn't have a package manager, you may have to install the SDK manually through your system's command prompt/terminal.</p>
 <p>The following are short guides on how to install the SDK in some popular IDEs.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Visual Studio</label><label for="__tabbed_1_2">Visual Studio Code</label><label for="__tabbed_1_3">JetBrains Rider</label><label for="__tabbed_1_4">Command Prompt/Terminal</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Visual Studio</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-block"></div>
+</div>
+</div>
 <p>Installing the JellyFaas SDK is easy with Visual Studio, as it comes with its own built-in NuGet package manager.</p>
 <p>To open up the NuGet package manager in Visual Studio select the <code>Project &gt; Manage Nuget Packages</code> option in the toolbar.
-In the following window switch to the <code>Browse</code> tab. In the following window you should be able to search for and install the latest version of the JellyFaas SDK.</p>
-<p><img alt="Where to find the NuGet package manager" src="/assets/screenshots/visualstudio1.png" /></p>
-<p><img alt="NuGet package manager in Visual Studio" src="/assets/screenshots/visualstudio2.png" /></p>
+ In the following window switch to the <code>Browse</code> tab. In the following window you should be able to search for and install the latest version of the JellyFaas SDK.</p>
+<p><img alt="Where to find the NuGet package manager" src="../../assets/screenshots/visualstudio1.png" /></p>
+<p><img alt="NuGet package manager in Visual Studio" src="../../assets/screenshots/visualstudio2.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Visual Studio Code</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
-<div class="tabbed-block">
+</div>
 <p>Installing the JellyFaas SDK through Visual Studio Code IDE is easy with the C# Dev Kit extension, which is  popular extension for adding C# support to Visual Studio Code.</p>
 <p>In Visual Studio Code open up the Command Palette (by default the <code>Ctrl</code> + <code>Shift</code> + <code>P</code> will open it).
-In the following search box type in <code>NuGet</code> and select the <code>NuGet: Add NuGet Package</code> option.
-The following search box search for and install the JellyFaas SDK package.</p>
-<p><img alt="Where to find the NuGet package manager" src="/assets/screenshots/vscode1.png" /></p>
-<p><img alt="NuGet package manager in Visual Studio Code" src="/assets/screenshots/vscode2.png" /></p>
+ In the following search box type in <code>NuGet</code> and select the <code>NuGet: Add NuGet Package</code> option.
+ The following search box search for and install the JellyFaas SDK package.</p>
+<p><img alt="Where to find the NuGet package manager" src="../../assets/screenshots/vscode1.png" /></p>
+<p><img alt="NuGet package manager in Visual Studio Code" src="../../assets/screenshots/vscode2.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">JetBrains Rider</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
-<div class="tabbed-block">
+</div>
 <p>Installing the JellyFaas SDK in Rider is easy, as Rider comes with its own built-in NuGet package manager.</p>
 <p>In the JetBrains Rider IDE you can find the NuGet package manager by going to <code>Tools &gt; NuGet &gt; Manage NuGet Packages</code>.</p>
-<p><img alt="Where to find the NuGet package manager" src="/assets/screenshots/rider1.png" /></p>
-<p><img alt="NuGet package manager in JetBrains Rider" src="/assets/screenshots/rider2.png" /></p>
+<p><img alt="Where to find the NuGet package manager" src="../../assets/screenshots/rider1.png" /></p>
+<p><img alt="NuGet package manager in JetBrains Rider" src="../../assets/screenshots/rider2.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Command Prompt/Terminal</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
-<div class="tabbed-block">
+</div>
 <p>If your IDE does not have a package manager, or the other options provided on this site do not work, you can always fall back to using your command prompt/terminal to install the package. This can be achieved with the dotnet CLI tool which comes bundled in with the .Net SDK.</p>
 <ol>
 <li>Open a console window in the directory your project file (*.csproj) is in.</li>
@@ -1163,9 +1174,6 @@ The following search box search for and install the JellyFaas SDK package.</p>
 <li><a href="https://dotnet.microsoft.com/en-us/download">Install the .Net SDK</a></li>
 <li><a href="https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli">Installing packages with the dotnet CLI tool</a></li>
 </ul>
-</div>
-</div>
-</div>
 <h2 id="3-using-the-sdk-in-your-godot-project">3. Using the SDK in your Godot project<a class="headerlink" href="#3-using-the-sdk-in-your-godot-project" title="Permanent link"></a></h2>
 <p>After you have successfully installed the JellyFaas SDK in your project you should be able to access the functions and classes provided by the SDK through the <code>Jellyfaas</code> namespace in your C# files. This means that now we can start using it.</p>
 <p>First we should import the SDK into this file. We can do this by adding the following line at the top of our script:</p>
@@ -1175,16 +1183,16 @@ The following search box search for and install the JellyFaas SDK package.</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">private</span><span class="w"> </span><span class="n">JellyClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Lets also define a property which will store a reference to our label node we want to put the joke in.</p>
-<p><div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[Export]</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">[Export]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">public</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">TargetLabel</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-The above code exports a property of type Label to the Godot editor. This c# code is similar to the following GDScript code:
+<p>The above code exports a property of type Label to the Godot editor. This c# code is similar to the following GDScript code:</p>
 <div class="language-gdscript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">export</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">target_l_abel</span><span class="p">:</span><span class="n">Label</span>
-</span></code></pre></div></p>
-<p>Now we should initialize our JellyFaas client in our <code>_Ready</code> function. If you used Godot's templates when creating the script this function should have been provided for you. We can do this with the following line of code:</p>
-<p><div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;Insert your Api Key here&quot;</span><span class="p">));</span>
 </span></code></pre></div>
-The above line initializes our <code>JellyClient</code> with a <code>JellyConfig</code> object. This <code>JellyConfig</code> object will store our JellyFaas Api key which we have to provide when constructing it. We may also provide additional flags to our client through this object.</p>
+<p>Now we should initialize our JellyFaas client in our <code>_Ready</code> function. If you used Godot's templates when creating the script this function should have been provided for you. We can do this with the following line of code:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;Insert your Api Key here&quot;</span><span class="p">));</span>
+</span></code></pre></div>
+<p>The above line initializes our <code>JellyClient</code> with a <code>JellyConfig</code> object. This <code>JellyConfig</code> object will store our JellyFaas Api key which we have to provide when constructing it. We may also provide additional flags to our client through this object.</p>
 <p>In this guide we will be using the <code>joesjokes</code> function. You can learn more about it <a href=".">Here</a>. This page will also generate you the class which will match the output of the <code>joesjokes</code> function. This is important, as it allows us to simply copy and paste the code from the website into our script instead of writing the class ourselves. We should copy and paste the C# code from the website to somewhere in our script. The code will look something like this:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">JoesJoke</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
@@ -1193,19 +1201,19 @@ The above line initializes our <code>JellyClient</code> with a <code>JellyConfig
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">punchline</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Finally we can call our JellyFaas function. We can easily do this by overriding the <code>_Pressed()</code> function which is defined in every button node:
+<p>Finally we can call our JellyFaas function. We can easily do this by overriding the <code>_Pressed()</code> function which is defined in every button node:</p>
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">_Pressed</span><span class="p">()</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Your code goes here</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w"> </span><span class="c1">// Your code goes here</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
 </span></code></pre></div>
-Inside this function we should first look up the <code>joesjokes</code> function with our <code>JellyClient</code>, and then call it. We should then store the resulting joke in a variable like the following code does:
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">);</span>
+<p>Inside this function we should first look up the <code>joesjokes</code> function with our <code>JellyClient</code>, and then call it. We should then store the resulting joke in a variable like the following code does:</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">);</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">joke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span>
-</span></code></pre></div></p>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">joke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span>
+</span></code></pre></div>
 <p>We can also rewrite this code to fit inside a single line like this:</p>
-<div class="language-csharp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">joke_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">joke_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span>
 </span></code></pre></div>
 <p>The invoke call in above takes in a type as a generic argument. In C# generic arguments have to be put inside angle brackets. The invoke function will create a new object of this type, and put the response from the JellyFaas function inside it. Any fields and properties which do not match the values needed by the function will be discarded, which is why we should use the class we generated earlier here.</p>
 <p>The last part of code we need to write inside the <code>_Pressed()</code> function will display the joke inside our label. The <code>joesjokes</code> function returns the joke and the punchline separately, meaning that we will have to combine them for the joke to make sense. This can be done with the following code:</p>
@@ -1213,13 +1221,13 @@ Inside this function we should first look up the <code>joesjokes</code> function
 </span></code></pre></div>
 <p>This code will put the punchline of the joke two lines below the joke, making it easy to read.</p>
 <p>The last step we have to do before running our program is assigning a reference to our text label inside our button node. In our Godot editor click on the button node, and press the assign button next to the Target Label property. If this property doesn't show up for you, you may have to build the project through the build button which is located next to the run button in Godot.</p>
-<p><img alt="The application before pressing the button" src="/assets/screenshots/godot4.png" /></p>
+<p><img alt="The application before pressing the button" src="../../assets/screenshots/godot4.png" /></p>
 <p>Finally we should select our Label node in the window which shows up, and press the Ok.</p>
-<p><img alt="The application before pressing the button" src="/assets/screenshots/godot5.png" /></p>
+<p><img alt="The application before pressing the button" src="../../assets/screenshots/godot5.png" /></p>
 <p>Now we can run the project! Press the run button in the editor to run and see the results of our work.</p>
-<p><img alt="The application before pressing the button" src="/assets/screenshots/godot6.png" /></p>
+<p><img alt="The application before pressing the button" src="../../assets/screenshots/godot6.png" /></p>
 <p>After pressing the button we can see that the function has been called, and has provided us with a randomly generated joke. Pressing the button multiple times should give us a new joke after every press.</p>
-<p><img alt="The application after pressing the button" src="/assets/screenshots/godot7.png" /></p>
+<p><img alt="The application after pressing the button" src="../../assets/screenshots/godot7.png" /></p>
 <h2 id="related-links">Related Links<a class="headerlink" href="#related-links" title="Permanent link"></a></h2>
 <ul>
 <li><a href="https://dotnet.microsoft.com/en-us/download">Install the .Net SDK</a></li>
@@ -1241,35 +1249,35 @@ Inside this function we should first look up the <code>joesjokes</code> function
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">JokeButton</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">{</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="c1">//  Export this property so we can set the text label we want to put the joke in from the editor</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="c1">// Export this property so we can set the text label we want to put the joke in from the editor</span>
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">TMP_Text</span><span class="w"> </span><span class="n">OutputLabel</span><span class="p">;</span>
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="c1">//  Store the JellyFaas client so we don&#39;t have to remake it every time we call a function</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="c1">// Store the JellyFaas client so we don&#39;t have to remake it every time we call a function</span>
 </span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">JellyClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
 </span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="c1">// Start is called before the first frame update</span>
 </span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
 </span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;Insert your Api Key here&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">//  &lt; -- Insert your API key here</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;Insert your Api Key here&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// &lt; -- Insert your Secret key here</span>
 </span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
 </span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnClick</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">joke_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span><span class="w">  </span><span class="c1">//  The joesjokes function does not take any parameters, and returns information on a randomly generated joke</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">joke_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">JoesJoke</span><span class="o">&gt;</span><span class="p">();</span><span class="w">  </span><span class="c1">// The joesjokes function does not take any parameters, and returns information on a randomly generated joke</span>
 </span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
 </span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">        </span><span class="n">OutputLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joke_info</span><span class="p">.</span><span class="n">joke</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">joke_info</span><span class="p">.</span><span class="n">Punchline</span><span class="p">;</span>
 </span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
 </span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
-</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w">    </span><span class="c1">//  The class which matches the definition of the Json object returned by the joesjokes function</span>
-</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">    </span><span class="c1">//  The joesjokes function returns a json object with two strings called &quot;joke&quot; and &quot;punchline&quot;.</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w">    </span><span class="c1">// The class which matches the definition of the Json object returned by the joesjokes function</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">    </span><span class="c1">// The joesjokes function returns a json object with two strings called &quot;joke&quot; and &quot;punchline&quot;.</span>
 </span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">JoesJoke</span>
 </span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">        </span><span class="c1">//  As long as the property name matches the Json property the SDK will read the data into the matching properties</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">        </span><span class="c1">// As long as the property name matches the Json property the SDK will read the data into the matching properties</span>
 </span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">joke</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>
-</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="w">        </span><span class="c1">//  Json property names are case sensitive, meaning that this property does not match</span>
-</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="w">        </span><span class="c1">//  Fortunately, the JellyFaas SDK uses the System.Text.Json library when deserializing Json objects, meaning that you can use any attributes provided by it</span>
-</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="w">        </span><span class="c1">//  The following attribute tells the SDK to assume this property is called &quot;punchline&quot; when translating to and from Json.</span>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="w">        </span><span class="c1">// Json property names are case sensitive, meaning that this property does not match</span>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="w">        </span><span class="c1">// Fortunately, the JellyFaas SDK uses the System.Text.Json library when deserializing Json objects, meaning that you can use any attributes provided by it</span>
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="w">        </span><span class="c1">// The following attribute tells the SDK to assume this property is called &quot;punchline&quot; when translating to and from Json.</span>
 </span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="w">        </span><span class="na">[JsonPropertyName(&quot;punchline&quot;)]</span>
 </span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Punchline</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="w">    </span><span class="p">}</span>

@@ -672,39 +672,39 @@
 <p>You can self host or use a providor such as <a href="https://console.cloud.google.com/sql/instances">GCP Cloud SQL</a>, where you have the option of running a <strong>MySql</strong> instance. Other options are such as <a href="https://www.digitalocean.com/products/managed-databases-mysql">Digital Ocean</a> also will work.</p>
 <p>*<em>Note: in the future JellyFaaS will support different database providers</em> </p>
 <h2 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link"></a></h2>
-<p>If you want test data sets, have a look at <a href="https://www.kaggle.com">Kaggle</a></p>
+<p>If you want test data sets, have a look at <a href="https://www.kaggle.com" target="_blank">Kaggle</a></p>
 <p>In this tutorial we are going to create a MYSQL instance using GCP (Google) as most people have a google account, and you can quickly setup a DB using this account.</p>
 <p>We are then going to import a dataset, and we will go though the steps to import a CSV data set, and then we will query the database using JellyFaaS.</p>
 <h3 id="creating-the-database-in-gcp">Creating the database in GCP<a class="headerlink" href="#creating-the-database-in-gcp" title="Permanent link"></a></h3>
 <p>Using a gmail account, visit <code>https://console.cloud.google.com/</code> and create a project 'select a project' and create a project:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut1.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut1.png"/></p>
 <p>The search for <code>SQL</code> in the top search bar and navigate to 'Create an instance'</p>
 <p>Select MySql on the left:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut2.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut2.png"/></p>
 <p><em>Note: you may need to enable an API if you have not used SQL before on this project</em></p>
 <p>Setup a MySQL instance, these are recommended for a testing. Make a note of the password.</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut3.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut3.png"/></p>
 <p>Once the instance is created, you can navigate to the users section and create a user:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut4.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut4.png"/></p>
 <p>Then create a database schema:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut4.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut4.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>NOTE: This step is important for security concerns, and JellyFaaS will only connect to SSL enabled databases</p>
 </div>
 <p>Now you need to ensure it has SSL connections enabled (this ensures the traffic is encrypted as Jellyfaas talks to the database)</p>
 <p>Navigate to Connection and Security and enable SSL as follows:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut11.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut11.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>NOTE: In production you must limit this to a correct IP range, JellyFaaS runs from GCP, so enable those IP's</p>
 </div>
 <p>Allowed external access visit Connection and Networking and setup allow all:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut12.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut12.png"/></p>
 <p>Finally go to 'Cloud SQL Studio' and login:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut5.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut5.png"/></p>
 <h3 id="setting-up-the-database">Setting up the Database<a class="headerlink" href="#setting-up-the-database" title="Permanent link"></a></h3>
-<p>For this example we are going to import some data, a useful resouce for datasets is <a href="kaggle.com">Kaggle</a>. For this simple example we are going to use the <a href="https://www.kaggle.com/datasets/taimoor888/top-100-world-ranking-tiktok-accounts-in-2025">Top 100 TikTok Accounts of 2025 by Followers</a></p>
+<p>For this example we are going to import some data, a useful resouce for datasets is <a href="https://www.kaggle.com" target="_blank">Kaggle</a>. For this simple example we are going to use the <a href="https://www.kaggle.com/datasets/taimoor888/top-100-world-ranking-tiktok-accounts-in-2025">Top 100 TikTok Accounts of 2025 by Followers</a></p>
 <p>Download the file here : <a href="../../assets/TikTokFollowers.zip">TikTokFollowers.zip</a></p>
 <p>Inside the file you will find a CSV file, the data looks like this:</p>
 <table>
@@ -794,7 +794,7 @@
 </tbody>
 </table>
 <p>Now we need to create a table to hold the data.</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut7.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut7.png"/></p>
 <p>and run the following command:</p>
 <div class="language-sql highlight"><span class="filename">Create table SQL statement</span><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tiktok_rankings</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="o">`</span><span class="n">rank</span><span class="o">`</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
@@ -811,12 +811,12 @@
 <h3 id="importing-the-test-data">Importing the test data<a class="headerlink" href="#importing-the-test-data" title="Permanent link"></a></h3>
 <p>To import the data we need to upload it to a cloud bucket (you can remove after). Nagivate to <a href="https://console.cloud.google.com/storage/browser">Google Cloud Buckets</a> and create a bucket, and upload the file into the bucket.</p>
 <p>Suggested settings, however use the bucket close to your geo-location.</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut8.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut8.png"/></p>
 <p>Then upload the file into the bucket.</p>
 <p>Navigate back to the overview page in GCP, and select <code>import</code> from the menu on the right of the screen:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut9.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut9.png"/></p>
 <p>Then import the data:</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut10.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut10.png"/></p>
 <h3 id="querying-the-table">Querying the table<a class="headerlink" href="#querying-the-table" title="Permanent link"></a></h3>
 <p>On the connections tab of the SQL database so we can see the connection information.</p>
 <p>A MySql Connection string takes the following format:</p>
@@ -901,7 +901,7 @@
 </span><span id="__span-7-25"><a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <p>After importing the imports and running we get :</p>
-<p><img alt="Create a project" src="/assets/screenshots/SQL_tut13.png"/></p>
+<p><img alt="Create a project" src="../../assets/screenshots/SQL_tut13.png"/></p>
 <h3 id="other-query-options">Other query options<a class="headerlink" href="#other-query-options" title="Permanent link"></a></h3>
 <p>REST Options, you can optionally set these when using the SDK too (see the SDK docs):</p>
 <table>
@@ -936,7 +936,7 @@
 <tr>
 <td>api+key</td>
 <td>N</td>
-<td>If you want to bring your own API key (for Gemini, or ChatGTP [required])</td>
+<td>If you want to bring your own Secret key (for Gemini, or ChatGTP [required])</td>
 </tr>
 <tr>
 <td>structured_output</td>

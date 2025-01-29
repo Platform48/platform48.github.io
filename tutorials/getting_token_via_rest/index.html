@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-a-token-via-the-api" class="md-skip">
+        <a href="#jellyfaas-web-tokens" class="md-skip">
           Skip to content
         </a>
       
@@ -503,11 +503,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#getting-a-token-via-the-jellyfaas-website" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a token via the JellyFaaS website
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-token-via-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a token via the API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a token via the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#request" class="md-nav__link">
     <span class="md-ellipsis">
       Request
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1097,11 +1121,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#getting-a-token-via-the-jellyfaas-website" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a token via the JellyFaaS website
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-token-via-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a token via the API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a token via the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#request" class="md-nav__link">
     <span class="md-ellipsis">
       Request
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1120,16 +1168,30 @@
                   
 
 
-<h1 id="getting-a-token-via-the-api">Getting a token via the API<a class="headerlink" href="#getting-a-token-via-the-api" title="Permanent link"></a></h1>
+<h1 id="jellyfaas-web-tokens">JellyFaaS Web Tokens<a class="headerlink" href="#jellyfaas-web-tokens" title="Permanent link"></a></h1>
 <p>Before you can call out to a function you need a WebToken, in this case (like a JWT) a JellyFaaS webtoken.</p>
 <p>These, like JWT's have an expiry time on then, usually around 24 hours.</p>
+<hr />
+<h2 id="getting-a-token-via-the-jellyfaas-website">Getting a token via the JellyFaaS website<a class="headerlink" href="#getting-a-token-via-the-jellyfaas-website" title="Permanent link"></a></h2>
+<ol>
+<li>
+<p>Login to <a href="https://app.jellyfaas.com">app.jellyfaas.com</a> and navigate to your profile page.</p>
+<p><img alt="Logging in" src="../../assets/screenshots/login.png" /></p>
+</li>
+<li>
+<p>Generate a token.</p>
+<p><img alt="Generating a token" src="../../assets/screenshots/getToken.png" /></p>
+</li>
+</ol>
+<hr />
+<h2 id="getting-a-token-via-the-api">Getting a token via the API<a class="headerlink" href="#getting-a-token-via-the-api" title="Permanent link"></a></h2>
 <p>To generate a JFWT (JellyFaaS Web Token) you need to call out to the following auth endpoint:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://api.jellyfaas.com/auth-service/v1/validate
 </span></code></pre></div>
-<p>This needs an header set with your API Key (from you profile page HERE) called <code>x-jf-apikey</code> set.</p>
+<p>This needs an header set with your Secret Key (from you profile page HERE) called <code>x-jf-apikey</code> set.</p>
 <h3 id="request">Request<a class="headerlink" href="#request" title="Permanent link"></a></h3>
 <p>For example (using curl):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl --location &#39;https://api.jellyfaas.com/auth-service/v1/validate&#39; --header &#39;x-jf-apikey: &lt;my api key&gt;&#39;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl --location &#39;https://api.jellyfaas.com/auth-service/v1/validate&#39; --header &#39;x-jf-apikey: &lt;my secret key&gt;&#39;
 </span></code></pre></div>
 <p>This will return the following json object :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{
@@ -1141,7 +1203,7 @@
 <hr />
 <div class="admonition info">
 <p class="admonition-title">Copying the token into the copy buffer:</p>
-<p><code>curl -sS --location '&lt;https://api.jellyfaas.com/auth-service/v1/validate&gt;' --header 'x-jf-apikey: &lt;my api key&gt;' | jq -r '.token' |pbcopy</code></p>
+<p><code>curl -sS --location '&lt;https://api.jellyfaas.com/auth-service/v1/validate&gt;' --header 'x-jf-apikey: &lt;my secret key&gt;' | jq -r '.token' |pbcopy</code></p>
 </div>
 
 

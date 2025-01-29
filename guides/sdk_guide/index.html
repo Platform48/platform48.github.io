@@ -1304,11 +1304,11 @@
 <p>The JellyFaaS SDK simplifies working with the JellyFaaS API. It provides a <code>Client</code> class which handles authentication and functions to simplify creating HTTP requests to the API. It also provides additional validation and checks of your requests, to prevent making invalid function calls, which would otherwise consume API credits.</p>
 <div class="admonition info">
 <p class="admonition-title">API Credits</p>
-<p>The cloud functions used in the examples below will <em><em>not</em></em> use your credits. Click <a href="">here</a> to get an api key.</p>
+<p>The cloud functions used in the examples below will <strong>not</strong> use your credits. Click <a href="">here</a> to get an secret key.</p>
 </div>
 <p>Here is a walk through using the <code>Hello World</code> function.</p>
 <h2 id="1-creating-a-config-object">1. Creating a Config object<a class="headerlink" href="#1-creating-a-config-object" title="Permanent link"></a></h2>
-<p>The first step is to create your config object and parse your JellyFaaS api key into it.
+<p>The first step is to create your config object and parse your JellyFaaS secret key into it.
 The config handles keys and authorization.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">Go</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Node</label></div>
 <div class="tabbed-content">
@@ -1319,7 +1319,7 @@ The config handles keys and authorization.</p>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">)</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;API key is not set in environment variables&quot;</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Secret key is not set in environment variables&quot;</span><span class="p">)</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">config</span> <span class="o">=</span> <span class="n">ClientConfig</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></code></pre></div>
@@ -1360,7 +1360,7 @@ The config handles keys and authorization.</p>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span><span class="w">    </span>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1374,7 +1374,7 @@ The config handles keys and authorization.</p>
 </div>
 </div>
 <h2 id="3-looking-up-a-function">3. Looking up a function<a class="headerlink" href="#3-looking-up-a-function" title="Permanent link"></a></h2>
-<p>To look up a function, you must use the function's short name to find it. 
+<p>To look up a function, you must use the function's short name to find it.
 Provided all the previous steps are complete, add the following:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">Go</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Node</label></div>
 <div class="tabbed-content">
@@ -1544,7 +1544,7 @@ The default package for all generated classes is <code>main</code> but you may n
 </div>
 </div>
 <h2 id="5-setting-the-response">5. Setting the response<a class="headerlink" href="#5-setting-the-response" title="Permanent link"></a></h2>
-<p>The SDK allows you to automatically map the response JSON to a specified class. 
+<p>The SDK allows you to automatically map the response JSON to a specified class.
 This is useful for managing complex responses.
 The website will contain an autogenerated output <code>object</code> that you can copy/paste into your project.
 Again this is language dependent so these objects will be different.</p>
@@ -1583,7 +1583,7 @@ See section <a href="#6-invoking-the-function">6. Invoke</a> for an example</p>
 <div class="tabbed-block">
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>setResponse()</code> is not defined in <code>C#</code> SDK. 
+<p><code>setResponse()</code> is not defined in <code>C#</code> SDK.
 Instead, <code>Invoke()</code> takes a generic type for the auto-generated class.
 See section <a href="#6-invoking-the-function">6. Invoke</a> for an example</p>
 </div>
@@ -1898,7 +1898,7 @@ This is usually due to errors with the schema not matching these inputs. </p>
 <ul>
 <li>Create your <a href="../creating_a_function/">first function</a></li>
 <li>Get started with our <a href="../cli/">cli</a> tool</li>
-<li>Get your API key</li>
+<li>Get your Secret key</li>
 </ul>
 </div>
 

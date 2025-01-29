@@ -1133,7 +1133,7 @@
 </details>
 <hr />
 <p>The config object handles the authentication for a user wanting to use JellyFaaS.
- Config object uses a JellyFaaS api key to generate a valid JWT when making a call.</p>
+ Config object uses a JellyFaaS secret key to generate a valid JWT when making a call.</p>
 <h2 id="browse-constructor-and-methods">Browse constructor and methods<a class="headerlink" href="#browse-constructor-and-methods" title="Permanent link"></a></h2>
 <h4 id="public-config"><span style="color:#00000000;">public Config()</span><a class="headerlink" href="#public-config" title="Permanent link"></a></h4>
 <div class="admonition info">
@@ -1146,13 +1146,14 @@
 <h4 id="public-void-setapikeystring-apikey-throws-jellyfaashttpexception-jellyfaasexception"><span style="color:#00000000;">public void setApiKey(String apiKey) throws JellyFaasHttpException, JellyFaasException </span><a class="headerlink" href="#public-void-setapikeystring-apikey-throws-jellyfaashttpexception-jellyfaasexception" title="Permanent link"></a></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setApiKey</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">apiKey</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="w"> </span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setApiKey</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">apiKey</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasException</span>
 </span></code></pre></div>
 </h3></p>
-<p>Sets the JellyFaaS api key and generates a jwt</p>
+<p>Sets the JellyFaaS secret key and generates a jwt</p>
+</div>
 <p><strong>param</strong></p>
 <ul>
-<li><code>apiKey</code> your API key</li>
+<li><code>apiKey</code> your Secret key</li>
 </ul>
 <p><strong>throws</strong></p>
 <ul>
@@ -1160,29 +1161,29 @@
 <p><code>JellyFaasHttpException</code> when the request couldn't be sent to the JellyFaas servers to get the jwt</p>
 </li>
 <li>
-<p><code>JellyFaasException</code> when there's an issue with the api key</p>
+<p><code>JellyFaasException</code> when there's an issue with the secret key</p>
 </li>
 </ul>
-</div>
 <h4 id="public-string-getapikey"><span style="color:#00000000;">public String getApiKey()</span><a class="headerlink" href="#public-string-getapikey" title="Permanent link"></a></h4>
 <div class="admonition info">
 <p><h3>
     <div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getApiKey</span><span class="p">()</span>
 </span></code></pre></div>
 </h3></p>
-<p>Gets the api key</p>
+<p>Gets the secret key</p>
+</div>
 <p><strong>return</strong></p>
 <ul>
-<li>api key</li>
+<li>secret key</li>
 </ul>
-</div>
 <h4 id="public-void-setjwt-throws-jellyfaasexception-jellyfaashttpexception"><span style="color:#00000000;">public void setJwt() throws JellyFaasException, JellyFaasHttpException </span><a class="headerlink" href="#public-void-setjwt-throws-jellyfaasexception-jellyfaashttpexception" title="Permanent link"></a></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setJwt</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="w"> </span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setJwt</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasHttpException</span>
 </span></code></pre></div>
 </h3></p>
 <p>Makes a call to the JellyFaas servers and sets a jwt token</p>
+</div>
 <p><strong>throws</strong></p>
 <ul>
 <li>
@@ -1192,7 +1193,6 @@
 <p><code>JellyFaasHttpException</code> when an issue occurs when retrieving the jwt token, this can include invalid credentials</p>
 </li>
 </ul>
-</div>
 <h4 id="protected-string-getjwt"><span style="color:#00000000;">protected String getJwt()</span><a class="headerlink" href="#protected-string-getjwt" title="Permanent link"></a></h4>
 <div class="admonition info">
 <p><h3>
@@ -1200,18 +1200,19 @@
 </span></code></pre></div>
 </h3></p>
 <p>Gets the jwt set from #setApiKey(String)</p>
+</div>
 <p><strong>return</strong></p>
 <ul>
 <li>jwt token</li>
 </ul>
-</div>
 <h4 id="private-httpresponse-docallstring-url-string-method-map-headers-httprequestbodypublisher-requestbody-throws-jellyfaasexception-jellyfaashttpexception"><span style="color:#00000000;">private HttpResponse<byte[]> doCall(String url, String method, Map<String, String> headers, HttpRequest.BodyPublisher requestBody) throws JellyFaasException, JellyFaasHttpException </span><a class="headerlink" href="#private-httpresponse-docallstring-url-string-method-map-headers-httprequestbodypublisher-requestbody-throws-jellyfaasexception-jellyfaashttpexception" title="Permanent link"></a></h4>
 <div class="admonition info">
 <p><h3>
-    <div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">private</span><span class="w"> </span><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="nf">doCall</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpRequest</span><span class="p">.</span><span class="na">BodyPublisher</span><span class="w"> </span><span class="n">requestBody</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasHttpException</span><span class="w"> </span>
+    <div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">private</span><span class="w"> </span><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="nf">doCall</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpRequest</span><span class="p">.</span><span class="na">BodyPublisher</span><span class="w"> </span><span class="n">requestBody</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">JellyFaasException</span><span class="p">,</span><span class="w"> </span><span class="n">JellyFaasHttpException</span>
 </span></code></pre></div>
 </h3></p>
 <p>Handles calling out to the auth service with a given url, using the api-key.</p>
+</div>
 <p><strong>param</strong></p>
 <ul>
 <li><code>url</code> the url to call out to</li>
@@ -1229,7 +1230,6 @@
 <p><code>JellyFaasHttpException</code> when the user supplies invalid credentials, or there is an issue with the auth service</p>
 </li>
 </ul>
-</div>
 
 
 

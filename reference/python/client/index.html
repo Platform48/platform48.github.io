@@ -1259,7 +1259,7 @@
 
 <h1 id="client_1">Client<a class="headerlink" href="#client_1" title="Permanent link"></a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link"></a></h2>
-<p>The <code>Client</code> enables usage of the JellyFaaS function library. </p>
+<p>The <code>Client</code> enables usage of the JellyFaaS function library.</p>
 <p>Most methods are dependant on the <code>Client</code> instance's internal state and must only be called in increasing order of "<em>call sequence</em>" (see below).
 Additionally, some methods are marked as "required". These methods must be called to invoke a minimal JellyFaaS function.</p>
 <p>For example, neither <code>set_function_body()</code> nor <code>set_function_query_params()</code> may be called before:</p>
@@ -1321,7 +1321,7 @@ Additionally, some methods are marked as "required". These methods must be calle
 <h3 id="client"><span class='method'><b>Client</b>(config: <a href="">Config</a>) -&gt; <a href="#client">Client</a><span><a class="headerlink" href="#client" title="Permanent link"></a></h3>
 <blockquote>
 <h4 id="raises-jellyfaasexception">Raises <a href=""><code>JellyFaasException</code></a><a class="headerlink" href="#raises-jellyfaasexception" title="Permanent link"></a></h4>
-<p><code>Client</code> constructor. The client saves a reference to <code>config</code>, which contains your API key, handles authentication, and miscellaneous configuration.
+<p><code>Client</code> constructor. The client saves a reference to <code>config</code>, which contains your Secret key, handles authentication, and miscellaneous configuration.
 If <code>config</code> is invalid, raises <a href=""><code>JellyFaasException</code></a></p>
 </blockquote>
 <h3 id="set_version"><span class='method'><b>set_version</b>(version: int) -&gt; <a href="#client">Client</a><span><a class="headerlink" href="#set_version" title="Permanent link"></a></h3>
@@ -1350,11 +1350,11 @@ This state is cleared upon any call to <a href=""><code>clear()</code></a>.
 <blockquote>
 <p>a. <strong>JSON</strong></p>
 <blockquote>
-<p>set_function_body expects <code>body</code> to be a dict or JSON-serialiazable class instance (extending from Pydantic BaseModel) </p>
+<p>set_function_body expects <code>body</code> to be a dict or JSON-serialiazable class instance (extending from Pydantic BaseModel)</p>
 </blockquote>
 <p>b. <strong>FILE</strong></p>
 <blockquote>
-<p>set_function_body expects <code>body</code> to be a <code>bytes</code> object. </p>
+<p>set_function_body expects <code>body</code> to be a <code>bytes</code> object.</p>
 </blockquote>
 </blockquote>
 <p>By default, set_function_body will validate your input matches the function schema, ensuring your request is expected to succeed before actually invoking the function. The behaviour can be disabled by setting <code>do_validation</code> = False</p>
@@ -1369,7 +1369,7 @@ set_function_query_params expects <code>body</code> to be a flat dict of <code>s
 <h3 id="invoke"><span class='method'><b>invoke</b>(outputClass: Type = None) -&gt; (<a href="#client">Client</a>, response)<span><a class="headerlink" href="#invoke" title="Permanent link"></a></h3>
 <blockquote>
 <h4 id="raises-jellyfaasexception_5">Raises <a href=""><code>JellyFaasException</code></a><a class="headerlink" href="#raises-jellyfaasexception_5" title="Permanent link"></a></h4>
-<p>Calls the JellyFaaS function, with any inputs set by set_function_body and set_function_query_params. 
+<p>Calls the JellyFaaS function, with any inputs set by set_function_body and set_function_query_params.
 If an outputType is passed, <code>invoke</code> will attempt to cast the response to a new instance of the specified class.</p>
 </blockquote>
 <h3 id="get_status_code"><span class='method'><b>get_status_code</b>() -&gt; <a href="#client">Client</a><span><a class="headerlink" href="#get_status_code" title="Permanent link"></a></h3>
