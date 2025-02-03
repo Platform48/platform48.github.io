@@ -734,9 +734,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-structued-output" class="md-nav__link">
+  <a href="#what-is-structured-output" class="md-nav__link">
     <span class="md-ellipsis">
-      What is Structued output?
+      What is Structured output?
     </span>
   </a>
   
@@ -1106,9 +1106,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-structued-output" class="md-nav__link">
+  <a href="#what-is-structured-output" class="md-nav__link">
     <span class="md-ellipsis">
-      What is Structued output?
+      What is Structured output?
     </span>
   </a>
   
@@ -1139,8 +1139,9 @@
 
 
 <h1 id="using-structured-output">Using Structured output<a class="headerlink" href="#using-structured-output" title="Permanent link"></a></h1>
-<h2 id="what-is-structued-output">What is Structued output?<a class="headerlink" href="#what-is-structued-output" title="Permanent link"></a></h2>
+<h2 id="what-is-structured-output">What is Structured output?<a class="headerlink" href="#what-is-structured-output" title="Permanent link"></a></h2>
 <p>Asking question on web based client works really well for human interaction. However when working programically you may want the response to be in a specfic format, one that can we easily mapped to a class or struct, allowing you to use the stand language patterns of deserializing json into an object/class.</p>
+<p>Structured output allows you to define a json schema that the output will adhere too.</p>
 <h2 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link"></a></h2>
 <p>For ease and to provide clarity we are going to just use 'Direct Calling', rather than function calling or RAG for example. However structured output can be added to any of the other patterns.</p>
 <p>So the question we are going to ask is</p>
@@ -1178,7 +1179,7 @@
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="s2">&quot;wordCount&quot;</span>
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span><span class="p">]</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">}</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">}</span><span class="err">docs</span><span class="w"> </span>
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="err">`Jso</span><span class="kc">n</span><span class="err">Schema`</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">qui</span><span class="kc">te</span><span class="w"> </span><span class="err">easy</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">u</span><span class="kc">n</span><span class="err">ders</span><span class="kc">tan</span><span class="err">d</span><span class="p">,</span><span class="w"> </span><span class="err">bascially</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">his</span><span class="w"> </span><span class="err">simple</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">decribi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="kc">t</span><span class="err">hree</span><span class="w"> </span><span class="kc">f</span><span class="err">ields</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="kc">nee</span><span class="err">d</span><span class="w"> </span><span class="err">back</span><span class="p">:</span>
 </span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
@@ -1190,7 +1191,7 @@
 </span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
 </span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="err">O</span><span class="kc">n</span><span class="err">ce</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">base</span><span class="mi">64</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">coded</span><span class="p">:</span>
 </span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
-</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="err">```shell</span><span class="w"> </span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="err">=base</span><span class="mi">64</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">coded</span><span class="w"> </span><span class="err">jso</span><span class="kc">ns</span><span class="err">chema</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="err">```shell</span><span class="w"> </span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="err">=</span><span class="s2">&quot;base64 encoded jsonschema&quot;</span>
 </span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="err">eyJ</span><span class="mf">0e</span><span class="err">XBlIjoib</span><span class="mi">2</span><span class="err">JqZWN</span><span class="mi">0</span><span class="err">IiwicHJvcGVydGllcyI</span><span class="mf">6e</span><span class="err">yJxdWVzdGlvbiI</span><span class="mf">6e</span><span class="err">yJ</span><span class="mf">0e</span><span class="err">XBlIjoic</span><span class="mi">3</span><span class="err">RyaW</span><span class="mi">5</span><span class="kc">n</span><span class="err">IiwiZGVzY</span><span class="mi">3</span><span class="err">JpcHRpb</span><span class="mi">24</span><span class="err">iOiJUaGUgcHJvbXB</span><span class="mi">0</span><span class="err">IGFza</span><span class="mi">2</span><span class="err">VkLCB</span><span class="mi">0</span><span class="err">aGlzIGlzIHJlcXVpcmVkI</span><span class="kc">n</span><span class="mi">0</span><span class="err">sIm</span><span class="mi">91</span><span class="err">dHB</span><span class="mi">1</span><span class="err">dCI</span><span class="mf">6e</span><span class="err">yJ</span><span class="mf">0e</span><span class="err">XBlIjoic</span><span class="mi">3</span><span class="err">RyaW</span><span class="mi">5</span><span class="kc">n</span><span class="err">IiwiZGVzY</span><span class="mi">3</span><span class="err">JpcHRpb</span><span class="mi">24</span><span class="err">iOiJUaGUgcmVzcG</span><span class="mi">9</span><span class="err">uc</span><span class="mi">2</span><span class="err">UgdG</span><span class="mi">8</span><span class="err">gdGhlIHF</span><span class="mi">1</span><span class="err">ZXN</span><span class="mi">0</span><span class="err">aW</span><span class="mi">9</span><span class="err">uI</span><span class="kc">n</span><span class="mi">0</span><span class="err">sI</span><span class="kc">n</span><span class="err">dvcmRDb</span><span class="mi">3</span><span class="err">VudCI</span><span class="mf">6e</span><span class="err">yJ</span><span class="mf">0e</span><span class="err">XBlIjoic</span><span class="mi">3</span><span class="err">RyaW</span><span class="mi">5</span><span class="kc">n</span><span class="err">IiwiZGVzY</span><span class="mi">3</span><span class="err">JpcHRpb</span><span class="mi">24</span><span class="err">iOiJUaGUgY</span><span class="mi">291</span><span class="err">b</span><span class="kc">n</span><span class="err">Qgb</span><span class="mi">2</span><span class="err">YgdGhlIG</span><span class="mi">51</span><span class="err">bWJlciBvZiB</span><span class="mi">3</span><span class="err">b</span><span class="mi">3</span><span class="err">JkcywgdGhpcyBpcyByZXF</span><span class="mi">1</span><span class="err">aXJlZCJ</span><span class="mi">9</span><span class="kc">f</span><span class="err">SwicmVxdWlyZWQiOlsicXVlc</span><span class="mi">3</span><span class="err">Rpb</span><span class="mi">24</span><span class="err">iLCJvdXRwdXQiLCJ</span><span class="mi">3</span><span class="err">b</span><span class="mi">3</span><span class="err">JkQ</span><span class="mi">291</span><span class="err">b</span><span class="kc">n</span><span class="err">QiXX</span><span class="mi">0</span><span class="err">=</span>
 </span></code></pre></div>
 <details class="information">

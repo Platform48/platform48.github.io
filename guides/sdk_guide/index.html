@@ -824,9 +824,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-setting-the-request" class="md-nav__link">
+  <a href="#4-setting-the-request-query-parameters-body" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Setting the request
+      4. Setting the request query parameters &amp; body
     </span>
   </a>
   
@@ -848,14 +848,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-setting-the-response" class="md-nav__link">
+    <nav class="md-nav" aria-label="4.2 Setting the body">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-sending-json-data" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Setting the response
+      a. Sending JSON data
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sending-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Sending files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -872,24 +887,6 @@
   <a href="#error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       Error Handling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debug-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debug mode
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complete Code
     </span>
   </a>
   
@@ -1214,9 +1211,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-setting-the-request" class="md-nav__link">
+  <a href="#4-setting-the-request-query-parameters-body" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Setting the request
+      4. Setting the request query parameters &amp; body
     </span>
   </a>
   
@@ -1238,14 +1235,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-setting-the-response" class="md-nav__link">
+    <nav class="md-nav" aria-label="4.2 Setting the body">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-sending-json-data" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Setting the response
+      a. Sending JSON data
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sending-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Sending files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1262,24 +1274,6 @@
   <a href="#error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       Error Handling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debug-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debug mode
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complete Code
     </span>
   </a>
   
@@ -1310,65 +1304,38 @@
 <h2 id="1-creating-a-config-object">1. Creating a Config object<a class="headerlink" href="#1-creating-a-config-object" title="Permanent link"></a></h2>
 <p>The first step is to create your config object and parse your JellyFaaS secret key into it.
 The config handles keys and authorization.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">Go</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Node</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">Node.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">jellyfaas</span> <span class="kn">import</span> <span class="n">ClientConfig</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Secret key is not set in environment variables&quot;</span><span class="p">)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">config</span> <span class="o">=</span> <span class="n">ClientConfig</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">jellyfaas</span> <span class="kn">import</span> <span class="n">Config</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;JELLYFAAS_SECRET&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Config</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Config</span><span class="p">();</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">config</span><span class="p">.</span><span class="na">setApiKey</span><span class="p">(</span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">config</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">JellyConfig</span><span class="p">{</span><span class="nx">ApiKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">}</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">JellyConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Config</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jellyfaas&#39;</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Config</span><span class="p">(</span><span class="s2">&quot;&lt;JELLYFAAS_SECRET&gt;&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="2-creating-the-client">2. Creating the Client<a class="headerlink" href="#2-creating-the-client" title="Permanent link"></a></h2>
 <p>After that, you can create the client, and parse the newly created 'config' object into it:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">Go</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Node</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">Node.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">jellyfaas</span> <span class="kn">import</span> <span class="n">Client</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># initialize config object here </span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">jellyfaas</span> <span class="kn">import</span> <span class="n">Client</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># initialize config object here </span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Client</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">JellyClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Config</span><span class="p">,</span><span class="w"> </span><span class="nx">Client</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jellyfaas&#39;</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Client</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span><span class="w">          </span>
 </span></code></pre></div>
 </div>
 </div>
@@ -1376,284 +1343,117 @@ The config handles keys and authorization.</p>
 <h2 id="3-looking-up-a-function">3. Looking up a function<a class="headerlink" href="#3-looking-up-a-function" title="Permanent link"></a></h2>
 <p>To look up a function, you must use the function's short name to find it.
 Provided all the previous steps are complete, add the following:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">Go</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Node</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">Node.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">client</span><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">client</span><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">client</span><span class="p">.</span><span class="na">lookUp</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nx">client</span><span class="p">.</span><span class="nx">LookupFunction</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">lookupFunction</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="4-setting-the-request">4. Setting the request<a class="headerlink" href="#4-setting-the-request" title="Permanent link"></a></h2>
-<p>Once you've called 'lookup' on your client object, you can now set your request.
-If a function takes no query parameters and/or no input body, the setRequest parameters can be 'nil' respectively.
-This dependent on the function, so check the functions requirements if you aren't sure.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">Java</label><label for="__tabbed_4_3">Go</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Node</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">client</span><span class="o">.</span><span class="n">set_request</span><span class="p">(</span><span class="n">queryParams</span><span class="p">,</span> <span class="n">requestBody</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">client</span><span class="p">.</span><span class="na">setRequest</span><span class="p">(</span><span class="n">queryParams</span><span class="p">,</span><span class="w"> </span><span class="n">requestBody</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nx">client</span><span class="p">.</span><span class="nx">SetRequest</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">requestBody</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">responseOutput</span><span class="p">,</span><span class="w"> </span><span class="nx">fileInput</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">fileOutput</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">client</span><span class="p">.</span><span class="n">SetRequest</span><span class="p">(</span><span class="n">queryParams</span><span class="p">,</span><span class="w"> </span><span class="n">requestBody</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>queryParams</code>, <code>requestBody</code>, <code>responseOutput</code>, <code>fileInput</code>, and <code>fileOutput</code> are placeholders for the following steps below</p>
-</div>
+<h2 id="4-setting-the-request-query-parameters-body">4. Setting the request query parameters &amp; body<a class="headerlink" href="#4-setting-the-request-query-parameters-body" title="Permanent link"></a></h2>
+<p>Once you've called 'lookup' on your client object, you can now set your request. Depending on the function, you may need to set query parameters, a body, or both. See the function schema for details.</p>
 <h2 id="41-setting-query-parameters">4.1 Setting query parameters<a class="headerlink" href="#41-setting-query-parameters" title="Permanent link"></a></h2>
-<p>The <code>helloworld</code> function requires two query parameters: <code>firstname</code> and <code>lastname</code>.
-You can set them as follows:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:5"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">Java</label><label for="__tabbed_5_3">Go</label><label for="__tabbed_5_4">C#</label><label for="__tabbed_5_5">Node</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">Node.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">query_params</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="s2">&quot;firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="s2">&quot;lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">}</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">query_params</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="s2">&quot;lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">client</span><span class="o">.</span><span class="n">set_function_query_params</span><span class="p">(</span><span class="n">queryParams</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">queryParams</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;firstname&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">queryParams</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;lastname&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bar&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nx">params</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="s">&quot;firstname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">,</span>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="s">&quot;lastname&quot;</span><span class="p">:</span><span class="s">&quot;bar&quot;</span><span class="p">,</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="p">{</span><span class="s">&quot;firstname&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">},</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="p">{</span><span class="s">&quot;lastname&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bar&quot;</span><span class="p">}</span>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="p">};</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">query_params</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="s2">&quot;firstname&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="s2">&quot;lastname&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nx">client</span><span class="p">.</span><span class="nx">setFunctionQueryParams</span><span class="p">(</span><span class="nx">queryParams</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="42-setting-the-body">4.2 Setting the body<a class="headerlink" href="#42-setting-the-body" title="Permanent link"></a></h2>
-<p>The website page for a function will contain an autogenerated input object (depending on the language this could be a class, a struct, dict, etc) for you to copy/paste into your project.
-For this example, we are using the <code>HellWorld</code> input and output objects.
-Populate this struct and parse it in with the following under the <strong>Json</strong> tab:</p>
-<p>Some functions may take json data, or file data.
-Here's how you can implement both of them.
-If you are following the guide for the <code>HelloWorld</code> function, look under the json heading:</p>
-<details class="warning" open="open">
-<summary>Warning</summary>
-<p>For <code>C</code> based languages - particularly <code>Java</code>, the package might be incorrect for the auto-generated classes.
-The default package for all generated classes is <code>main</code> but you may need to change this.</p>
-</details>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:5"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">Java</label><label for="__tabbed_6_3">Go</label><label for="__tabbed_6_4">C#</label><label for="__tabbed_6_5">Node</label></div>
+<h3 id="a-sending-json-data">a. Sending JSON data<a class="headerlink" href="#a-sending-json-data" title="Permanent link"></a></h3>
+<p>If the function accepts a JSON format body, use the following sytax. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">Node.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><strong>a. Sending JSON data</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Dictionary</label><label for="__tabbed_7_2">Class Instance</label></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;JellyFaaS is cool&quot;</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="mf">5.0</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">client</span><span class="o">.</span><span class="n">set_function_body</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="s2">&quot;message&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;JellyFaaS is cool&quot;</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="s2">&quot;rating&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">5.0</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nx">client</span><span class="p">.</span><span class="nx">setFunctionJsonBody</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="b-sending-files">b. Sending files<a class="headerlink" href="#b-sending-files" title="Permanent link"></a></h3>
+<p>If the function accepts a file input body, use the following sytax. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">Node.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">request_body</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;JellyFaaS is cool&quot;</span><span class="p">,</span>
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="mf">5.0</span>
-</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="p">}</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./relative/path/to/file.png&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">client</span><span class="o">.</span><span class="n">set_function_body</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">class</span> <span class="nc">Review</span><span class="p">:</span>
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">rating</span><span class="p">):</span>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rating</span> <span class="o">=</span> <span class="n">rating</span>
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
-</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="n">request_body</span> <span class="o">=</span> <span class="n">Review</span><span class="p">(</span><span class="s2">&quot;JellyFaaS is cool&quot;</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">setFunctionFileBody</span><span class="p">(</span><span class="s1">&#39;./relative/path/to/file.png&#39;</span><span class="p">)</span>
 </span></code></pre></div>
-</div>
-</div>
-</div>
-<p><strong>b. Sending file data</strong></p>
-<p>how to foobar</p>
-</div>
-<div class="tabbed-block">
-<p><strong>a. Sending JSON data</strong></p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">SomeInputClass</span><span class="w"> </span><span class="n">requestBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SomeInputClass</span><span class="p">();</span>
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">requestBody</span><span class="p">.</span><span class="na">setSomeAttribute</span><span class="p">(</span><span class="s">&quot;foobar&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-<p><strong>b. Sending file data</strong></p>
-<p>how to foobar</p>
-</div>
-<div class="tabbed-block">
-<p><strong>a. Sending JSON data</strong></p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nx">input</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">RequestStruct</span><span class="p">{</span><span class="nx">Foo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Bar</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">}</span>
-</span></code></pre></div>
-<p><strong>b. Sending file data</strong></p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nx">fileInput</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;/path/to/file&quot;</span><span class="p">)</span>
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<p><strong>a. Sending JSON data</strong></p>
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">SomeInputClass</span><span class="w"> </span><span class="n">requestBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SomeInputClass</span><span class="p">();</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">requestBody</span><span class="p">.</span><span class="n">SetSomeAttribute</span><span class="p">(</span><span class="s">&quot;foobar&quot;</span><span class="p">);</span>
-</span></code></pre></div>
-<p><strong>b. Sending file data</strong></p>
-</div>
-<div class="tabbed-block">
-<p><strong>a. Sending JSON data</strong>
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>
-</span></code></pre></div></p>
-<p><strong>b. Sending file data</strong></p>
-</div>
-</div>
-</div>
-<h2 id="5-setting-the-response">5. Setting the response<a class="headerlink" href="#5-setting-the-response" title="Permanent link"></a></h2>
-<p>The SDK allows you to automatically map the response JSON to a specified class.
-This is useful for managing complex responses.
-The website will contain an autogenerated output <code>object</code> that you can copy/paste into your project.
-Again this is language dependent so these objects will be different.</p>
-<p>Some functions may return json data, or file data.
-Here's how you can implement both of them.
-If you are following the guide for the <code>HelloWorld</code> function, look under the json heading:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:5"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><input id="__tabbed_8_5" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">Java</label><label for="__tabbed_8_3">Go</label><label for="__tabbed_8_4">C#</label><label for="__tabbed_8_5">Node</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><strong>a. JSON response</strong></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">class</span> <span class="nc">MyResponse</span><span class="p">:</span>
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>
-</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="n">client</span><span class="o">.</span><span class="n">set_response</span><span class="p">(</span><span class="n">MyResponse</span><span class="p">)</span>
-</span></code></pre></div>
-<p><strong>b. File response</strong>
-how to foobar</p>
-</div>
-<div class="tabbed-block">
-<p><strong>a. JSON response</strong></p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">client</span><span class="p">.</span><span class="na">setResponse</span><span class="p">(</span><span class="n">someOutput</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-</span></code></pre></div>
-<p><strong>b. File response</strong></p>
-<p>how to foobar</p>
-</div>
-<div class="tabbed-block">
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>setResponse()</code> is not defined in <code>go</code> SDK.
-Instead, <code>SetRequest()</code> uses a reference to an output struct or output file to be populated.
-See section <a href="#6-invoking-the-function">6. Invoke</a> for an example</p>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>setResponse()</code> is not defined in <code>C#</code> SDK.
-Instead, <code>Invoke()</code> takes a generic type for the auto-generated class.
-See section <a href="#6-invoking-the-function">6. Invoke</a> for an example</p>
-</div>
-</div>
-<div class="tabbed-block">
-<p><strong>a. JSON response</strong></p>
-<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>
-</span></code></pre></div>
-<strong>b. File response</strong></p>
-<p>how to foobar</p>
 </div>
 </div>
 </div>
 <h2 id="6-invoking-the-function">6. Invoking the function<a class="headerlink" href="#6-invoking-the-function" title="Permanent link"></a></h2>
 <p>You are ready to call your function! Simply call <code>invoke()</code> and your function will be called.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:5"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Python</label><label for="__tabbed_9_2">Java</label><label for="__tabbed_9_3">Go</label><label for="__tabbed_9_4">C#</label><label for="__tabbed_9_5">Node</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">Node.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">client</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    <span class="n">jellyfaas</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>        <span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>        <span class="o">.</span><span class="n">set_request</span><span class="p">(</span><span class="n">query_params</span><span class="o">=</span><span class="n">query_params</span><span class="p">,</span> <span class="n">request_body_instance</span><span class="o">=</span><span class="n">request_body</span><span class="p">)</span>
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>        <span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="p">)</span>
-</span></code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Python's <code>invoke</code> will either return a new dictionary if <code>set_response</code> was <strong>not called</strong>, or if <code>set_response</code> was <strong>called</strong>, invoke will return an object of the class give in <code>set_response</code>.</p>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="language-java highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">OutputClass</span><span class="w"> </span><span class="n">myOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">OutputClass</span><span class="p">)</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">lookUp</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">).</span><span class="na">setRequest</span><span class="p">(</span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="p">).</span><span class="na">setResponse</span><span class="p">(</span><span class="n">someOutput</span><span class="p">.</span><span class="na">class</span><span class="p">).</span><span class="na">invoke</span><span class="p">();</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span>  <span class="nn">jellyfaas</span> <span class="kn">import</span> <span class="n">Config</span><span class="p">,</span> <span class="n">Client</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="s2">&quot;PG&quot;</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="s2">&quot;5.8&quot;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;&lt;JELLYFAAS_SECRET&gt;&quot;</span><span class="p">)</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">client</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;suggestmovie&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_function_query_params</span><span class="p">(</span><span class="n">query_params</span><span class="p">)</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">JellyConfig</span><span class="p">{</span><span class="nx">ApiKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">})</span>
-</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">            </span><span class="p">.</span><span class="nx">LookupFunction</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">)</span>
-</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">            </span><span class="p">.</span><span class="nx">SetRequest</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">output</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
-</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">            </span><span class="p">.</span><span class="nx">Invoke</span><span class="p">()</span>
-</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>
-</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<details class="note" open="open">
-<summary>Note</summary>
-<p><code>SetRequest()</code> takes a reference <code>&amp;output</code>, which is a struct that gets populated once invoke is called. 
-Alternatively, if you are using a file as the output, &amp;output should be set to nil, and then a reference to the output file should be parsed.</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">JellyConfig</span><span class="p">{</span><span class="nx">ApiKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">})</span>
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">            </span><span class="p">.</span><span class="nx">LookupFunction</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">)</span>
-</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">            </span><span class="p">.</span><span class="nx">SetRequest</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">fileOutput</span><span class="p">)</span>
-</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">            </span><span class="p">.</span><span class="nx">Invoke</span><span class="p">()</span>
-</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>
-</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="p">}</span>
-</span></code></pre></div>
-</details>
-</div>
-<div class="tabbed-block">
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="n">SomeOutput</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">).</span><span class="n">SetRequest</span><span class="p">(</span><span class="k">params</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">SomeOutput</span><span class="o">&gt;</span><span class="p">();</span>
-</span></code></pre></div>
-<details class="note" open="open">
-<summary>Note</summary>
-<p><code>Invoke</code> takes a <code>&lt;generic&gt;</code> type, therefore, it's return type is inferred from this.
-This is why the <code>C#</code> SDK doesn't have the <code>setResponse()</code> method.</p>
-</details>
-</div>
-<div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">Config</span><span class="p">,</span><span class="w"> </span><span class="nx">Client</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jellyfaas&#39;</span><span class="p">)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nx">query_params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="s2">&quot;rating&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PG&quot;</span><span class="p">,</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="s2">&quot;score&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5.8&quot;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="p">}</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Config</span><span class="p">(</span><span class="s2">&quot;&lt;JELLYFAAS_SECRET&gt;&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Construct Config</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Client</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span><span class="w">                 </span><span class="c1">// Construct Client</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">lookupFunction</span><span class="p">(</span><span class="s2">&quot;suggestmovie&quot;</span><span class="p">)</span><span class="w">           </span><span class="c1">// Loopup function</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="nx">client</span><span class="p">.</span><span class="nx">setFunctionQueryParams</span><span class="p">(</span><span class="nx">query_params</span><span class="p">)</span><span class="w">           </span><span class="c1">// Set query params</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w">           </span><span class="c1">// invoke (overriding validation)</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">resp</span><span class="p">)</span><span class="w">        </span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="p">}</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="nx">run</span><span class="p">()</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -1661,7 +1461,7 @@ This is why the <code>C#</code> SDK doesn't have the <code>setResponse()</code> 
 <h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link"></a></h2>
 <p>The JellyFaaS SDK provides custom exceptions for different error scenarios.
 Below is a description of each error type and where to expect it to be thrown for each SDK:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:5"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><input id="__tabbed_10_4" name="__tabbed_10" type="radio" /><input id="__tabbed_10_5" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Python</label><label for="__tabbed_10_2">Java</label><label for="__tabbed_10_3">Go</label><label for="__tabbed_10_4">C#</label><label for="__tabbed_10_5">Node</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -1683,213 +1483,6 @@ Or, this can be due to the input body not matching the functions input schema.</
 <p><strong><code>jellyfaas.InvocationException</code></strong></p>
 </li>
 </ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p><strong><code>v1.jellyfaas.exceptions.JellyFaasException</code></strong></p>
-<p>This is a general error that can be thrown during the process of calling out to a function.</p>
-</li>
-<li>
-<p><strong><code>v1.jellyfaas.exceptions.JellyFaasFormatException</code></strong> </p>
-<p>This error is thrown when there are issues with your request body and request parameters.
-This is usually due to errors with the schema not matching these inputs. </p>
-</li>
-<li>
-<p><strong><code>v1.jellyfaas.exceptions.JellyFaasHttpException</code></strong></p>
-<p>Occurs during any failures with calling out to the function or setting your authorization JWT.</p>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p><strong>The Go SDK doesn't use custom error types.</strong></p>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p><strong><code>Jellyfaas.UnauthorizedException</code></strong></p>
-<p>This error is thrown when a user attempts to perform an action without the necessary permissions.</p>
-</li>
-<li>
-<p><strong><code>Jellyfaas.FunctionNotFoundException</code></strong></p>
-<p>This error occurs when the specified function does not exist or cannot be found. It may also include a custom message indicating the function name.</p>
-</li>
-<li>
-<p><strong><code>Jellyfaas.FunctionNotSelectedException</code></strong></p>
-<p>This error is raised when no function has been selected for the SDK to use. The SDK requires a function to be specified in order to proceed.</p>
-</li>
-<li>
-<p><strong><code>Jellyfaas.EmptyBodyException</code></strong></p>
-<p>This error is triggered when a function requires a non-empty body, but an empty or missing body is provided in the request.</p>
-</li>
-<li>
-<p><strong><code>Jellyfaas.NonSchemaCompliantException</code></strong></p>
-<p>This error is thrown when an object does not match the required schema, indicating that the input does not conform to the expected format or structure.</p>
-</li>
-<li>
-<p><strong><code>Jellyfaas.InvalidSchemaException</code></strong></p>
-<p>This error occurs when the schema associated with a function is invalid or not correctly defined, preventing the function from executing as expected.</p>
-</li>
-</ol>
-</div>
-<div class="tabbed-block"></div>
-</div>
-</div>
-<h2 id="debug-mode">Debug mode<a class="headerlink" href="#debug-mode" title="Permanent link"></a></h2>
-<p>If you want a more verbose output from the SDK, you set the SDK to be in debug mode with the following:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:5"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><input id="__tabbed_11_4" name="__tabbed_11" type="radio" /><input id="__tabbed_11_5" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Python</label><label for="__tabbed_11_2">Java</label><label for="__tabbed_11_3">Go</label><label for="__tabbed_11_4">C#</label><label for="__tabbed_11_5">Node</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Both <code>ClientConfig</code> and <code>Client</code> classes utilize Python's built-in logging module. Ensure that your application is configured to capture these logs:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kn">import</span> <span class="nn">logging</span>
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
-</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>This is toggled by calling <code>debug</code> on the client and setting a boolean:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1">// debugging enabled</span>
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="n">client</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
-</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="c1">// debugging disabled</span>
-</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="n">client</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-go highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nx">client</span><span class="p">.</span><span class="nx">SetDebug</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Alternatively, debug mode can be set through the config object via:
-<div class="language-go highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nx">config</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">JellyConfig</span><span class="p">{</span><span class="nx">ApiKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Debug</span><span class="p">:</span><span class="kc">true</span><span class="p">}</span>
-</span></code></pre></div></p>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">loggerFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="n">Create</span><span class="p">((</span><span class="n">builder</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="n">AddConsole</span><span class="p">());</span>
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loggerFactory</span><span class="p">.</span><span class="n">CreateLogger</span><span class="p">(</span><span class="s">&quot;Jellyfaas&quot;</span><span class="p">);</span>
-</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
-</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="n">JellyClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">logger</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">));</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Other logging libraries can be used and parsed into the config object.</p>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="complete-code">Complete Code<a class="headerlink" href="#complete-code" title="Permanent link"></a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:5"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><input id="__tabbed_12_4" name="__tabbed_12" type="radio" /><input id="__tabbed_12_5" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Python</label><label for="__tabbed_12_2">Java</label><label for="__tabbed_12_3">Go</label><label for="__tabbed_12_4">C#</label><label for="__tabbed_12_5">Node</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="kn">import</span> <span class="nn">logging</span>
-</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="kn">import</span> <span class="nn">jellyfaas</span>
-</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>
-</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span> <span class="c1"># When enabled, JellyFaaS logs at the DEBUG level</span>
-</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>
-</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">)</span>
-</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>
-</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="s2">&quot;firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="s2">&quot;lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;Doe&quot;</span>
-</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="p">}</span>
-</span><span id="__span-47-13"><a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a>
-</span><span id="__span-47-14"><a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="n">request_body</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-47-15"><a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;JellyFaaS is cool&quot;</span><span class="p">,</span>
-</span><span id="__span-47-16"><a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="mf">5.0</span>
-</span><span id="__span-47-17"><a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a><span class="p">}</span>
-</span><span id="__span-47-18"><a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a>
-</span><span id="__span-47-19"><a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a><span class="k">try</span><span class="p">:</span>
-</span><span id="__span-47-20"><a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a><span class="n">config</span> <span class="o">=</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">ClientConfig</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-47-21"><a id="__codelineno-47-21" name="__codelineno-47-21" href="#__codelineno-47-21"></a><span class="n">client</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="__span-47-22"><a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a><span class="n">jellyfaas</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-</span><span id="__span-47-23"><a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a><span class="o">.</span><span class="n">lookup_function</span><span class="p">(</span><span class="s2">&quot;helloworld&quot;</span><span class="p">)</span>
-</span><span id="__span-47-24"><a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a><span class="o">.</span><span class="n">set_request</span><span class="p">(</span><span class="n">query_params</span><span class="p">,</span> <span class="n">request_body</span><span class="p">)</span>
-</span><span id="__span-47-25"><a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
-</span><span id="__span-47-26"><a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a><span class="p">)</span>
-</span><span id="__span-47-27"><a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</span><span id="__span-47-28"><a id="__codelineno-47-28" name="__codelineno-47-28" href="#__codelineno-47-28"></a>
-</span><span id="__span-47-29"><a id="__codelineno-47-29" name="__codelineno-47-29" href="#__codelineno-47-29"></a><span class="k">except</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">AuthenticationFailedException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-47-30"><a id="__codelineno-47-30" name="__codelineno-47-30" href="#__codelineno-47-30"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authentication failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-47-31"><a id="__codelineno-47-31" name="__codelineno-47-31" href="#__codelineno-47-31"></a><span class="k">except</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">FunctionLookupException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-47-32"><a id="__codelineno-47-32" name="__codelineno-47-32" href="#__codelineno-47-32"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Function lookup failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-47-33"><a id="__codelineno-47-33" name="__codelineno-47-33" href="#__codelineno-47-33"></a><span class="k">except</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">SetRequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-47-34"><a id="__codelineno-47-34" name="__codelineno-47-34" href="#__codelineno-47-34"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting request failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-47-35"><a id="__codelineno-47-35" name="__codelineno-47-35" href="#__codelineno-47-35"></a><span class="k">except</span> <span class="n">jellyfaas</span><span class="o">.</span><span class="n">InvocationException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-47-36"><a id="__codelineno-47-36" name="__codelineno-47-36" href="#__codelineno-47-36"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Function invocation failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="c1">// creating a config object</span>
-</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="n">Config</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Config</span><span class="p">();</span>
-</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="n">config</span><span class="p">.</span><span class="na">setApiKey</span><span class="p">(</span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">);</span>
-</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>
-</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="c1">// setting the client</span>
-</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="n">Client</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Client</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
-</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>
-</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="c1">// setting the query parameters</span>
-</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="n">queryParams</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;queryParam&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="p">);</span>
-</span><span id="__span-48-11"><a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a>
-</span><span id="__span-48-12"><a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="c1">// setting an input object</span>
-</span><span id="__span-48-13"><a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a><span class="n">SomeInputClass</span><span class="w"> </span><span class="n">requestBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SomeInputClass</span><span class="p">();</span>
-</span><span id="__span-48-14"><a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="n">requestBody</span><span class="p">.</span><span class="na">setSomeAttribute</span><span class="p">(</span><span class="s">&quot;foobar&quot;</span><span class="p">);</span>
-</span><span id="__span-48-15"><a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a>
-</span><span id="__span-48-16"><a id="__codelineno-48-16" name="__codelineno-48-16" href="#__codelineno-48-16"></a><span class="c1">// invoking</span>
-</span><span id="__span-48-17"><a id="__codelineno-48-17" name="__codelineno-48-17" href="#__codelineno-48-17"></a><span class="n">SomeOutputClass</span><span class="w"> </span><span class="n">myOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SomeOutputClass</span><span class="p">)</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">lookUp</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">).</span><span class="na">setRequest</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span><span class="w"> </span><span class="n">requestBody</span><span class="p">).</span><span class="na">setResponse</span><span class="p">(</span><span class="n">SomeOutputClass</span><span class="p">.</span><span class="na">class</span><span class="p">).</span><span class="na">invoke</span><span class="p">();</span>
-</span></code></pre></div>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">JellyConfig</span><span class="p">{</span><span class="nx">ApiKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">})</span>
-</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">            </span><span class="p">.</span><span class="nx">LookupFunction</span><span class="p">(</span><span class="s">&quot;helloworld&quot;</span><span class="p">)</span>
-</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">            </span><span class="p">.</span><span class="nx">SetRequest</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">output</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
-</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">            </span><span class="p">.</span><span class="nx">Invoke</span><span class="p">()</span>
-</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>
-</span><span id="__span-49-6"><a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-49-7"><a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span><span id="__span-49-8"><a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="language-c# highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="c1">// Creating a config object</span>
-</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="n">JellyConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyConfig</span><span class="p">(</span><span class="s">&quot;JELLYFAAS_API_KEY&quot;</span><span class="p">)</span>
-</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>
-</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="c1">//  Creating a client</span>
-</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="n">JellyClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JellyClient</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
-</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>
-</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="c1">// setting an input object</span>
-</span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="n">SomeInputClass</span><span class="w"> </span><span class="n">requestBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SomeInputClass</span><span class="p">();</span>
-</span><span id="__span-50-9"><a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a><span class="n">requestBody</span><span class="p">.</span><span class="n">setSomeAttribute</span><span class="p">(</span><span class="s">&quot;foobar&quot;</span><span class="p">);</span>
-</span><span id="__span-50-10"><a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a>
-</span><span id="__span-50-11"><a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a><span class="kt">var</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bar&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">//  Dictionary of query parameters</span>
-</span><span id="__span-50-12"><a id="__codelineno-50-12" name="__codelineno-50-12" href="#__codelineno-50-12"></a>
-</span><span id="__span-50-13"><a id="__codelineno-50-13" name="__codelineno-50-13" href="#__codelineno-50-13"></a><span class="c1">// Invoking the function and getting the response</span>
-</span><span id="__span-50-14"><a id="__codelineno-50-14" name="__codelineno-50-14" href="#__codelineno-50-14"></a><span class="n">SomeOutputClass</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Lookup</span><span class="p">(</span><span class="s">&quot;joesjokes&quot;</span><span class="p">).</span><span class="n">SetRequest</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span><span class="w"> </span><span class="n">requestBody</span><span class="p">).</span><span class="n">Invoke</span><span class="o">&lt;</span><span class="n">SomeOutputClass</span><span class="o">&gt;</span><span class="p">();</span>
-</span></code></pre></div>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>
-</span></code></pre></div>
-</div>
 </div>
 </div>
 </div>
