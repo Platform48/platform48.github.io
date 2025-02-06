@@ -713,7 +713,10 @@
 <p>The search for <code>SQL</code> in the top search bar and navigate to 'Create an instance'</p>
 <p>Select MySql on the left:</p>
 <p><img alt="Create a project" src="../../assets/screenshots/SQL_tut2.png"/></p>
-<p><em>Note: you may need to enable an API if you have not used SQL before on this project</em></p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>You may need to enable an API if you have not used SQL before on this project.</p>
+</div>
 <p>Setup a MySQL instance, these are recommended for a testing. Make a note of the password.</p>
 <p><img alt="Create a project" src="../../assets/screenshots/SQL_tut3.png"/></p>
 <p>Once the instance is created, you can navigate to the users section and create a user:</p>
@@ -837,8 +840,11 @@
 </span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="n">likes</span><span class="w"> </span><span class="nb">BIGINT</span>
 </span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">);</span>
 </span></code></pre></div>
-<p><em>Note: Rank is a reserved word, so needs to be escaped</em></p>
-<p>??? How to create the Create table command?
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>Rank is a reserved word, so needs to be escaped.</p>
+</div>
+<p>How to create the Create table command?
     You can use AI with the top header row, and a couple of rows of data and the following prompt "Create a create table command for a mysql database using these headers using the data as a best guess for the field types"</p>
 <h3 id="importing-the-test-data">Importing the test data<a class="headerlink" href="#importing-the-test-data" title="Permanent link"></a></h3>
 <p>To import the data we need to upload it to a cloud bucket (you can remove after). Navigate to <a href="https://console.cloud.google.com/storage/browser">Google Cloud Buckets</a> and create a bucket, and upload the file into the bucket.</p>

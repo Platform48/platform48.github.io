@@ -1331,7 +1331,10 @@
 <h2 id="what-is-rag-and-document-storage">What is RAG and Document storage?<a class="headerlink" href="#what-is-rag-and-document-storage" title="Permanent link"></a></h2>
 <p><strong>RAG (Retrieval Augmented Generation)</strong> is an AI architecture where a language model retrieves relevant information from an external knowledge base (like a VectorDB) before generating a response, improving the accuracy, informativeness, and factual correctness of the AI's output.</p>
 <p>AI Models are based on out of date information, and do not have access to your private data. If you want them to have contextual access to your personal data or documents you can use a VectorDB.</p>
-<p><strong>Note: There are more option than just Vector databases for storing data, see other options that best suit your use case <a href="../ai_quickstart/">here</a>.</strong></p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>There are more options than just Vector databases for storing data, see other options that best suit your use case <a href="../ai_quickstart/">here</a>.</p>
+</div>
 <h2 id="what-are-the-use-cases-for-a-vector-database">What are the use cases for a Vector Database?<a class="headerlink" href="#what-are-the-use-cases-for-a-vector-database" title="Permanent link"></a></h2>
 <ul>
 <li><strong>Enhanced Conversational AI:</strong> Powering chatbots and virtual assistants with access to a vast knowledge base, enabling them to provide more accurate, informative, and contextually relevant responses.</li>
@@ -1341,7 +1344,11 @@
 <li><strong>Anomaly Detection:</strong> Identifying unusual patterns and outliers in data by comparing real-time observations with historical data stored and analyzed within a VectorDB.</li>
 </ul>
 <h2 id="privacy-and-your-data">Privacy and your data<a class="headerlink" href="#privacy-and-your-data" title="Permanent link"></a></h2>
-<p>JellyFaaS offer the ability to store documents as part of your subscription. These are all stored and only accessible by your account, they are NOT accessible via anyone elses account. Alteratively you can use your own datasource and pass what in. All information in the REST Body is encrypted during transfer, and we do NOT store any data. The only data we store is around metrics (use, time running etc). <strong>Note: storing secrets within the platform is on the roadmap, so they will not need to be passed in as a request</strong></p>
+<p>JellyFaaS offer the ability to store documents as part of your subscription. These are all stored and only accessible by your account, they are NOT accessible via anyone elses account. Alteratively you can use your own datasource and pass what in. All information in the REST Body is encrypted during transfer, and we do NOT store any data. The only data we store is around metrics (use, time running etc).</p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>Note: storing secrets within the platform is on the roadmap, so they will not need to be passed in as a request in the future.</p>
+</div>
 <h2 id="supported-database-technology">Supported Database technology<a class="headerlink" href="#supported-database-technology" title="Permanent link"></a></h2>
 <p>We currently support <strong>MongoDB</strong> (more database support
  coming soon), if you want to use your own database this is easy to setup, and has a free tier for complete control of your data. If you want to setup a MongoDB please go <a href="https://www.mongodb.com/cloud/atlas/register">here</a>.</p>
@@ -1351,7 +1358,10 @@
 <h2 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link"></a></h2>
 <p>In this example we are going to first query an existing free document, hosted in JellyFaaS, and then deploy a sample document, and query it.</p>
 <p>The current document we are using is a dungeons and dragons campaign called the 'Frog Idol', just for context the Frog Idol is not a boss to be killed, but you need to 'appease the Frog Idol' to continue onwards with your journey.</p>
-<p><strong>Note: The Frog Idol is source from <a href="https://dysonlogos.blog/2011/06/11/labyrinth-lord-challenge-of-the-frog-idol/">here</a>, and was created is owned by Dyson Logo, please check out his work!</strong></p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>The Frog Idol is source from <a href="https://dysonlogos.blog/2011/06/11/labyrinth-lord-challenge-of-the-frog-idol/">here</a>, and was created is owned by Dyson Logo, please check out his work!</p>
+</div>
 <h3 id="a-simple-request">A Simple request<a class="headerlink" href="#a-simple-request" title="Permanent link"></a></h3>
 <p>We have a Query, <strong>"What do I need to do, to appease the Frog Idol"</strong>, posting this in ChatGPT or Gemini will produce something like this:</p>
 <div class="language-text highlight"><span class="filename">Gemini output</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>The concept of a &quot;Frog Idol&quot; and the rituals required to appease it are not part of any widely-recognized religion or mythology. It&#39;s possible that you might be referring to a fictional deity or a specific character from a book, movie, or game.
