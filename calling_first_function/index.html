@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.6.2">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -280,6 +280,7 @@
   
   <span class="md-ellipsis">
     Home
+    
   </span>
   
 
@@ -300,6 +301,7 @@
   
   <span class="md-ellipsis">
     Intro to JellyFaaS
+    
   </span>
   
 
@@ -332,6 +334,7 @@
   
   <span class="md-ellipsis">
     Getting Started
+    
   </span>
   
 
@@ -366,6 +369,7 @@
   
   <span class="md-ellipsis">
     Calling Your First Function
+    
   </span>
   
 
@@ -377,6 +381,7 @@
   
   <span class="md-ellipsis">
     Calling Your First Function
+    
   </span>
   
 
@@ -454,6 +459,7 @@
   
   <span class="md-ellipsis">
     Installing the SDK
+    
   </span>
   
 
@@ -475,6 +481,7 @@
   
   <span class="md-ellipsis">
     Installing the CLI
+    
   </span>
   
 
@@ -513,6 +520,7 @@
   
   <span class="md-ellipsis">
     Tutorials
+    
   </span>
   
 
@@ -538,6 +546,7 @@
   
   <span class="md-ellipsis">
     Getting a Token
+    
   </span>
   
 
@@ -559,6 +568,7 @@
   
   <span class="md-ellipsis">
     Function calling via Rest
+    
   </span>
   
 
@@ -580,6 +590,7 @@
   
   <span class="md-ellipsis">
     Function calling via the SDK
+    
   </span>
   
 
@@ -601,6 +612,7 @@
   
   <span class="md-ellipsis">
     First Function Creation
+    
   </span>
   
 
@@ -622,6 +634,7 @@
   
   <span class="md-ellipsis">
     Creating Functions Deep Dive
+    
   </span>
   
 
@@ -660,6 +673,7 @@
   
   <span class="md-ellipsis">
     AI Tutorials
+    
   </span>
   
 
@@ -685,6 +699,7 @@
   
   <span class="md-ellipsis">
     AI Quick Start
+    
   </span>
   
 
@@ -706,6 +721,7 @@
   
   <span class="md-ellipsis">
     Vector Databases (RAG)
+    
   </span>
   
 
@@ -727,6 +743,7 @@
   
   <span class="md-ellipsis">
     RDMBS (SQL Databases)
+    
   </span>
   
 
@@ -748,6 +765,7 @@
   
   <span class="md-ellipsis">
     Function Calling
+    
   </span>
   
 
@@ -769,6 +787,7 @@
   
   <span class="md-ellipsis">
     Structured Output
+    
   </span>
   
 
@@ -807,6 +826,7 @@
   
   <span class="md-ellipsis">
     Guides
+    
   </span>
   
 
@@ -832,6 +852,7 @@
   
   <span class="md-ellipsis">
     SDK Quick Start
+    
   </span>
   
 
@@ -853,6 +874,7 @@
   
   <span class="md-ellipsis">
     Deploying to JellyFaaS
+    
   </span>
   
 
@@ -874,6 +896,7 @@
   
   <span class="md-ellipsis">
     CLI Tool
+    
   </span>
   
 
@@ -895,6 +918,7 @@
   
   <span class="md-ellipsis">
     CLI Commands
+    
   </span>
   
 
@@ -933,6 +957,7 @@
   
   <span class="md-ellipsis">
     Reference
+    
   </span>
   
 
@@ -958,6 +983,7 @@
   
   <span class="md-ellipsis">
     Node
+    
   </span>
   
 
@@ -979,6 +1005,7 @@
   
   <span class="md-ellipsis">
     Python
+    
   </span>
   
 
@@ -1000,6 +1027,7 @@
   
   <span class="md-ellipsis">
     Templates
+    
   </span>
   
 
@@ -1021,6 +1049,7 @@
   
   <span class="md-ellipsis">
     Jellyspec File
+    
   </span>
   
 
@@ -1049,6 +1078,7 @@
   
   <span class="md-ellipsis">
     Frequently Asked Questions
+    
   </span>
   
 
@@ -1069,6 +1099,7 @@
   
   <span class="md-ellipsis">
     Troubleshooting
+    
   </span>
   
 
@@ -1089,6 +1120,7 @@
   
   <span class="md-ellipsis">
     Data Privacy
+    
   </span>
   
 
@@ -1174,25 +1206,32 @@
                   
 
 
+
 <h1 id="calling-your-first-function">Calling Your First Function<a class="headerlink" href="#calling-your-first-function" title="Permanent link"></a></h1>
-<p>For this tutorial we are going to use the function <code>Suggest Movie</code>, which takes a two query params <code>rating</code> and <code>score</code> and returns a random movie that will satifiy the critea.</p>
-<p><em>Note: this is mock service, used only for testing and tutorials, it does not count towards your credit usuage.</em></p>
-<p>The information on the function, via the function libray <a href="https://app.jellyfaas.com/function/suggestmovie/parameters">here</a>.</p>
+<p>For this tutorial we are going to use the function <code>Suggest Movie</code>, which takes two query params <code>rating</code> and <code>score</code> and returns a random movie that will satisfy the criteria.</p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>This is mock service, used only for testing and tutorials, it does not count towards your credit usage.</p>
+</div>
+<p>The information on the function, via the function library <a href="https://app.jellyfaas.com/function/suggestmovie/parameters">here</a>.</p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>You can copy the complete url from the <code>Parameters</code> tab, all the required information for each is shown.</p>
 </div>
-<p>For this example we are going request a <strong>15</strong> rated film, with a score over <strong>5.3</strong></p>
+<p>For this example we are going request a <strong>15</strong> rated film, with a score over <strong>5.5</strong></p>
 <h2 id="invoking-the-function">Invoking the function<a class="headerlink" href="#invoking-the-function" title="Permanent link"></a></h2>
-<p>To call this function using curl (or import into tool like postman) as follows:</p>
+<p>To call this function using curl (or import into a tool like postman) as follows:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl --location &#39;https://api.jellyfaas.com/suggestmovie-cn16g6rdervlrpsg3sr0-4-s?rating=PG&amp;score=5.5&#39; \
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>--header &#39;jfwt: &lt;web token&gt;&#39;
 </span></code></pre></div>
-<p><strong>Note: To get the token, you will need to visit your profile page and get a token, login to the UI and then visit your profile page, and click on the 'Get Token' button.</strong></p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>To get the token, you will need to visit your profile page and get a token, login to the UI and then visit your profile page, and click on the 'Get Token' button.</p>
+</div>
 <p>Imported into Postman:</p>
 <p><img alt="Get SuggestMovie in Postman" src="../assets/screenshots/GetSuggestMovie.png" /></p>
 <h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link"></a></h2>
-<p>You should see (from curl) a film and the relevenat information, you may get a different film:</p>
+<p>You should see (from curl) a film and the relevant information, you may get a different film:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{&quot;Title&quot;:&quot;Inception&quot;,&quot;Rating&quot;:&quot;12A&quot;,&quot;ReviewScore&quot;:8.8}
 </span></code></pre></div>
 <p>or from Postman:</p>
@@ -1204,7 +1243,7 @@
 <li>Check you have pasted or typed in the correct api endpoint from <a href="https://uat.jellyfaas.com/function/suggestmovie/parameters">here</a>.</li>
 <li>Is the jwt token correct, do you have any spaces in the header, and this should be a <code>header</code> not a <code>query param</code>.</li>
 </ul>
-<p>If you still cannot get it working, please reach out via discord, email or support in the links below!</p>
+<p>If you still cannot get it working, please contact support <a href="mailto:support@jellyfaas.com">here</a></p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h2>
 <p>Next try calling with the SDK <a href="../tutorials/calling_function_via_sdk/">here</a></p>
 
@@ -1253,10 +1292,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.f13b1293.min.js"></script>
       
     
   </body>
