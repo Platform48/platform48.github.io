@@ -65,6 +65,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GE4ZS6SSLN"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GE4ZS6SSLN",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GE4ZS6SSLN",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -1406,7 +1416,7 @@
 <p>For this to work you will need to ensure you have installed the JellyFaaS CLI (Command Line Interface), instructions can be found <a href="../../quickstart/cli_install/">here</a>.</p>
 <h2 id="create-a-new-project">Create a new project<a class="headerlink" href="#create-a-new-project" title="Permanent link"></a></h2>
 <p>We support the following languages for function creation : <strong>Go, Java, Ruby, Java, .DotNet, php and Python.</strong></p>
-<p>To create a number project use the following command, in this case we are using Golang, but feel free to replace with a language you prefer, or just follow along using Go.</p>
+<p>To create a project use the following command, in this case we are using Golang, but feel free to replace with a language you prefer, or just follow along using Go.</p>
 <p>You will need to ensure you have the required software installed for using Go, for installing Golang see <a href="https://go.dev/doc/install">here</a>, it is also useful to have an IDE such as VSCode. Download and install VSCode from <a href="https://code.visualstudio.com/">here</a></p>
 <p>Run the following command in a terminal:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jellyfaas create -d ~/src/functions/booksuggester -l go -n booksuggester
@@ -1507,7 +1517,7 @@
 </span></code></pre></div>
 <h3 id="editing-the-entry-point-for-the-function">Editing the entry point for the function<a class="headerlink" href="#editing-the-entry-point-for-the-function" title="Permanent link"></a></h3>
 <p>We now need to edit the actual code that JellyFaaS calls, this is the entry point of the function. In this getting started example, we will leave the function name as is, in further tutorials we will update and change this. This is just an internal reference or entry point, so changing to a unique name is not required.</p>
-<p>Chance the code to the following:</p>
+<p>Change the code to the following:</p>
 <div class="language-go highlight"><span class="filename">Updated Example function</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">Example</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w"> </span><span class="nx">genre</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">Query</span><span class="p">().</span><span class="nx">Get</span><span class="p">(</span><span class="s">&quot;genre&quot;</span><span class="p">)</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
@@ -1539,8 +1549,8 @@
 </span></code></pre></div>
 <p>If all is ok, then set the correct response type to <code>JSON</code> and set <code>http.StatusOk</code> (200) and encode the book into json and then return.</p>
 <h3 id="updating-the-jellyspecjson-file">Updating the <code>jellyspec.json</code> file<a class="headerlink" href="#updating-the-jellyspecjson-file" title="Permanent link"></a></h3>
-<p>Before we can deploy or test we need to update the <code>jellyspec.json</code> file. For a deepdive on the <code>jellyfaas.json</code> file see <a href="../../guides/jellyfaas_json/">here</a>. The <code>jellyfaas.json</code> file contains information and specifications about the function. Like most json specification files, it may look complex, but the data is quite simple, and further most of the 'complex' looking data is autogenerated from the cli.</p>
-<p>At a top level view the <code>jellyspec.json</code> contains information such as the name of the function, the entry points and specification about the requirements of calling the function. This allows JellyFaaS to validated requirements, and also allows the functions to work with AI (AI, need to know how the API 'looks' so it knows how to call it correctly.)</p>
+<p>Before we can deploy or test we need to update the <code>jellyspec.json</code> file. For a deepdive on the <code>jellyfaas.json</code> file see <a href="../../guides/jellyfaas_json/">here</a>. The <code>jellyfaas.json</code> file contains information and specifications about the function. Like most json specification files, it may look complex, but the data is quite simple, and furthermore, most of the 'complex' looking data is autogenerated from the cli.</p>
+<p>At a top level view the <code>jellyspec.json</code> contains information such as the name of the function, the entry points and specification about the requirements of calling the function. This allows JellyFaaS to validated requirements, and also allows the functions to work with AI (AI needs to know how the API 'looks' so it knows how to call it correctly.)</p>
 <div class="language-json highlight"><span class="filename">The Template `jellyspec.json` file</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example Project&quot;</span><span class="p">,</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;$jellyspecversion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v1.0.0&quot;</span><span class="p">,</span>
@@ -1623,9 +1633,9 @@
 <p class="admonition-title">Warning</p>
 <p>You will need to provide a unique shortname, you can check if using the following CLI command <code>jellyfaas exists -n &lt;shortname&gt;</code> to see if the name is already taken, or search via the app.</p>
 </div>
-<p>A quick overview shows the function required query params, and the file also defines the outputschema as <code>JSON</code>, theses are optional, however allow AI to use these functions more accurately, and allow the JellyFaaS function pages to produce sample code and structures.</p>
+<p>A quick overview shows the function required query params, and the file also defines the outputschema as <code>JSON</code>, these are optional, however allow AI to use these functions more accurately, and allow the JellyFaaS function pages to produce sample code and structures.</p>
 <h3 id="testing-the-function-locally">Testing the function locally<a class="headerlink" href="#testing-the-function-locally" title="Permanent link"></a></h3>
-<p>Before we deploy testing locally is advised, this way you can test, debug and run your function. All languages support local testing. For more details on how to test on each language see <a href="../../reference/template_projects/">here</a></p>
+<p>Before we deploy, testing locally is advised, this way you can test, debug and run your function. All languages support local testing. For more details on how to test on each language see <a href="../../reference/template_projects/">here</a></p>
 <p>To run locally just run the following command in a terminal in VSCode (for example):</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">FUNCTION_TARGET</span><span class="o">=</span>Example<span class="w"> </span><span class="nv">LOCAL_ONLY</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>go<span class="w"> </span>run<span class="w"> </span>cmd/main.go
 </span></code></pre></div>
@@ -1869,6 +1879,8 @@
 
 
 
+
+  
 
 
 

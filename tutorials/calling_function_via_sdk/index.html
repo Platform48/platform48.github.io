@@ -65,6 +65,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GE4ZS6SSLN"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GE4ZS6SSLN",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GE4ZS6SSLN",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -1208,12 +1218,12 @@
 
 
 <h1 id="function-calling-via-the-sdk">Function calling via the SDK<a class="headerlink" href="#function-calling-via-the-sdk" title="Permanent link"></a></h1>
-<p>For this tutorial we are going to use the function <code>Suggest Movie</code>, which takes a two query params <code>rating</code> and <code>score</code> and returns a random movie that will satisfy the criteria.</p>
+<p>For this tutorial we are going to use the function <code>Suggest Movie</code>, which takes two query params <code>rating</code> and <code>score</code> and returns a random movie that will satisfy the criteria.</p>
 <p>We are going to use the SDK (Software Development Kit) which is a key feature of JellyFaaS, the SDK allows you to rapidly interact and call functions from a number of supported languages.</p>
 <p>The SDK includes a number of error handling and validation checks, ensuring you do not call out to the function unless it stands a chance of success. For example <code>Suggest Movie</code> required two query params, if you do not supply them the SDK will not even attempt to invoke the function and fail (fast). The same happens on a <code>POST</code> if the required parameters are not in the body passed in, then the SDK will not attempt to call out to the JellyFaaS servers,</p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
-<p>All information on the required parameters, <code>POST</code> bodies, code samples and copy and paste structures/classes can be found on the function library webpage.</p>
+<p>All information on the required parameters, <code>POST</code> bodies, code samples and copy and paste structures/classes can be found on the <a href="https://app.jellyfaas.com/function/suggestmovie">function details page</a></p>
 </div>
 <p>Later on you will see how the SDK help speed up complex AI functionality and how you can easily use the SDK to use these functions as part of an AI query.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
@@ -1279,11 +1289,11 @@
 <p>Congratulations, you just called your first function via the SDK! Now look at the next tutorials, or play around with other functions!</p>
 <h2 id="help-it-didnt-work">Help, it didn't work<a class="headerlink" href="#help-it-didnt-work" title="Permanent link"></a></h2>
 <ul>
-<li>First you have correctly imported the library, do you have any errors, can you not 'inspect' the library to see the SDK's actual code?</li>
-<li>Check you have pasted or typed in the correct endpoint from <a href="https://uat.jellyfaas.com/function/suggestmovie/parameters">here</a>.</li>
-<li>Is the api token correct, this is not the token, but your secret key from your profile page.</li>
+<li>First, check you have correctly imported the library, do you have any errors? can you not 'inspect' the library to see the SDK's actual code?</li>
+<li>Check you have pasted or typed in the correct endpoint from <a href="https://app.jellyfaas.com/function/suggestmovie/parameters">here</a>.</li>
+<li>Is the api token correct, this should be your secret key from your <a href="https://app.jellyfaas.com/account">profile page</a></li>
 </ul>
-<p>If you still cannot get it working, please reach out via discord, email or support in the links below!</p>
+<p>For further help, please contact <a href="mailto:support@jellyfaas.com">support</a></p>
 <div class="admonition success annotate">
 <p class="admonition-title">Next Steps</p>
 <ul>
@@ -1298,6 +1308,8 @@
 
 
 
+
+  
 
 
 

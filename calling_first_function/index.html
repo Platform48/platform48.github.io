@@ -65,6 +65,16 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GE4ZS6SSLN"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GE4ZS6SSLN",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GE4ZS6SSLN",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -424,15 +434,6 @@
   <a href="#help-it-didnt-work" class="md-nav__link">
     <span class="md-ellipsis">
       Help, it didn't work
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next steps
     </span>
   </a>
   
@@ -1182,15 +1183,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next steps
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1213,7 +1205,7 @@
 <p class="admonition-title">Information</p>
 <p>This is mock service, used only for testing and tutorials, it does not count towards your credit usage.</p>
 </div>
-<p>The information on the function, via the function library <a href="https://app.jellyfaas.com/function/suggestmovie/parameters">here</a>.</p>
+<p>More information on the function can be found in the function library <a href="https://app.jellyfaas.com/function/suggestmovie/parameters">here</a>.</p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>You can copy the complete url from the <code>Parameters</code> tab, all the required information for each is shown.</p>
@@ -1226,7 +1218,7 @@
 </span></code></pre></div>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
-<p>To get the token, you will need to visit your profile page and get a token, login to the UI and then visit your profile page, and click on the 'Get Token' button.</p>
+<p>To get the token, you will need to visit your <a href="https://app.jellyfaas.com/account">profile page</a> and get a token, click on the 'Get Token' button once logged in.</p>
 </div>
 <p>Imported into Postman:</p>
 <p><img alt="Get SuggestMovie in Postman" src="../assets/screenshots/GetSuggestMovie.png" /></p>
@@ -1235,17 +1227,19 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{&quot;Title&quot;:&quot;Inception&quot;,&quot;Rating&quot;:&quot;12A&quot;,&quot;ReviewScore&quot;:8.8}
 </span></code></pre></div>
 <p>or from Postman:</p>
-<p><img alt="Get SuggestMovie Response in Postman" src="../assets/screenshots/GetSuggestMovieResponse.png" /></p>
+<p><img alt="Get SuggestMovie Response in Postman" src="/assets/screenshots/GetSuggestMovieResponse.png" /></p>
 <p>Congratulations, you just called your first function! Now look at the next tutorials, or play around with other functions!</p>
 <h2 id="help-it-didnt-work">Help, it didn't work<a class="headerlink" href="#help-it-didnt-work" title="Permanent link"></a></h2>
 <ul>
 <li>First check the REST verb you are using is a <code>GET</code>, for this function it cannot be a <code>POST</code> <code>PUT</code> or <code>DELETE</code>.</li>
 <li>Check you have pasted or typed in the correct api endpoint from <a href="https://uat.jellyfaas.com/function/suggestmovie/parameters">here</a>.</li>
-<li>Is the jwt token correct, do you have any spaces in the header, and this should be a <code>header</code> not a <code>query param</code>.</li>
+<li>Is the jwt token correct? i.e. do you have any spaces in the header? and make sure this is a <code>header</code> not a <code>query param</code>.</li>
 </ul>
-<p>If you still cannot get it working, please contact support <a href="mailto:support@jellyfaas.com">here</a></p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h2>
+<p>For further help, please contact support <a href="mailto:support@jellyfaas.com">here</a></p>
+<div class="admonition success annotate">
+<p class="admonition-title">Next Steps</p>
 <p>Next try calling with the SDK <a href="../tutorials/calling_function_via_sdk/">here</a></p>
+</div>
 
 
 
@@ -1254,6 +1248,8 @@
 
 
 
+
+  
 
 
 

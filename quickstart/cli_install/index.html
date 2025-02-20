@@ -65,6 +65,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GE4ZS6SSLN"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GE4ZS6SSLN",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GE4ZS6SSLN",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -408,6 +418,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installing the CLI
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -418,6 +440,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-jellyfaas-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the .jellyfaas file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1082,6 +1132,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-jellyfaas-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the .jellyfaas file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1097,8 +1164,32 @@
 
 
 <h1 id="install-the-jellyfaas-cli-tool">Install the JellyFaaS CLI Tool<a class="headerlink" href="#install-the-jellyfaas-cli-tool" title="Permanent link"></a></h1>
-<p>This is the quick start guide to installing the cli tool, for more details see: <a href="../../guides/cli/">Cli Tool</a></p>
-<p>The CLI tool is used to deploy and do various other commands with the JellyFaaS system.</p>
+<p>Once you have downloaded the <code>jellyfaas.zip</code> file, please follow the link below according to your operating system:</p>
+<ul>
+<li>
+<p><a href="./install/windows.md">Windows</a></p>
+</li>
+<li>
+<p><a href="./install/maclinux.md">Mac/Linux</a></p>
+</li>
+</ul>
+<h3 id="creating-the-jellyfaas-file">Creating the .jellyfaas file<a class="headerlink" href="#creating-the-jellyfaas-file" title="Permanent link"></a></h3>
+<p>To make the CLI work, you will need to put you <a href="https://app.jellyfaas.com/account">Secret key</a> into a <code>.jellyfaas</code> file on mac, linux and windows. This file has the following format:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>apikey: &lt;apikey&gt;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>env: jellyfaas
+</span></code></pre></div>
+<p>To make it easier to setup, you can run the following command:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&gt;<span class="w"> </span>jellyfaas<span class="w"> </span>apikey
+</span></code></pre></div>
+<p>It will prompt you to enter your <code>apikey</code> and create the file in the correct location.</p>
+<div class="admonition info">
+<p class="admonition-title">Apikey Information</p>
+<p>If you don't know where to get your key, you can get it from your <a href="https://app.jellyfaas.com/account">profile page</a></p>
+</div>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>For a list of the CLI commands go here : <a href="./cli_commands.md">Cli Commands</a></p>
+</div>
 
 
 
@@ -1107,6 +1198,8 @@
 
 
 
+
+  
 
 
 
