@@ -100,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mac-linux-installation" class="md-skip">
+        <a href="#install-jellyfaas" class="md-skip">
           Skip to content
         </a>
       
@@ -537,9 +537,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mac-linux-installation" class="md-nav__link">
+  <a href="#install-jellyfaas" class="md-nav__link">
     <span class="md-ellipsis">
-      Mac / Linux installation
+      Install JellyFaaS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
     </span>
   </a>
   
@@ -1291,9 +1300,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mac-linux-installation" class="md-nav__link">
+  <a href="#install-jellyfaas" class="md-nav__link">
     <span class="md-ellipsis">
-      Mac / Linux installation
+      Install JellyFaaS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
     </span>
   </a>
   
@@ -1317,17 +1335,22 @@
 
   <h1>Install on Mac/Linux</h1>
 
-<h2 id="mac-linux-installation">Mac / Linux installation<a class="headerlink" href="#mac-linux-installation" title="Permanent link"></a></h2>
+<h2 id="install-jellyfaas">Install JellyFaaS<a class="headerlink" href="#install-jellyfaas" title="Permanent link"></a></h2>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Platform48/jellyfaas_cli/refs/heads/main/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<p>Paste that in a macOS Terminal or Linux shell prompt.</p>
+<p>Alternatively, you can follow the manual steps below.</p>
+<h2 id="manual-installation">Manual Installation<a class="headerlink" href="#manual-installation" title="Permanent link"></a></h2>
 <ol>
 <li><strong>Unzip the file</strong><br />
    Open Terminal, navigate to the directory containing <code>jellyfaas.zip</code>, and run the following, this will move:</li>
 </ol>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>unzip<span class="w"> </span>jellyfaas.zip
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>chmod<span class="w"> </span>+x<span class="w"> </span>jellyfaas
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>sudo<span class="w"> </span>mv<span class="w"> </span>jellyfaas<span class="w"> </span>/usr/local/bin/
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>unzip<span class="w"> </span>jellyfaas.zip
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span>chmod<span class="w"> </span>+x<span class="w"> </span>jellyfaas
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>sudo<span class="w"> </span>mv<span class="w"> </span>jellyfaas<span class="w"> </span>/usr/local/bin/
 </span></code></pre></div>
 <p>To run JellyfaaS You can now run:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>jellyfaas
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>jellyfaas
 </span></code></pre></div>
 <p>If JellyFaaS was successfully moved, it should be available system-wide.</p>
 <div class="admonition success annotate">
