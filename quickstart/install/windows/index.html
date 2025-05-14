@@ -100,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows-install-guide" class="md-skip">
+        <a href="#install-jellyfaas" class="md-skip">
           Skip to content
         </a>
       
@@ -515,9 +515,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#windows-install-guide" class="md-nav__link">
+  <a href="#install-jellyfaas" class="md-nav__link">
     <span class="md-ellipsis">
-      Windows install guide
+      Install JellyFaaS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
     </span>
   </a>
   
@@ -1291,9 +1300,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#windows-install-guide" class="md-nav__link">
+  <a href="#install-jellyfaas" class="md-nav__link">
     <span class="md-ellipsis">
-      Windows install guide
+      Install JellyFaaS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
     </span>
   </a>
   
@@ -1317,7 +1335,16 @@
 
   <h1>Install on Windows</h1>
 
-<h2 id="windows-install-guide">Windows install guide<a class="headerlink" href="#windows-install-guide" title="Permanent link"></a></h2>
+<h2 id="install-jellyfaas">Install JellyFaaS<a class="headerlink" href="#install-jellyfaas" title="Permanent link"></a></h2>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Set-ExecutionPolicy<span class="w"> </span>Bypass<span class="w"> </span>-Scope<span class="w"> </span>Process<span class="w"> </span>-Force<span class="p">;</span><span class="w"> </span>irm<span class="w"> </span>https://raw.githubusercontent.com/Platform48/jellyfaas_cli/main/install.ps1<span class="w"> </span><span class="p">|</span><span class="w"> </span>iex
+</span></code></pre></div>
+<p>Paste that into a Windows Powershell Window and hit return.</p>
+<div class="admonition warning">
+<p class="admonition-title">Powershell</p>
+<p>You must paste the command above into a Powershell window, not a command window</p>
+</div>
+<p>Alternatively, you can follow the manual steps below.</p>
+<h2 id="manual-installation">Manual Installation<a class="headerlink" href="#manual-installation" title="Permanent link"></a></h2>
 <div class="language-text highlight"><pre><span></span><code>1. **Unzip the file**
 
 - Right-click the `jellyfaas.zip` file and select **Extract All...**.
